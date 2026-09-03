@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Academy News &amp; Announcements | Coach Arnold Academy</title>
+<meta name="description" content="Registration windows, schedule changes, tryout dates and match news from Coach Arnold Academy in Camas and Vancouver, Washington.">
+<link rel="canonical" href="https://www.coacharnoldacademy.com/news.html">
+<meta name="theme-color" content="#05070E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coach Arnold Academy">
+<meta property="og:title" content="Academy News &amp; Announcements | Coach Arnold Academy">
+<meta property="og:description" content="Registration windows, schedule changes, tryout dates and match news from Coach Arnold Academy in Camas and Vancouver, Washington.">
+<meta property="og:url" content="https://www.coacharnoldacademy.com/news.html">
+<meta property="og:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Academy News &amp; Announcements | Coach Arnold Academy">
+<meta name="twitter:description" content="Registration windows, schedule changes, tryout dates and match news from Coach Arnold Academy in Camas and Vancouver, Washington.">
+<meta name="twitter:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
+<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div data-header></div>
+<main id="main">
+<section class="page-hero" data-pitch>
+  <div class="wrap inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / News</nav>
+    <h1>News and announcements</h1>
+    <p class="lede">Registration windows, schedule changes, match news and academy updates.</p>
+    
+  </div>
+</section>
+<section>
+  <div class="wrap split">
+    <div id="news-list"></div>
+    <div>
+      <div class="tile" style="margin-bottom:1.2rem">
+        <h3>Get announcements by email</h3>
+        <p class="meta">Roughly two a month. Unsubscribe any time.</p>
+        <form name="newsletter" data-netlify="true" netlify-honeypot="_trap" class="form" data-form="newsletter" data-success-title="You're subscribed"
+              data-success="Check your inbox for a confirmation email." data-toast="Subscribed">
+      <input type="hidden" name="form-name" value="newsletter">
+          <div class="msg" tabindex="-1"></div>
+          <div class="field"><label for="n2-name">Name</label><input id="n2-name" name="name" required></div>
+          <div class="field"><label for="n2-email">Email</label><input id="n2-email" name="email" type="email" required></div>
+          <div class="check"><input id="n2-ok" type="checkbox" name="consent" required>
+            <label for="n2-ok">I agree to the <a href="privacy.html">privacy policy</a>.</label></div>
+          <button class="btn wide" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="tile">
+        <h3>Team announcements</h3>
+        <p>Match-specific announcements, tactics and lineups go to squad members in the private team area rather than here.</p>
+        <div class="foot"><a class="btn sm dark-ghost" href="login.html">Team login</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var C=window.CAA,D=C.D;
+  var extra=C.store.get('announcements',[]);
+  var all=extra.concat(D.news);
+  document.getElementById('news-list').innerHTML=all.map(function(n){
+    return '<article style="border-bottom:1px solid var(--line-d);padding-bottom:1.6rem;margin-bottom:1.6rem">'+
+      '<p class="meta">'+C.fmtDate(n.date,true)+'</p><h2 style="font-size:1.7rem">'+C.esc(n.title)+'</h2>'+
+      '<p>'+C.esc(n.body)+'</p>'+
+      '<a class="btn sm dark-ghost" href="'+C.waLink('Question about: '+n.title+' — ')+'" target="_blank" rel="noopener">Ask about this</a></article>';
+  }).join('');
+})();
+</script>
+<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+</body>
+</html>

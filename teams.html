@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Soccer Teams Near Vancouver WA | Coach Arnold Academy</title>
+<meta name="description" content="Youth and adult soccer teams affiliated with Coach Arnold Academy in Camas and Vancouver, Washington. See who is recruiting and apply to join a squad.">
+<link rel="canonical" href="https://www.coacharnoldacademy.com/teams.html">
+<meta name="theme-color" content="#05070E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coach Arnold Academy">
+<meta property="og:title" content="Soccer Teams Near Vancouver WA | Coach Arnold Academy">
+<meta property="og:description" content="Youth and adult soccer teams affiliated with Coach Arnold Academy in Camas and Vancouver, Washington. See who is recruiting and apply to join a squad.">
+<meta property="og:url" content="https://www.coacharnoldacademy.com/teams.html">
+<meta property="og:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Soccer Teams Near Vancouver WA | Coach Arnold Academy">
+<meta name="twitter:description" content="Youth and adult soccer teams affiliated with Coach Arnold Academy in Camas and Vancouver, Washington. See who is recruiting and apply to join a squad.">
+<meta name="twitter:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
+<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div data-header></div>
+<main id="main">
+<section class="page-hero" data-pitch>
+  <div class="wrap inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Teams</nav>
+    <h1>Academy teams</h1>
+    <p class="lede">Academy-affiliated teams for youth players and adults. Rosters, tactics and private announcements stay behind a login.</p>
+    <div class="btn-row"><a class="btn" href="join-team.html">Apply to a team</a><a class="btn ghost" href="obsidian-ac.html">Obsidian AC</a></div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="grid g3" id="team-list"></div>
+    <div class="notice" style="margin-top:2rem"><strong>How joining works.</strong>
+      <p>Send an application, Coach Arnold reviews it, and suitable players are invited to train with the squad before anyone commits. There is no fee to apply and no obligation after a trial session.</p></div>
+  </div>
+</section>
+
+<section class="paper">
+  <div class="wrap">
+    <div class="head"><span class="rule"></span><h2>What team members get</h2></div>
+    <div class="grid g3">
+      <div class="feature"><h3>A secure team area</h3><p>Roster, tactics, lineups and documents visible only to approved members who are signed in.</p></div>
+      <div class="feature"><h3>Match availability</h3><p>Mark yourself available, unavailable, maybe or injured for every fixture, and get a nudge if you forget.</p></div>
+      <div class="feature"><h3>Announcements</h3><p>Schedule changes and match information by email, with a WhatsApp group for the day-to-day.</p></div>
+      <div class="feature"><h3>Coaching, not just games</h3><p>A planned training session every week, not a kickabout before kick-off.</p></div>
+      <div class="feature"><h3>Video and analysis</h3><p>Clips from matches with specific coaching points for individual players.</p></div>
+      <div class="feature"><h3>Player safeguarding</h3><p>Minors' details are never published. Photo use requires parental consent that can be withdrawn.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var C=window.CAA,D=C.D;
+  document.getElementById('team-list').innerHTML=D.teams.map(function(t){
+    return '<article class="tile"><div style="display:flex;gap:.9rem;align-items:center;margin-bottom:.9rem">'+
+      '<span class="badge-crest">'+C.esc(t.crest)+'</span>'+
+      '<div><h3 style="margin:0">'+C.esc(t.name)+'</h3><p class="meta" style="margin:0">'+C.esc(t.level)+' · '+C.esc(t.ages)+'</p></div></div>'+
+      '<p>'+C.esc(t.blurb)+'</p>'+
+      '<p class="meta">'+(t.recruiting?'<span class="chip ok">Recruiting</span> '+(t.needs.length?'Needs: '+C.esc(t.needs.join(', ')):''):'<span class="chip">Squad full for now</span>')+'</p>'+
+      '<div class="foot"><a class="btn sm" href="'+(t.id==='obsidian-ac'?'obsidian-ac.html':'team.html?id='+t.id)+'">Team page</a>'+
+      '<a class="btn sm dark-ghost" href="join-team.html?team='+t.id+'">Apply to join</a></div></article>';
+  }).join('');
+})();
+</script>
+<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+</body>
+</html>

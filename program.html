@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Program details | Coach Arnold Academy</title>
+<meta name="description" content="Full details for each Coach Arnold Academy coaching program: ages, session length, group size, what the player will learn, locations and pricing.">
+<link rel="canonical" href="https://www.coacharnoldacademy.com/program.html">
+<meta name="theme-color" content="#05070E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coach Arnold Academy">
+<meta property="og:title" content="Program details | Coach Arnold Academy">
+<meta property="og:description" content="Full details for each Coach Arnold Academy coaching program: ages, session length, group size, what the player will learn, locations and pricing.">
+<meta property="og:url" content="https://www.coacharnoldacademy.com/program.html">
+<meta property="og:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Program details | Coach Arnold Academy">
+<meta name="twitter:description" content="Full details for each Coach Arnold Academy coaching program: ages, session length, group size, what the player will learn, locations and pricing.">
+<meta name="twitter:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
+<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div data-header></div>
+<main id="main">
+
+<section class="page-hero" data-pitch>
+  <div class="wrap inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="programs.html">Programs</a> / <span id="crumb">Program</span></nav>
+    <h1 id="p-name">Program</h1>
+    <p class="lede" id="p-short"></p>
+    <div class="btn-row"><a class="btn" id="p-book" href="book.html">Book now</a>
+      <a class="btn ghost" id="p-ask" href="#">Ask a question</a></div>
+  </div>
+</section>
+<section>
+  <div class="wrap split">
+    <div>
+      <div id="p-body"></div>
+      <h3>What the player will learn</h3>
+      <ul id="p-learn" style="padding-left:1.1rem"></ul>
+      <h3 style="margin-top:2rem">Available dates and times</h3>
+      <p class="muted" style="font-size:.95rem">Regular weekly slots. Exact availability is confirmed when you book, and one-off times can be arranged.</p>
+      <div class="opts" id="p-slots" style="margin-bottom:1.4rem"></div>
+      <div class="btn-row"><a class="btn" id="p-book2" href="book.html">Book this program</a>
+        <a class="btn dark-ghost" href="programs.html">Compare other programs</a></div>
+    </div>
+    <div>
+      <div class="tile" style="margin-bottom:1.2rem">
+        <h3>At a glance</h3>
+        <div class="tablewrap"><table><tbody id="p-facts"></tbody></table></div>
+      </div>
+      <div class="tile" style="margin-bottom:1.2rem">
+        <h3>Training locations</h3>
+        <div id="p-locs"></div>
+      </div>
+      <div class="tile">
+        <h3>Questions before booking?</h3>
+        <p class="meta">Coach Arnold answers these himself, usually within a day.</p>
+        <form name="questions" data-netlify="true" netlify-honeypot="_trap" class="form" data-form="questions" data-success-title="Question sent"
+              data-success="Coach Arnold has your question and will reply by email, usually within 24 hours."
+              data-toast="Question sent to Coach Arnold">
+      <input type="hidden" name="form-name" value="questions">
+          <div class="msg" tabindex="-1"></div>
+          <input type="hidden" name="program" id="q-prog">
+          <div class="field"><label for="q-name">Your name</label><input id="q-name" name="name" required autocomplete="name"></div>
+          <div class="field"><label for="q-email">Email</label><input id="q-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="q-msg">Your question</label><textarea id="q-msg" name="message" required placeholder="Tell me about the player: age, how long they've played, and what you're hoping to work on."></textarea></div>
+          <button class="btn wide" type="submit">Ask a question</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var C=window.CAA,D=C.D;
+  var id=C.qs('id')||'private';
+  var p=D.programs.find(function(x){return x.id===id;});
+  if(!p){location.replace('programs.html');return;}
+  document.title=p.name+' | Coach Arnold Academy';
+  var md=document.querySelector('meta[name=description]'); if(md) md.content=p.short;
+  document.getElementById('crumb').textContent=p.name;
+  document.getElementById('p-name').textContent=p.name;
+  document.getElementById('p-short').textContent=p.short;
+  document.getElementById('p-body').innerHTML='<p class="lede">'+C.esc(p.body)+'</p>';
+  document.getElementById('p-learn').innerHTML=p.learn.map(function(l){return '<li>'+C.esc(l)+'</li>';}).join('');
+  document.getElementById('p-slots').innerHTML=p.slots.map(function(s){
+    return '<label><input type="radio" name="slotview" value="'+C.esc(s)+'"> '+C.esc(s)+'</label>';}).join('');
+  document.getElementById('p-facts').innerHTML=
+    [['Recommended age',p.ages],['Skill level',p.level],['Session length',p.duration],
+     ['Maximum players',p.max],['Price',p.price]].map(function(r){
+      return '<tr><th scope="row">'+r[0]+'</th><td>'+C.esc(r[1])+'</td></tr>';}).join('');
+  document.getElementById('p-locs').innerHTML=p.locations.map(function(lid){
+    var l=D.locations.find(function(x){return x.id===lid;});
+    return '<div class="feature" style="margin-bottom:.9rem"><h3>'+C.esc(l.name)+'</h3><p>'+C.esc(l.city)+'. '+C.esc(l.note)+'</p></div>';
+  }).join('');
+  document.getElementById('p-book').href='book.html?program='+p.id;
+  document.getElementById('p-book2').href='book.html?program='+p.id;
+  document.getElementById('p-ask').href=C.waLink("Hi Coach Arnold, I'd like to ask about "+p.name+": ");
+  document.getElementById('q-prog').value=p.name;
+})();
+</script>
+<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+</body>
+</html>

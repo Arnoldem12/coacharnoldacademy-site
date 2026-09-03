@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Match Schedule &amp; Training Calendar | Coach Arnold Academy</title>
+<meta name="description" content="Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA. Players and parents can confirm match availability online.">
+<link rel="canonical" href="https://www.coacharnoldacademy.com/schedule.html">
+<meta name="theme-color" content="#05070E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coach Arnold Academy">
+<meta property="og:title" content="Match Schedule &amp; Training Calendar | Coach Arnold Academy">
+<meta property="og:description" content="Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA. Players and parents can confirm match availability online.">
+<meta property="og:url" content="https://www.coacharnoldacademy.com/schedule.html">
+<meta property="og:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Match Schedule &amp; Training Calendar | Coach Arnold Academy">
+<meta name="twitter:description" content="Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA. Players and parents can confirm match availability online.">
+<meta name="twitter:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
+<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div data-header></div>
+<main id="main">
+<section class="page-hero" data-pitch>
+  <div class="wrap inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Schedule</nav>
+    <h1>Schedule</h1>
+    <p class="lede">Training sessions and match fixtures. Signed-in players and parents can set availability for every match.</p>
+    <div class="btn-row"><a class="btn" href="book.html">Book a training session</a></div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="tabs" id="sched-tabs" role="tablist">
+      <button type="button" class="on" data-view="matches">Matches</button>
+      <button type="button" data-view="training">Training</button>
+      <button type="button" data-view="results">Results</button>
+    </div>
+    <div class="fgrid" style="margin-bottom:1.6rem">
+      <div class="field"><label for="f-team">Team</label><select id="f-team"></select></div>
+      <div class="field"><label for="f-search">Search</label><input id="f-search" type="search" placeholder="Opponent, venue or program"></div>
+    </div>
+    <div id="sched-out"></div>
+  </div>
+</section>
+
+<section class="paper tight">
+  <div class="wrap-n">
+    <div class="notice"><strong>Availability responses.</strong>
+      <p>Availability is recorded against your account so Coach Arnold can see who is coming. Sign in to respond, and change your answer any time up to kick-off. Coach Arnold can send a reminder to anyone who hasn't replied.</p></div>
+  </div>
+</section>
+
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var C=window.CAA,D=C.D,view='matches',team=C.qs('team')||'all',q='';
+  var MN=['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+  var out=document.getElementById('sched-out');
+  var ft=document.getElementById('f-team');
+  ft.innerHTML='<option value="all">All teams</option>'+D.teams.map(function(t){
+    return '<option value="'+t.id+'">'+C.esc(t.name)+'</option>';}).join('');
+  ft.value=team;
+
+  function avail(id){ return (C.store.get('availability',{})[id])||{}; }
+  function setAvail(id,ans){
+    var u=C.auth.user(); if(!u) return;
+    var all=C.store.get('availability',{}); all[id]=all[id]||{};
+    all[id][u.email]={answer:ans,name:u.name,at:new Date().toISOString()};
+    C.store.set('availability',all);
+    C.toast('Marked '+ans.toLowerCase()+' — Coach Arnold can see your response.');
+    render();
+  }
+  window.__setAvail=setAvail;
+
+  function statusChip(m){
+    if(m.status==='completed')return '<span class="chip">Completed</span>';
+    if(m.status==='canceled')return '<span class="chip err">Canceled</span>';
+    if(m.status==='changed')return '<span class="chip warn">Time changed</span>';
+    return '<span class="chip ok">Scheduled</span>';
+  }
+
+  function matchCard(m){
+    var u=C.auth.user(), a=avail(m.id), mine=u?(a[u.email]||{}).answer:null;
+    var counts={Available:0,'Not available':0,Maybe:0,Injured:0};
+    Object.keys(a).forEach(function(k){ if(counts[a[k].answer]!=null) counts[a[k].answer]++; });
+    var d=C.dparse(m.date);
+    var ev={title:C.teamName(m.team)+' v '+m.opponent,date:m.date,time:m.arrive,minutes:120,
+      location:m.venue+', '+m.address,details:'Arrive '+C.fmtTime(m.arrive)+'. Kick-off '+C.fmtTime(m.kick)+'. Kit: '+m.kit};
+    var buttons = u ? ['Available','Not available','Maybe','Injured'].map(function(x){
+        return '<button class="btn sm '+(mine===x?'':'dark-ghost')+'" type="button" onclick="__setAvail(\''+m.id+'\',\''+x+'\')">'+x+'</button>';}).join('')
+      : '<a class="btn sm" href="login.html">Log in to set availability</a>';
+    return '<article class="tile" id="'+m.id+'" style="margin-bottom:1rem">'+
+      '<div style="display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap">'+
+        '<div class="date" style="border-right:2px solid var(--blue);padding-right:1rem;font-family:var(--ff-d);text-align:center">'+
+          '<span style="font-size:2rem;display:block;line-height:1">'+d.getDate()+'</span>'+
+          '<span style="font-size:.85rem;color:var(--muted-d)">'+MN[d.getMonth()]+'</span></div>'+
+        '<div style="flex:1 1 260px"><h3 style="margin-bottom:.2rem">'+C.esc(C.teamName(m.team))+' v '+C.esc(m.opponent)+'</h3>'+
+          '<p class="meta" style="margin-bottom:.5rem">'+C.fmtDate(m.date,true)+' · kick-off '+C.fmtTime(m.kick)+
+          ' · arrive '+C.fmtTime(m.arrive)+' · '+(m.home?'Home':'Away')+' '+statusChip(m)+'</p>'+
+          '<p style="margin-bottom:.4rem"><strong>'+C.esc(m.venue)+'</strong><br>'+C.esc(m.address)+
+          ' · <a href="https://maps.google.com/?q='+encodeURIComponent(m.venue+' '+m.address)+'" target="_blank" rel="noopener">Map and directions</a></p>'+
+          '<p style="margin-bottom:.4rem">Kit: '+C.esc(m.kit)+(m.notes?'<br>Notes: '+C.esc(m.notes):'')+'</p>'+
+          (m.score?'<p><strong>Final score: '+C.esc(m.score)+'</strong></p>':'')+
+        '</div></div>'+
+      (m.status==='completed'?'':'<div style="margin-top:1rem;border-top:1px solid var(--line-d);padding-top:1rem">'+
+        '<p class="meta" style="margin-bottom:.5rem">Your availability'+(mine?': <span class="chip ok">'+C.esc(mine)+'</span>':'')+'</p>'+
+        '<div class="btn-row" style="margin-top:0">'+buttons+
+        '<a class="btn sm dark-ghost" href="'+C.gcalLink(ev)+'" target="_blank" rel="noopener">Add to Google Calendar</a>'+
+        '</div>'+
+        '<p class="small muted" style="margin-top:.6rem">Squad responses so far: '+counts.Available+' available, '+
+        counts['Not available']+' out, '+counts.Maybe+' maybe, '+counts.Injured+' injured.</p></div>')+
+      '</article>';
+  }
+
+  function trainCard(t){
+    var d=C.dparse(t.date);
+    var ev={title:'Training: '+C.progName(t.program),date:t.date,time:t.time,minutes:75,location:C.locName(t.location),
+      details:'Coach Arnold Academy training session.'};
+    return '<article class="tile" style="margin-bottom:1rem"><div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:flex-start">'+
+      '<div style="border-right:2px solid var(--blue);padding-right:1rem;font-family:var(--ff-d);text-align:center">'+
+      '<span style="font-size:2rem;display:block;line-height:1">'+d.getDate()+'</span><span style="font-size:.85rem;color:var(--muted-d)">'+MN[d.getMonth()]+'</span></div>'+
+      '<div style="flex:1 1 260px"><h3 style="margin-bottom:.2rem">'+C.esc(C.progName(t.program))+'</h3>'+
+      '<p class="meta">'+C.fmtDate(t.date,true)+' at '+C.fmtTime(t.time)+' · '+C.esc(C.locName(t.location))+
+      ' · <span class="chip ok">'+t.spaces+' spaces left</span></p>'+
+      '<div class="btn-row" style="margin-top:.6rem"><a class="btn sm" href="book.html?program='+t.program+'&date='+t.date+'&time='+t.time+'">Book this session</a>'+
+      '<a class="btn sm dark-ghost" href="'+C.gcalLink(ev)+'" target="_blank" rel="noopener">Add to calendar</a></div></div></div></article>';
+  }
+
+  function render(){
+    var txt=q.toLowerCase();
+    if(view==='training'){
+      var t=D.trainings.filter(function(x){
+        return (!txt||(C.progName(x.program)+C.locName(x.location)).toLowerCase().indexOf(txt)>-1);});
+      out.innerHTML=t.length?t.map(trainCard).join(''):'<div class="empty"><h4>No sessions match</h4><p>Clear the search, or <a href="contact.html">ask Coach Arnold</a> about a time that suits you.</p></div>';
+      return;
+    }
+    var list=D.matches.filter(function(m){
+      if(team!=='all'&&m.team!==team)return false;
+      if(view==='results'&&m.status!=='completed')return false;
+      if(view==='matches'&&m.status==='completed')return false;
+      if(txt&&(m.opponent+m.venue).toLowerCase().indexOf(txt)===-1)return false;
+      return true;
+    }).sort(function(a,b){return view==='results'?(a.date<b.date?1:-1):(a.date<b.date?-1:1);});
+    out.innerHTML=list.length?list.map(matchCard).join(''):
+      '<div class="empty"><h4>Nothing scheduled here yet</h4><p>Fixtures go up as soon as the league confirms them. <a href="news.html">Announcements</a> carry any changes.</p></div>';
+    if(location.hash){var el=document.getElementById(location.hash.slice(1)); if(el) el.scrollIntoView({block:'center'});}
+  }
+
+  C.$$('#sched-tabs button').forEach(function(b){
+    b.addEventListener('click',function(){
+      C.$$('#sched-tabs button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on'); view=b.dataset.view; render();
+    });
+  });
+  ft.addEventListener('change',function(){team=ft.value;render();});
+  document.getElementById('f-search').addEventListener('input',function(e){q=e.target.value;render();});
+  render();
+})();
+</script>
+<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+</body>
+</html>

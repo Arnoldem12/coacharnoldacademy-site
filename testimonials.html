@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Testimonials | Coach Arnold Academy Soccer Coaching</title>
+<meta name="description" content="Feedback from parents, youth players and adult beginners who train with Coach Arnold Academy in Camas and Vancouver, Washington.">
+<link rel="canonical" href="https://www.coacharnoldacademy.com/testimonials.html">
+<meta name="theme-color" content="#05070E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coach Arnold Academy">
+<meta property="og:title" content="Testimonials | Coach Arnold Academy Soccer Coaching">
+<meta property="og:description" content="Feedback from parents, youth players and adult beginners who train with Coach Arnold Academy in Camas and Vancouver, Washington.">
+<meta property="og:url" content="https://www.coacharnoldacademy.com/testimonials.html">
+<meta property="og:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Testimonials | Coach Arnold Academy Soccer Coaching">
+<meta name="twitter:description" content="Feedback from parents, youth players and adult beginners who train with Coach Arnold Academy in Camas and Vancouver, Washington.">
+<meta name="twitter:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
+<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div data-header></div>
+<main id="main">
+<section class="page-hero" data-pitch>
+  <div class="wrap inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Testimonials</nav>
+    <h1>What players and parents say</h1>
+    <p class="lede">Feedback from families and adult players. Names are shortened for privacy, and no minor is identified.</p>
+    
+  </div>
+</section>
+<section><div class="wrap"><div class="grid g2" id="t-all"></div></div></section>
+<section class="paper">
+  <div class="wrap-n">
+    <div class="head"><span class="rule"></span><h2>Share your experience</h2>
+      <p>Trained with Coach Arnold? Feedback is welcome, including the critical kind.</p></div>
+    <form name="testimonials" data-netlify="true" netlify-honeypot="_trap" class="form" data-form="testimonials" data-success-title="Thank you"
+          data-success="Your feedback is with Coach Arnold. Nothing is published without asking you first."
+          data-toast="Feedback sent">
+      <input type="hidden" name="form-name" value="testimonials">
+      <div class="msg" tabindex="-1"></div>
+      <div class="fgrid">
+        <div class="field"><label for="ts-name">Your name</label><input id="ts-name" name="name" required></div>
+        <div class="field"><label for="ts-role">Your connection to the academy</label>
+          <select id="ts-role" name="role" required><option value="">Choose one</option>
+            <option>Parent</option><option>Adult player</option><option>Youth player</option>
+            <option>Team manager</option><option>Other</option></select></div>
+      </div>
+      <div class="field"><label for="ts-msg">Your feedback</label><textarea id="ts-msg" name="message" required></textarea></div>
+      <div class="check"><input id="ts-ok" type="checkbox" name="publishConsent">
+        <label for="ts-ok">You may publish this on the website with my first name and last initial. <span class="muted">Optional.</span></label></div>
+      <div><button class="btn" type="submit">Send feedback</button></div>
+    </form>
+    <p class="small muted" style="margin-top:1rem">A parent may not submit a testimonial that identifies a child by full name. Reviews naming a minor are edited before publication.</p>
+  </div>
+</section>
+
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var C=window.CAA,D=C.D;
+  document.getElementById('t-all').innerHTML=D.testimonials.map(function(q){
+    return '<div class="tile"><blockquote class="quote"><p>'+C.esc(q.q)+'</p><cite>'+C.esc(q.a)+' · '+C.esc(q.role)+'</cite></blockquote></div>';}).join('');
+})();
+</script>
+<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+</body>
+</html>

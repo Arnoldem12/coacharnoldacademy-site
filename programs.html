@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Soccer Coaching Programs | Youth &amp; Adult Training in Vancouver WA</title>
+<meta name="description" content="Private one-on-one coaching, small-group training, youth development, adult soccer, team sessions, goalkeeping, tactics and video analysis in Camas and Vancouver, WA.">
+<link rel="canonical" href="https://www.coacharnoldacademy.com/programs.html">
+<meta name="theme-color" content="#05070E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coach Arnold Academy">
+<meta property="og:title" content="Soccer Coaching Programs | Youth &amp; Adult Training in Vancouver WA">
+<meta property="og:description" content="Private one-on-one coaching, small-group training, youth development, adult soccer, team sessions, goalkeeping, tactics and video analysis in Camas and Vancouver, WA.">
+<meta property="og:url" content="https://www.coacharnoldacademy.com/programs.html">
+<meta property="og:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Soccer Coaching Programs | Youth &amp; Adult Training in Vancouver WA">
+<meta name="twitter:description" content="Private one-on-one coaching, small-group training, youth development, adult soccer, team sessions, goalkeeping, tactics and video analysis in Camas and Vancouver, WA.">
+<meta name="twitter:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
+<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div data-header></div>
+<main id="main">
+<section class="page-hero" data-pitch>
+  <div class="wrap inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Coaching programs</nav>
+    <h1>Coaching programs</h1>
+    <p class="lede">Ten programs covering technique, tactics, fitness, position work and match preparation, for players from age five through adult.</p>
+    <div class="btn-row"><a class="btn" href="book.html">Book a training session</a><a class="btn ghost" href="contact.html">Ask which program fits</a></div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="tabs" id="prog-filter" role="tablist" aria-label="Filter programs"></div>
+    <div class="grid g3" id="prog-list"></div>
+    <div class="notice" style="margin-top:2rem"><strong>Not sure where to start?</strong>
+      <p>Describe the player, their age and how much they have played, and Coach Arnold will recommend a program and be honest if a cheaper option would serve you better. <a href="contact.html">Send a message</a> or <a data-wa="Hi Coach Arnold, I'm trying to work out which program fits. The player is " href="#" target="_blank" rel="noopener">ask on WhatsApp</a>.</p></div>
+  </div>
+</section>
+
+<section class="paper">
+  <div class="wrap">
+    <div class="head"><span class="rule"></span><h2>Packages and pricing</h2>
+      <p>Single sessions are pay as you go. Blocks reduce the per-session rate and hold your regular slot.</p></div>
+    <div class="grid g3">
+      <div class="tile"><h3>Single session</h3><p class="meta">No commitment</p><p>Pay per session at the rate listed on each program. Useful for a first session or an occasional top-up.</p></div>
+      <div class="tile"><h3>Five session block</h3><p class="meta">Around 10% lower per session</p><p>Five sessions to use within ten weeks, with a held slot each week and written progress notes at the end.</p></div>
+      <div class="tile"><h3>Ten session block</h3><p class="meta">Around 15% lower per session</p><p>A full development block with a baseline assessment, mid-block review and a written plan for the next stage.</p></div>
+      <div class="tile"><h3>Monthly membership</h3><p class="meta">Group programs only</p><p>Unlimited access to a nominated group program for a monthly fee, billed on the same date each month and cancellable with 30 days' notice.</p></div>
+      <div class="tile"><h3>Team blocks</h3><p class="meta">Contact for pricing</p><p>Priced per session or per season depending on squad size, venue and how many sessions your staff want covered.</p></div>
+      <div class="tile"><h3>Sibling and referral discounts</h3><p class="meta">Applied at checkout</p><p>Discount codes are issued for siblings training in the same block and for families who refer a new player.</p></div>
+    </div>
+    <p class="small muted" style="margin-top:1.2rem">Prices shown across the site are sample figures. <strong>Coach Arnold must confirm final pricing in <code>assets/js/data.js</code> or through the admin dashboard before launch.</strong></p>
+  </div>
+</section>
+
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var C=window.CAA,D=C.D,cats=['All programs','Youth','Adult','Team','Online'];
+  var active='All programs';
+  function match(p){
+    if(active==='All programs')return true;
+    if(active==='Youth')return ['youth','small-group','technical','position','conditioning','private'].indexOf(p.id)>-1;
+    if(active==='Adult')return ['adult','private','tactical','conditioning','position','technical'].indexOf(p.id)>-1;
+    if(active==='Team')return ['team','tactical'].indexOf(p.id)>-1;
+    if(active==='Online')return p.id==='virtual';
+    return true;
+  }
+  function render(){
+    document.getElementById('prog-list').innerHTML=D.programs.slice().sort(function(a,b){return a.order-b.order;})
+      .filter(match).map(function(p){
+      return '<article class="tile"><h3>'+C.esc(p.name)+'</h3>'+
+        '<p class="meta">'+C.esc(p.ages)+' · '+C.esc(p.duration)+' · max '+C.esc(p.max)+'</p>'+
+        '<p>'+C.esc(p.short)+'</p>'+
+        '<p class="meta"><span class="chip">'+C.esc(p.price)+'</span> <span class="chip">'+C.esc(p.level)+'</span></p>'+
+        '<div class="foot"><a class="btn sm" href="program.html?id='+p.id+'">Program details</a>'+
+        '<a class="btn sm dark-ghost" href="book.html?program='+p.id+'">Book now</a></div></article>';
+    }).join('');
+  }
+  document.getElementById('prog-filter').innerHTML=cats.map(function(c,i){
+    return '<button type="button" role="tab" class="'+(i===0?'on':'')+'">'+c+'</button>';}).join('');
+  C.$$('#prog-filter button').forEach(function(b){
+    b.addEventListener('click',function(){
+      C.$$('#prog-filter button').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on'); active=b.textContent; render();
+    });
+  });
+  render();
+})();
+</script>
+<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+</body>
+</html>
