@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book Soccer Training in Camas &amp; Vancouver WA | Coach Arnold Academy</title>
+<meta name="description" content="Book private or group soccer training with Coach Arnold. Choose a program, date, time and location, register a child or yourself, and get an email confirmation.">
+<link rel="canonical" href="https://www.coacharnoldacademy.com/book.html">
+<meta name="theme-color" content="#05070E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coach Arnold Academy">
+<meta property="og:title" content="Book Soccer Training in Camas &amp; Vancouver WA | Coach Arnold Academy">
+<meta property="og:description" content="Book private or group soccer training with Coach Arnold. Choose a program, date, time and location, register a child or yourself, and get an email confirmation.">
+<meta property="og:url" content="https://www.coacharnoldacademy.com/book.html">
+<meta property="og:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Book Soccer Training in Camas &amp; Vancouver WA | Coach Arnold Academy">
+<meta name="twitter:description" content="Book private or group soccer training with Coach Arnold. Choose a program, date, time and location, register a child or yourself, and get an email confirmation.">
+<meta name="twitter:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
+<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div data-header></div>
+<main id="main">
+<section class="page-hero" data-pitch>
+  <div class="wrap inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Book training</nav>
+    <h1>Book a training session</h1>
+    <p class="lede">Pick a program, choose a time, tell Coach Arnold about the player, and you're done. Registration for anyone under 18 must be completed by a parent or legal guardian.</p>
+    
+  </div>
+</section>
+<section>
+  <div class="wrap-n">
+
+    <form name="bookings" data-netlify="true" netlify-honeypot="_trap" class="form" id="booking" data-form="bookings" data-reset="no"
+          data-success-title="Session requested"
+          data-success="Your request is with Coach Arnold. You'll get a confirmation email with the exact field, what to bring and a calendar link. Sessions are confirmed rather than instant, so if the slot has gone you'll be offered the nearest alternative."
+          data-toast="Booking request sent" data-after="afterBooking">
+      <input type="hidden" name="form-name" value="bookings">
+      <div class="msg" tabindex="-1"></div>
+
+      <fieldset>
+        <legend>1. Choose your session</legend>
+        <div class="fgrid">
+          <div class="field"><label for="b-prog">Coaching program</label>
+            <select id="b-prog" name="program" required></select></div>
+          <div class="field"><label for="b-type">Session type</label>
+            <select id="b-type" name="sessionType" required>
+              <option value="">Choose one</option>
+              <option>Private, one player</option>
+              <option>Group session</option>
+              <option>Pair, two players sharing</option>
+              <option>Team session</option>
+            </select></div>
+          <div class="field"><label for="b-date">Preferred date</label>
+            <input id="b-date" name="date" type="date" required></div>
+          <div class="field"><label for="b-time">Preferred time</label>
+            <input id="b-time" name="time" type="time" required></div>
+          <div class="field"><label for="b-loc">Training location</label>
+            <select id="b-loc" name="location" required></select></div>
+          <div class="field"><label for="b-alt">Backup time that also works</label>
+            <input id="b-alt" name="altTime" placeholder="For example: Saturday morning"></div>
+        </div>
+        <p class="hint" id="b-prog-note" style="margin-top:.7rem"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Player details</legend>
+        <div class="fgrid">
+          <div class="field"><label for="b-pname">Player's full name</label><input id="b-pname" name="playerName" required></div>
+          <div class="field"><label for="b-page">Player's age</label><input id="b-page" name="playerAge" type="number" min="4" max="80" required></div>
+          <div class="field"><label for="b-level">Current skill level</label>
+            <select id="b-level" name="level" required>
+              <option value="">Choose one</option>
+              <option>Complete beginner, never played</option>
+              <option>Beginner, played a little</option>
+              <option>Recreational or school team</option>
+              <option>Club or select level</option>
+              <option>Competitive or high school varsity</option>
+              <option>Adult league</option>
+            </select></div>
+          <div class="field"><label for="b-pos">Usual position</label>
+            <select id="b-pos" name="position">
+              <option value="">Not sure yet</option>
+              <option>Goalkeeper</option><option>Defender</option><option>Midfielder</option><option>Forward</option><option>Anywhere</option>
+            </select></div>
+        </div>
+        <div class="field" style="margin-top:1rem"><label for="b-goals">What would you like to work on?</label>
+          <textarea id="b-goals" name="goals" required placeholder="For example: first touch under pressure, confidence in games, getting fit for adult league, preparing for club tryouts."></textarea>
+          <p class="hint">Be specific if you can. It shapes the first session plan.</p></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Who is booking?</legend>
+        <div class="field"><span class="lbl">Is the player under 18?</span>
+          <div class="opts">
+            <label><input type="radio" name="isMinor" value="yes" required> Yes, I'm the parent or legal guardian</label>
+            <label><input type="radio" name="isMinor" value="no"> No, I'm booking for myself as an adult</label>
+          </div></div>
+        <div class="fgrid" style="margin-top:1rem">
+          <div class="field"><label for="b-cname">Your full name</label><input id="b-cname" name="contactName" required autocomplete="name"></div>
+          <div class="field"><label for="b-cemail">Email address</label><input id="b-cemail" name="contactEmail" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="b-cphone">Phone number</label><input id="b-cphone" name="contactPhone" type="tel" required autocomplete="tel"></div>
+          <div class="field"><label for="b-cwa">WhatsApp number</label><input id="b-cwa" name="whatsapp" type="tel" placeholder="Optional, if different from your phone"></div>
+        </div>
+        <div id="guardian-block" style="display:none;margin-top:1rem">
+          <div class="fgrid">
+            <div class="field"><label for="b-rel">Relationship to the player</label><input id="b-rel" name="relationship" placeholder="Parent, guardian, grandparent"></div>
+            <div class="field"><label for="b-em">Emergency contact name</label><input id="b-em" name="emergencyName"></div>
+            <div class="field"><label for="b-emp">Emergency contact phone</label><input id="b-emp" name="emergencyPhone" type="tel"></div>
+            <div class="field"><label for="b-em2">Second emergency contact</label><input id="b-em2" name="emergency2" placeholder="Name and phone, optional"></div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Health, injuries and accommodations</legend>
+        <div class="field"><label for="b-med">Injuries, medical conditions, allergies or medication</label>
+          <textarea id="b-med" name="medical" placeholder="Asthma and inhaler location, recent ankle sprain, ADHD, diabetes, allergies. Write none if there is nothing."></textarea>
+          <p class="hint">Coach Arnold is the only person who sees this. It is stored so that the right decision can be made if something happens on the field.</p></div>
+        <div class="field"><label for="b-accom">Accommodations that would help</label>
+          <textarea id="b-accom" name="accommodations" placeholder="Optional. For example: clear one-step instructions, a quieter group, a break halfway through."></textarea></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Consent and policies</legend>
+        <div class="check"><input id="b-waiver" type="checkbox" name="waiver" required>
+          <label for="b-waiver">I have read and accept the <a href="waiver.html" target="_blank">liability waiver</a> and the <a href="conduct.html" target="_blank">code of conduct</a>.</label></div>
+        <div class="check"><input id="b-cancel" type="checkbox" name="cancellation" required>
+          <label for="b-cancel">I understand the <a href="refunds.html" target="_blank">cancellation and refund policy</a>, including the 24-hour rescheduling window.</label></div>
+        <div class="check"><input id="b-consent" type="checkbox" name="guardianConsent">
+          <label for="b-consent">As parent or legal guardian, I consent to my child taking part in coaching sessions. <span class="muted">Required for players under 18.</span></label></div>
+        <div class="check"><input id="b-photo" type="checkbox" name="photoConsent">
+          <label for="b-photo">I consent to photos and video that may include the player being used on the academy website and social media. <span class="muted">Entirely optional. Saying no changes nothing about the coaching, and consent can be withdrawn at any time.</span></label></div>
+        <div class="check"><input id="b-privacy" type="checkbox" name="privacy" required>
+          <label for="b-privacy">I've read the <a href="privacy.html" target="_blank">privacy policy</a> and agree to my details being used to run this booking.</label></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. Payment</legend>
+        <div class="field"><span class="lbl">How would you like to pay?</span>
+          <div class="opts">
+            <label><input type="radio" name="payment" value="Card online" required> Card online</label>
+            <label><input type="radio" name="payment" value="Pay later"> Pay later, before the session</label>
+            <label><input type="radio" name="payment" value="Use a package"> Use an existing package</label>
+          </div></div>
+        <div class="field" style="margin-top:1rem"><label for="b-code">Discount code</label>
+          <input id="b-code" name="discount" placeholder="Optional"></div>
+        <div class="notice" style="margin-top:1rem"><strong>Card payments are not live yet.</strong>
+          <p>This form records your booking and your chosen payment method. Card checkout goes live when Stripe is connected. Until then, choose pay later and Coach Arnold will send a payment link with your confirmation. No card details are ever collected or stored by this website.</p></div>
+      </fieldset>
+
+      <div class="btn-row" style="margin-top:0">
+        <button class="btn" type="submit">Confirm booking request</button>
+        <a class="btn dark-ghost" href="programs.html">Back to programs</a>
+      </div>
+    </form>
+
+    <div id="post-book" style="display:none;margin-top:1.6rem">
+      <div class="tile">
+        <h3>Add it to your calendar</h3>
+        <p class="meta">A calendar invitation is also attached to your confirmation email.</p>
+        <div class="btn-row" style="margin-top:.4rem">
+          <a class="btn sm" id="cal-g" href="#" target="_blank" rel="noopener">Google Calendar</a>
+          <button class="btn sm dark-ghost" id="cal-i" type="button">Apple Calendar or Outlook</button>
+          <a class="btn sm dark-ghost" href="dashboard.html">See it in my dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="paper tight">
+  <div class="wrap-n">
+    <h2 style="font-size:1.6rem">Before your first session</h2>
+    <div class="grid g2">
+      <div class="feature"><h3>What to bring</h3><p>Boots or turf shoes, shin guards, water, and a ball if you have one. Spares are available.</p></div>
+      <div class="feature"><h3>Arrive ten minutes early</h3><p>Enough time to meet, warm up properly and start on time.</p></div>
+      <div class="feature"><h3>Parents are welcome to watch</h3><p>Stay for the whole session if you'd like. For younger players it often helps.</p></div>
+      <div class="feature"><h3>Weather</h3><p>Sessions run in rain. If a field closes you'll be emailed and messaged, and rescheduled free.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+function afterBooking(rec){
+  var C=window.CAA;
+  var ev={title:'Soccer training: '+rec.program,date:rec.date,time:rec.time,minutes:75,
+    location:C.locName(rec.location),
+    details:'Coach Arnold Academy session for '+rec.playerName+'. Arrive 10 minutes early with boots, shin guards and water.'};
+  var box=document.getElementById('post-book'); box.style.display='block';
+  document.getElementById('cal-g').href=C.gcalLink(ev);
+  document.getElementById('cal-i').onclick=function(){C.icsDownload(ev);};
+}
+(function(){
+  var C=window.CAA,D=C.D;
+  var sel=document.getElementById('b-prog');
+  sel.innerHTML='<option value="">Choose a program</option>'+D.programs.slice().sort(function(a,b){return a.order-b.order;})
+    .map(function(p){return '<option value="'+p.id+'">'+C.esc(p.name)+' — '+C.esc(p.price)+'</option>';}).join('');
+  document.getElementById('b-loc').innerHTML='<option value="">Choose a location</option>'+
+    D.locations.map(function(l){return '<option value="'+l.id+'">'+C.esc(l.name)+', '+C.esc(l.city)+'</option>';}).join('');
+
+  var pre=C.qs('program'); if(pre) sel.value=pre;
+  var pd=C.qs('date'); if(pd) document.getElementById('b-date').value=pd;
+  var pt=C.qs('time'); if(pt) document.getElementById('b-time').value=pt;
+  var today=new Date(); document.getElementById('b-date').min=today.toISOString().slice(0,10);
+
+  function note(){
+    var p=D.programs.find(function(x){return x.id===sel.value;});
+    document.getElementById('b-prog-note').textContent = p ?
+      (p.duration+' · '+p.ages+' · maximum '+p.max+' · '+p.price+'. Usual times: '+p.slots.join(', ')) : '';
+  }
+  sel.addEventListener('change',note); note();
+
+  C.$$('input[name=isMinor]').forEach(function(r){
+    r.addEventListener('change',function(){
+      var minor=r.value==='yes'&&r.checked;
+      document.getElementById('guardian-block').style.display=minor?'block':'none';
+      ['b-rel','b-em','b-emp'].forEach(function(id){document.getElementById(id).required=minor;});
+      document.getElementById('b-consent').required=minor;
+    });
+  });
+})();
+</script>
+<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Photo &amp; Video Gallery | Coach Arnold Academy</title>
+<meta name="description" content="Photos and video from Coach Arnold Academy training sessions, youth development blocks and Obsidian AC match nights.">
+<link rel="canonical" href="https://www.coacharnoldacademy.com/gallery.html">
+<meta name="theme-color" content="#05070E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coach Arnold Academy">
+<meta property="og:title" content="Photo &amp; Video Gallery | Coach Arnold Academy">
+<meta property="og:description" content="Photos and video from Coach Arnold Academy training sessions, youth development blocks and Obsidian AC match nights.">
+<meta property="og:url" content="https://www.coacharnoldacademy.com/gallery.html">
+<meta property="og:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Photo &amp; Video Gallery | Coach Arnold Academy">
+<meta name="twitter:description" content="Photos and video from Coach Arnold Academy training sessions, youth development blocks and Obsidian AC match nights.">
+<meta name="twitter:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
+<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div data-header></div>
+<main id="main">
+<section class="page-hero" data-pitch>
+  <div class="wrap inner">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Gallery</nav>
+    <h1>Photo and video gallery</h1>
+    <p class="lede">Sessions, match nights and team moments. Photographs of players under 18 appear only with written parental consent.</p>
+    
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="tabs" id="g-tabs"><button class="on" type="button">Photos</button><button type="button">Video</button></div>
+    <div id="g-photos" class="grid g3"></div>
+    <div id="g-video" class="grid g3" style="display:none"></div>
+    <div class="notice" style="margin-top:2rem"><strong>Replace these placeholders with real media.</strong>
+      <p>Save images into <code>assets/img/gallery/</code> and list them in the gallery array, or upload them through the admin dashboard. Before publishing any image that includes a minor, confirm that photo consent is recorded on that player's registration.</p></div>
+  </div>
+</section>
+<section class="paper tight">
+  <div class="wrap-n"><div class="tile"><h3>Want a photo removed?</h3>
+    <p>Any player, parent or guardian can ask for an image to be taken down, for any reason and without explaining why. Requests are actioned within two working days.</p>
+    <div class="foot"><a class="btn sm" href="contact.html?topic=General%20question">Request a removal</a>
+      <a class="btn sm dark-ghost" href="privacy.html">Privacy policy</a></div></div></div>
+</section>
+
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var C=window.CAA;
+  var caps=['Small-group session, Lacamas Lake','Adult training, Heritage Park','Obsidian AC match night',
+            'Youth development block','Goalkeeping session','Team huddle before kick-off',
+            'Coaching education','Trophy night','Indoor arena warm-up'];
+  document.getElementById('g-photos').innerHTML=caps.map(function(c){
+    return '<figure style="margin:0"><div style="aspect-ratio:4/3;background:var(--paper);border:2px dashed var(--line-d);border-radius:6px;display:grid;place-items:center;color:var(--muted-d);font-size:.85rem;text-align:center;padding:1rem">Photo placeholder</div>'+
+      '<figcaption class="small muted" style="margin-top:.4rem">'+C.esc(c)+'</figcaption></figure>';}).join('');
+  document.getElementById('g-video').innerHTML=C.D.videos.slice(0,6).map(function(v){
+    return '<article class="tile"><a class="vthumb" href="video.html?id='+v.id+'"><span class="play">&#9654;</span></a>'+
+      '<h3 style="margin-top:.9rem;font-size:1.05rem">'+C.esc(v.title)+'</h3><p class="meta">'+C.esc(v.cat)+'</p></article>';}).join('');
+  C.$$('#g-tabs button').forEach(function(b,i){
+    b.addEventListener('click',function(){
+      C.$$('#g-tabs button').forEach(function(x){x.classList.remove('on');});b.classList.add('on');
+      document.getElementById('g-photos').style.display=i===0?'grid':'none';
+      document.getElementById('g-video').style.display=i===1?'grid':'none';});
+  });
+})();
+</script>
+<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+</body>
+</html>

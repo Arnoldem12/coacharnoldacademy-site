@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Training video | Coach Arnold Academy</title>
+<meta name="description" content="Watch a Coach Arnold Academy training video with coaching points, related drills and a home practice plan.">
+<link rel="canonical" href="https://www.coacharnoldacademy.com/video.html">
+<meta name="theme-color" content="#05070E">
+<meta property="og:type" content="video.other">
+<meta property="og:site_name" content="Coach Arnold Academy">
+<meta property="og:title" content="Training video | Coach Arnold Academy">
+<meta property="og:description" content="Watch a Coach Arnold Academy training video with coaching points, related drills and a home practice plan.">
+<meta property="og:url" content="https://www.coacharnoldacademy.com/video.html">
+<meta property="og:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Training video | Coach Arnold Academy">
+<meta name="twitter:description" content="Watch a Coach Arnold Academy training video with coaching points, related drills and a home practice plan.">
+<meta name="twitter:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
+<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div data-header></div>
+<main id="main">
+
+<section class="page-hero" data-pitch>
+  <div class="wrap inner">
+    <nav class="crumbs"><a href="index.html">Home</a> / <a href="videos.html">Training videos</a> / <span id="crumb">Video</span></nav>
+    <h1 id="v-title">Video</h1>
+    <p class="lede" id="v-desc"></p>
+  </div>
+</section>
+<section>
+  <div class="wrap split">
+    <div>
+      <div id="v-embed"></div>
+      <h3 style="margin-top:1.8rem">Coaching points</h3>
+      <ul id="v-points" style="padding-left:1.1rem"></ul>
+      <h3 style="margin-top:1.8rem">Related drills</h3>
+      <ul id="v-drills" style="padding-left:1.1rem"></ul>
+      <div class="btn-row">
+        <a class="btn" href="book.html">Book a session</a>
+        <button class="btn dark-ghost" type="button" id="v-share">Copy share link</button>
+        <a class="btn dark-ghost" id="v-wa" href="#" target="_blank" rel="noopener">Share on WhatsApp</a>
+      </div>
+    </div>
+    <div>
+      <div class="tile" style="margin-bottom:1.2rem">
+        <h3>Details</h3>
+        <div class="tablewrap"><table><tbody id="v-facts"></tbody></table></div>
+      </div>
+      <div class="tile">
+        <h3>Related videos</h3>
+        <div id="v-related"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var C=window.CAA,D=C.D,id=C.qs('id')||'v1';
+  var v=D.videos.find(function(x){return x.id===id;});
+  if(!v){location.replace('videos.html');return;}
+  document.title=v.title+' | Coach Arnold Academy';
+  document.getElementById('crumb').textContent=v.cat;
+  document.getElementById('v-title').textContent=v.title;
+  document.getElementById('v-desc').textContent=v.desc;
+  document.getElementById('v-embed').innerHTML = v.yt ?
+    '<iframe class="vid" src="https://www.youtube-nocookie.com/embed/'+v.yt+'" title="'+C.esc(v.title)+'" loading="lazy" allowfullscreen allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture"></iframe>'
+    : '<div class="vthumb" style="cursor:default"><div style="text-align:center;padding:1.4rem"><span class="play" style="margin:0 auto .8rem"> &#9654;</span>'+
+      '<p style="color:#C9D5EC;margin:0;font-size:.95rem">Video not linked yet. Add the YouTube ID for <strong>'+C.esc(v.id)+'</strong> in data.js.</p></div></div>';
+  document.getElementById('v-points').innerHTML=v.points.map(function(p){return '<li>'+C.esc(p)+'</li>';}).join('');
+  document.getElementById('v-drills').innerHTML=v.drills.map(function(p){return '<li>'+C.esc(p)+'</li>';}).join('');
+  document.getElementById('v-facts').innerHTML=[['Category',v.cat],['Recommended level',v.level]].map(function(r){
+    return '<tr><th scope="row">'+r[0]+'</th><td>'+C.esc(r[1])+'</td></tr>';}).join('');
+  document.getElementById('v-related').innerHTML=D.videos.filter(function(x){
+    return x.id!==v.id&&(x.cat===v.cat||Math.random()>.5);}).slice(0,4).map(function(x){
+    return '<div class="feature" style="margin-bottom:.9rem"><h3 style="font-size:1rem"><a href="video.html?id='+x.id+'">'+C.esc(x.title)+'</a></h3><p>'+C.esc(x.cat)+'</p></div>';}).join('');
+  document.getElementById('v-wa').href='https://wa.me/?text='+encodeURIComponent(v.title+' — '+location.href);
+  document.getElementById('v-share').addEventListener('click',function(){
+    navigator.clipboard.writeText(location.href).then(function(){C.toast('Link copied to your clipboard');},
+      function(){C.toast('Copy failed. Copy the address from the browser bar instead.');});
+  });
+})();
+</script>
+<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+</body>
+</html>

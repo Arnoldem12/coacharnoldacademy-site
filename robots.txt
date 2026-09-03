@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Private areas — no value in indexing, and they need a login anyway
+Disallow: /dashboard.html
+Disallow: /login.html
+
+Sitemap: https://www.coacharnoldacademy.com/sitemap.xml

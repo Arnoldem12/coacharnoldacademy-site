@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Team page | Coach Arnold Academy</title>
+<meta name="description" content="Team information, training schedule, fixtures, results and standings for Coach Arnold Academy squads. Rosters and tactics require a member login.">
+<link rel="canonical" href="https://www.coacharnoldacademy.com/team.html">
+<meta name="theme-color" content="#05070E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Coach Arnold Academy">
+<meta property="og:title" content="Team page | Coach Arnold Academy">
+<meta property="og:description" content="Team information, training schedule, fixtures, results and standings for Coach Arnold Academy squads. Rosters and tactics require a member login.">
+<meta property="og:url" content="https://www.coacharnoldacademy.com/team.html">
+<meta property="og:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Team page | Coach Arnold Academy">
+<meta name="twitter:description" content="Team information, training schedule, fixtures, results and standings for Coach Arnold Academy squads. Rosters and tactics require a member login.">
+<meta name="twitter:image" content="https://www.coacharnoldacademy.com/assets/img/logo-512.png">
+<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
+<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div data-header></div>
+<main id="main">
+
+<section class="page-hero" data-pitch>
+  <div class="wrap inner">
+    <nav class="crumbs"><a href="index.html">Home</a> / <a href="teams.html">Teams</a> / <span id="crumb">Team</span></nav>
+    <div style="display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap">
+      <span class="badge-crest" id="t-crest" style="width:88px;height:88px;font-size:1.8rem"></span>
+      <div><h1 id="t-name" style="margin-bottom:.15rem">Team</h1><p class="lede" id="t-meta" style="margin:0"></p></div>
+    </div>
+    <p class="lede" id="t-blurb" style="margin-top:1rem"></p>
+    <div class="btn-row"><a class="btn" id="t-join" href="join-team.html">Apply to join</a>
+      <a class="btn ghost" id="t-contact" href="#" target="_blank" rel="noopener">Contact the team</a></div>
+  </div>
+</section>
+<section>
+  <div class="wrap split">
+    <div>
+      <div class="head"><span class="rule"></span><h2>About the team</h2></div>
+      <p id="t-history"></p>
+      <h3 style="margin-top:2rem">Training schedule</h3>
+      <ul id="t-train" style="padding-left:1.1rem"></ul>
+      <h3 style="margin-top:2rem">Fixtures and results</h3>
+      <div class="rows" id="t-fixtures"></div>
+      <h3 style="margin-top:2rem">League standings</h3>
+      <div id="t-standings"></div>
+      <h3 style="margin-top:2rem">Team announcements</h3>
+      <div id="t-news"></div>
+    </div>
+    <div>
+      <div class="tile" style="margin-bottom:1.2rem">
+        <h3>Squad</h3>
+        <div id="t-roster"></div>
+      </div>
+      <div class="tile" style="margin-bottom:1.2rem">
+        <h3>Members-only area</h3>
+        <div id="t-private"></div>
+      </div>
+      <div class="tile">
+        <h3>Photos and video</h3>
+        <p class="meta">Match nights and training.</p>
+        <div class="grid" style="grid-template-columns:1fr 1fr;gap:.5rem">
+          <div style="aspect-ratio:1;background:var(--paper);border:2px dashed var(--line-d);border-radius:3px"></div>
+          <div style="aspect-ratio:1;background:var(--paper);border:2px dashed var(--line-d);border-radius:3px"></div>
+          <div style="aspect-ratio:1;background:var(--paper);border:2px dashed var(--line-d);border-radius:3px"></div>
+          <div style="aspect-ratio:1;background:var(--paper);border:2px dashed var(--line-d);border-radius:3px"></div>
+        </div>
+        <p class="small muted" style="margin-top:.7rem">Photos of minors are published only with written parental consent. <a href="gallery.html">Full gallery</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-footer></div>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+(function(){
+  var C=window.CAA,D=C.D,id=C.qs('id')||'caa-u12';
+  var t=D.teams.find(function(x){return x.id===id;});
+  if(!t){location.replace('teams.html');return;}
+  if(t.id==='obsidian-ac'){location.replace('obsidian-ac.html');return;}
+  document.title=t.name+' | Coach Arnold Academy';
+  document.getElementById('crumb').textContent=t.name;
+  document.getElementById('t-name').textContent=t.name;
+  document.getElementById('t-crest').textContent=t.crest;
+  document.getElementById('t-meta').textContent=t.level+' · '+t.ages+' · '+t.manager;
+  document.getElementById('t-blurb').textContent=t.blurb;
+  document.getElementById('t-history').textContent=t.history;
+  document.getElementById('t-join').href='join-team.html?team='+t.id;
+  document.getElementById('t-contact').href=C.waLink('Hi Coach Arnold, I have a question about '+t.name+': ');
+  document.getElementById('t-train').innerHTML=t.trainings.map(function(x){return '<li>'+C.esc(x)+'</li>';}).join('');
+
+  var fx=D.matches.filter(function(m){return m.team===t.id;});
+  document.getElementById('t-fixtures').innerHTML=fx.length?fx.map(function(m){
+    var d=C.dparse(m.date);
+    return '<div class="row"><div class="date"><span class="d">'+d.getDate()+'</span><span class="m">'+
+      ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()]+'</span></div>'+
+      '<div><div class="t">'+C.esc(m.opponent)+'</div><div class="s">'+
+      (m.status==='completed'?C.esc(m.score||'Result to follow'):C.fmtTime(m.kick)+' · '+C.esc(m.venue))+'</div></div>'+
+      '<div class="act"><a class="btn sm dark-ghost" href="schedule.html#'+m.id+'">Details</a></div></div>';
+  }).join('') : '<div class="empty"><h4>No fixtures listed</h4><p>The season schedule goes up here as soon as the league confirms it.</p></div>';
+
+  var st=D.standings[t.id];
+  document.getElementById('t-standings').innerHTML = st ? tableHTML(st) :
+    '<div class="empty"><h4>No table for this team</h4><p>This squad plays friendlies and development fixtures rather than a league season.</p></div>';
+  function tableHTML(s){
+    return '<p class="meta">'+C.esc(s.league)+'</p><div class="tablewrap"><table><thead><tr><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>Pts</th></tr></thead><tbody>'+
+      s.rows.map(function(r){return '<tr'+(r.us?' style="font-weight:600;background:rgba(27,84,255,.07)"':'')+'><td>'+C.esc(r.team)+'</td><td>'+r.p+'</td><td>'+r.w+'</td><td>'+r.d+'</td><td>'+r.l+'</td><td>'+r.gf+'</td><td>'+r.ga+'</td><td>'+r.pts+'</td></tr>';}).join('')+
+      '</tbody></table></div>';
+  }
+
+  document.getElementById('t-news').innerHTML=D.news.slice(0,2).map(function(n){
+    return '<div class="feature" style="margin-bottom:1rem"><h3>'+C.esc(n.title)+'</h3><p class="meta">'+C.fmtDate(n.date)+'</p><p>'+C.esc(n.body)+'</p></div>';
+  }).join('')+'<a class="btn sm dark-ghost" href="news.html">All announcements</a>';
+
+  var u=C.auth.user(), roster=D.roster[t.id]||[];
+  var lock='<svg viewBox="0 0 24 24"><path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V6a3 3 0 0 1 3-3z"/></svg>';
+  if(u){
+    document.getElementById('t-roster').innerHTML='<div class="tablewrap"><table><thead><tr><th>#</th><th>Player</th><th>Position</th></tr></thead><tbody>'+
+      roster.map(function(p){return '<tr><td>'+C.esc(p.num)+'</td><td>'+C.esc(p.n)+'</td><td>'+C.esc(p.pos)+'</td></tr>';}).join('')+'</tbody></table></div>'+
+      '<p class="small muted" style="margin-top:.6rem">Players under 18 are listed by first name and last initial only.</p>';
+    document.getElementById('t-private').innerHTML='<p class="meta">You are signed in as '+C.esc(u.name)+'.</p>'+
+      '<p>Tactics, lineups, documents and the team WhatsApp group are in your dashboard.</p>'+
+      '<div class="foot"><a class="btn sm" href="dashboard.html">Open team dashboard</a></div>';
+  }else{
+    document.getElementById('t-roster').innerHTML='<div class="locked">'+lock+'<h4>Roster is private</h4>'+
+      '<p class="small">Squad lists are visible to approved team members only. This protects players, particularly minors.</p>'+
+      '<div class="btn-row" style="justify-content:center"><a class="btn sm" href="login.html">Log in</a></div></div>';
+    document.getElementById('t-private').innerHTML='<div class="locked">'+lock+'<h4>Members only</h4>'+
+      '<p class="small">Tactics, lineups, documents and the WhatsApp group link are behind the login.</p>'+
+      '<div class="btn-row" style="justify-content:center"><a class="btn sm" href="login.html">Log in</a><a class="btn sm dark-ghost" href="join-team.html?team='+t.id+'">Apply</a></div></div>';
+  }
+})();
+</script>
+<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+-->
+</body>
+</html>
