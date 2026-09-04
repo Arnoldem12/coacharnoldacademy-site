@@ -5,4 +5,4 @@ Allow: /
 Disallow: /dashboard.html
 Disallow: /login.html
 
-Sitemap: https://www.coacharnoldacademy.com/sitemap.xml
+Sitemap: https://coacharnoldacademy.com/sitemap.xml
