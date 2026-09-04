@@ -15,25 +15,26 @@ window.CAA_DATA = {
     name: "Coach Arnold Academy",
     tagline: "Youth and adult soccer coaching",
     coach: "Arnold Eoka Mambe",
-    email: "coach@coacharnoldacademy.com",          // REPLACE
-    phone: "+1 (360) 555-0142",                      // REPLACE
-    whatsapp: "13605550142",                         // REPLACE digits only, no +
+    email: "emajob12@gmail.com",          // REPLACED
+    phone: "+1 (509) 339-5486",                      // REPLACED
+    whatsapp: "15093395486",                         // REPLACED digits only, no +
     instagram: "https://instagram.com/coacharnoldacademy",
-    facebook: "https://facebook.com/coacharnoldacademy",   // REPLACE
-    youtube: "https://youtube.com/@coacharnoldacademy",    // REPLACE
+    facebook: "", // "https://facebook.com/coacharnoldacademy",   // REPLACE or add later
+    youtube: "https://youtube.com/@arnoldeoka5426",    // REPLACED
     tiktok: "",                                      // add later
     serviceArea: "Camas, Vancouver and Washougal, WA; Portland, OR and surrounding communities",
     baseCity: "Camas, Washington",
     responseTime: "Most messages get a reply within 24 hours, and same day on weekdays.",
-    ga4: "G-XXXXXXXXXX",                             // REPLACE with Google Analytics 4 ID
-    searchConsole: "REPLACE_WITH_VERIFICATION_TOKEN"
+    ga4: "",                             // REPLACE with Google Analytics 4 ID
+    searchConsole: ""
   },
 
   locations: [
-    { id:"lacamas",  name:"Lacamas Lake Fields",      city:"Camas, WA",      note:"Outdoor turf and grass. Free parking on the north lot." },       // REPLACE
-    { id:"heritage", name:"Heritage Park Turf",       city:"Vancouver, WA",  note:"Lit turf, available year round." },                              // REPLACE
-    { id:"indoor",   name:"Riverview Indoor Arena",   city:"Vancouver, WA",  note:"Home venue for Obsidian AC league nights." },                     // REPLACE
-    { id:"portland", name:"Portland east side fields",city:"Portland, OR",   note:"Field assigned when your session is confirmed." },                // REPLACE
+    { id:"lacamas",  name:"Doc Harris Soccer Fields",      city:"Camas, WA",      note:"Outdoor turf and grass. Free parking on the north lot." },       // REPLACED
+    { id:"heritage", name:"Shahala Middle School",    city:"Vancouver, WA",  note:"Lit turf, available year round." },                              // REPLACED
+    { id:"union",    name:"Union High School",        city:"Vancouver, WA",  note:"Lit turf, available year round." },                              // REPLACED
+    { id:"indoor",   name:"Clark County Indoor Soccer",   city:"Vancouver, WA",  note:"Home venue for Obsidian AC league nights." },                     // REPLACED
+    { id:"portland", name:"Portland east side fields",city:"Portland, OR",   note:"Field assigned when your session is confirmed." },                // REPLACED
     { id:"virtual",  name:"Online session",           city:"Video call",     note:"Zoom or Google Meet link sent with your confirmation." }
   ],
 
@@ -42,7 +43,7 @@ window.CAA_DATA = {
       id:"private", name:"One-on-one private coaching", order:1,
       short:"A full hour built around one player, one plan and measurable goals.",
       ages:"Ages 6 to adult", duration:"60 minutes", max:"1 player",
-      level:"Beginner to advanced", price:"$75 per session", locations:["lacamas","heritage","portland"],
+      level:"Beginner to advanced", price:"$50 per session", locations:["lacamas","heritage","union","portland"],
       body:"Private sessions move fastest because every repetition belongs to one player. The first session is a baseline: first touch under pressure, both feet, body shape when receiving, decision speed in small spaces. From there Coach Arnold sets two or three targets and returns to them every week so progress is visible rather than assumed.",
       learn:["Clean first touch with both feet and away from pressure","Change of direction and beating a defender one against one","Passing weight, angle and timing under game speed","Finishing technique from inside and outside the box","Scanning before receiving so the next decision is already made"],
       slots:["Mon 4:00 pm","Tue 5:30 pm","Wed 4:00 pm","Thu 5:30 pm","Sat 9:00 am","Sat 10:30 am"]
@@ -51,7 +52,7 @@ window.CAA_DATA = {
       id:"small-group", name:"Small-group training", order:2,
       short:"Two to six players. Private-session detail with the competition of real opponents.",
       ages:"Ages 7 to 18", duration:"75 minutes", max:"6 players",
-      level:"Beginner to advanced", price:"$35 per player, per session", locations:["lacamas","heritage"],
+      level:"Beginner to advanced", price:"$25 per player, per session", locations:["lacamas","heritage","union","portland"],
       body:"Small groups keep the coaching detailed while adding what a private session cannot: a real opponent. Sessions run technical work first, then small-sided games where the technique has to hold up against pressure. Bring a friend or teammate, or ask to be placed in a group at a similar level.",
       learn:["Combination play in tight areas","Defending one against one and recovery runs","Speed of play in two-touch and one-touch games","Competing for a loose ball without fouling","Communication and simple leadership habits"],
       slots:["Tue 4:30 pm","Thu 4:30 pm","Sat 11:30 am","Sun 10:00 am"]
@@ -60,7 +61,7 @@ window.CAA_DATA = {
       id:"youth", name:"Youth player development", order:3,
       short:"A season-long pathway for young players, built on confidence before complexity.",
       ages:"Ages 5 to 14", duration:"60 minutes weekly", max:"12 players",
-      level:"New players welcome", price:"$180 per 6-week block", locations:["lacamas","heritage"],
+      level:"New players welcome", price:"$180 per 6-week block", locations:["lacamas","heritage","union","portland"],
       body:"Younger players learn best when they touch the ball constantly and are allowed to try things without fear. Sessions are short, active and game-based. Parents receive a brief written note after each block covering what improved and what to practise at home.",
       learn:["Ball mastery patterns children can repeat at home","Dribbling with the head up","Comfortable receiving under light pressure","Fair play, effort and how to lose well","Enjoying the game enough to keep playing"],
       slots:["Mon 5:00 pm","Wed 5:00 pm","Sat 9:00 am"]
@@ -69,7 +70,7 @@ window.CAA_DATA = {
       id:"adult", name:"Adult soccer training", order:4,
       short:"For adults returning to the game, starting it late, or preparing for league nights.",
       ages:"Ages 18+", duration:"75 minutes", max:"10 players",
-      level:"Complete beginner to league standard", price:"$30 per session", locations:["heritage","indoor"],
+      level:"Complete beginner to league standard", price:"$30 per session", locations:["lacamas","heritage","union","portland"],
       body:"Plenty of adults want to play but do not want to be the least confident person on the pitch. These sessions fix that in private, at a sensible intensity, with technique taught properly rather than assumed. Beginners and returning players train in the same group and are given different targets within the same exercise.",
       learn:["Striking a ball correctly without straining the ankle or knee","Receiving and turning in small indoor spaces","Positional basics for six-a-side and seven-a-side","Fitness that carries through a full match","Playing at pace without panicking on the ball"],
       slots:["Tue 7:30 pm","Thu 7:30 pm","Sun 6:00 pm"]
@@ -78,7 +79,7 @@ window.CAA_DATA = {
       id:"team", name:"Team training", order:5,
       short:"Full-squad sessions for clubs, school teams and rec teams that want structure.",
       ages:"All ages", duration:"90 minutes", max:"22 players",
-      level:"Rec through competitive", price:"Contact for pricing", locations:["lacamas","heritage","portland"],
+      level:"Rec through competitive", price:"Contact for pricing", locations:["lacamas","heritage","union","portland"],
       body:"Coach Arnold plans and runs the session with your existing coaching staff, or takes it entirely. The work is built from what your team actually struggles with, whether that is building out from the back, pressing as a unit, or simply having a warm-up that prepares players properly. Available as a one-off or a block across a season.",
       learn:["A repeatable session structure your staff can reuse","Pressing triggers the whole team recognises","Building out from the goalkeeper under pressure","Set-piece routines for and against","Standards for training intensity and behaviour"],
       slots:["By arrangement"]
@@ -87,7 +88,7 @@ window.CAA_DATA = {
       id:"position", name:"Position-specific coaching", order:6,
       short:"Detail work for goalkeepers, defenders, midfielders and forwards.",
       ages:"Ages 10 to adult", duration:"60 minutes", max:"4 players",
-      level:"Intermediate to advanced", price:"$75 private, $40 in pairs", locations:["lacamas","heritage"],
+      level:"Intermediate to advanced", price:"$75 private, $40 in pairs", locations:["lacamas","heritage","union","portland"],
       body:"Every position has its own problems to solve. A centre back needs different feet, different scanning habits and a different first touch than a winger. These sessions strip the game down to the demands of one role and drill them until they hold under pressure.",
       learn:["Goalkeeping: handling, set position, distribution, dealing with crosses","Full backs: overlapping, defending the touchline, recovery angles","Centre backs: heading, body position, stepping out with the ball","Midfielders: receiving on the half turn, screening, switching play","Forwards: movement in the box, finishing first time, pressing from the front"],
       slots:["Wed 6:30 pm","Fri 4:30 pm","Sun 11:30 am"]
@@ -105,7 +106,7 @@ window.CAA_DATA = {
       id:"tactical", name:"Tactical learning and game understanding", order:8,
       short:"Classroom and pitch work on why the game happens the way it does.",
       ages:"Ages 11 to adult", duration:"75 minutes", max:"12 players",
-      level:"Intermediate to advanced", price:"$35 per session", locations:["heritage","virtual"],
+      level:"Intermediate to advanced", price:"$25 per session", locations:["heritage","virtual"],
       body:"Players who understand the game make faster decisions with less effort. Sessions combine a short whiteboard segment with pitch work on the same idea, so the concept is seen, walked through and then played at speed. Formations, pressing structure, transitions and game management are covered across a rolling cycle.",
       learn:["Reading the shape of the opposition","When to press and when to hold","Playing forward, backward and sideways with purpose","Roles inside 4-3-3, 4-4-2 and 3-5-2","Managing a match: game state, tempo, time"],
       slots:["Tue 6:30 pm","Sun 4:00 pm"]
@@ -159,24 +160,9 @@ window.CAA_DATA = {
 
   /* Fixtures. status: scheduled | changed | canceled | completed */
   matches: [
-    { id:"m1", team:"obsidian-ac", opponent:"Riverside FC", date:"2026-09-09", kick:"20:30", arrive:"20:00",
+    { id:"m1", team:"obsidian-ac", opponent:"", date:"2026-09-09", kick:"10:30", arrive:"10:00",
       venue:"Riverview Indoor Arena", address:"1200 SE Riverview Way, Vancouver, WA", home:true,
-      kit:"Black shirts, black shorts", status:"scheduled", notes:"League opener. Bring both kit colours." },
-    { id:"m2", team:"obsidian-ac", opponent:"Cascade United", date:"2026-09-16", kick:"21:15", arrive:"20:45",
-      venue:"Cascade Sports Center", address:"3400 NE 78th St, Vancouver, WA", home:false,
-      kit:"White shirts, black shorts", status:"scheduled", notes:"Parking fills quickly, arrive early." },
-    { id:"m3", team:"obsidian-ac", opponent:"Fort Vancouver SC", date:"2026-09-23", kick:"20:30", arrive:"20:00",
-      venue:"Riverview Indoor Arena", address:"1200 SE Riverview Way, Vancouver, WA", home:true,
-      kit:"Black shirts, black shorts", status:"scheduled", notes:"" },
-    { id:"m4", team:"caa-u12", opponent:"Camas Youth Green", date:"2026-09-12", kick:"10:00", arrive:"09:30",
-      venue:"Lacamas Lake Fields", address:"Lacamas Lake Park, Camas, WA", home:true,
-      kit:"Blue shirts, navy shorts", status:"scheduled", notes:"Shin guards required, no exceptions." },
-    { id:"m5", team:"obsidian-ac", opponent:"Columbia Athletic", date:"2026-08-26", kick:"20:30", arrive:"20:00",
-      venue:"Riverview Indoor Arena", address:"1200 SE Riverview Way, Vancouver, WA", home:true,
-      kit:"Black shirts, black shorts", status:"completed", score:"Obsidian AC 5 – 3 Columbia Athletic", notes:"" },
-    { id:"m6", team:"obsidian-ac", opponent:"Salmon Creek FC", date:"2026-08-19", kick:"21:15", arrive:"20:45",
-      venue:"Cascade Sports Center", address:"3400 NE 78th St, Vancouver, WA", home:false,
-      kit:"White shirts, black shorts", status:"completed", score:"Salmon Creek FC 2 – 2 Obsidian AC", notes:"" }
+      kit:"Obsidian Jersey", status:"scheduled", notes:"League opener. Bring both kit colours." }
   ],
 
   trainings: [
@@ -190,13 +176,10 @@ window.CAA_DATA = {
 
   standings: {
     "obsidian-ac": {
-      league:"Riverview Winter Indoor, Division 2",   // REPLACE
+      league:"Co-Ed Indoor Soccer @ Clark ",   // REPLACE
       rows:[
-        { team:"Cascade United",    p:4, w:3, d:1, l:0, gf:19, ga:9,  pts:10 },
         { team:"Obsidian AC",       p:4, w:2, d:1, l:1, gf:16, ga:12, pts:7, us:true },
-        { team:"Riverside FC",      p:4, w:2, d:0, l:2, gf:14, ga:13, pts:6 },
-        { team:"Fort Vancouver SC", p:4, w:1, d:1, l:2, gf:11, ga:15, pts:4 },
-        { team:"Columbia Athletic", p:4, w:0, d:1, l:3, gf:10, ga:21, pts:1 }
+        { team:"2-Left Feet", p:4, w:0, d:1, l:3, gf:10, ga:21, pts:1 }
       ]
     }
   },
@@ -204,20 +187,12 @@ window.CAA_DATA = {
   /* Rosters stay behind login. Public pages show initials only for minors. */
   roster: {
     "obsidian-ac":[
-      { n:"A. Mambe", pos:"Manager", num:"—", minor:false },
-      { n:"D. Okonkwo", pos:"Goalkeeper", num:"1", minor:false },
-      { n:"J. Reyes", pos:"Defender", num:"4", minor:false },
-      { n:"T. Nguyen", pos:"Defender", num:"5", minor:false },
-      { n:"M. Haddad", pos:"Midfielder", num:"8", minor:false },
-      { n:"S. Whitfield", pos:"Midfielder", num:"10", minor:false },
-      { n:"K. Baptiste", pos:"Forward", num:"9", minor:false },
-      { n:"P. Sandoval", pos:"Forward", num:"11", minor:false }
+      { n:"Arnold", pos:"Manager", num:"11", minor:false },
+      { n:"Zylah", pos:"futur player", num:"6", minor:false }
     ],
     "caa-u12":[
       { n:"Player A", pos:"Goalkeeper", num:"1", minor:true },
       { n:"Player B", pos:"Defender", num:"3", minor:true },
-      { n:"Player C", pos:"Midfielder", num:"7", minor:true },
-      { n:"Player D", pos:"Forward", num:"9", minor:true }
     ],
     "caa-u15":[
       { n:"Player E", pos:"Defender", num:"2", minor:true },
@@ -262,20 +237,14 @@ window.CAA_DATA = {
       points:["Watch your movement when you don't have the ball","Count how often you scan before receiving","Pick two things to fix, not ten"], drills:["Clip and label five moments from your last match"] }
   ],
 
-  news: [
-    { id:"n1", date:"2026-09-01", title:"Fall small-group blocks are open",
-      body:"Six-week small-group blocks start the week of 15 September at Lacamas Lake Fields and Heritage Park. Groups are capped at six players and split by age and level. Book through the booking page or message Coach Arnold with questions about placement." },
-    { id:"n2", date:"2026-08-25", title:"Obsidian AC is recruiting for the winter season",
-      body:"Obsidian AC is looking for a goalkeeper, a centre back and a wide midfielder ahead of the winter indoor season. Applications go through the Obsidian AC page. Trial sessions run on Wednesday nights." },
-    { id:"n3", date:"2026-08-18", title:"New training video series on first touch",
-      body:"A short series on receiving under pressure is going up on the academy YouTube channel through September. Each video comes with a home drill that takes under fifteen minutes." }
-  ],
+  /* Announcements. Must stay an array — several pages call news.map().
+     Commenting the whole key out breaks news, team, Obsidian AC and the
+     dashboard. Leave it as [] when there is nothing to announce, or add
+     posts from the coach dashboard. */
+  news: [],
 
   testimonials: [
-    { q:"My son went from hiding on the wing to asking for the ball. Six weeks. That is the whole review.", a:"Parent of a U11 player, Camas", role:"Youth development" },   // REPLACE
-    { q:"I hadn't played since high school and I was nervous about looking foolish. Coach Arnold pitched the session so I was working hard without being embarrassed.", a:"Adult beginner, Vancouver", role:"Adult training" },  // REPLACE
-    { q:"The video analysis was the first time anyone showed me what I actually do off the ball. Two fixes, and my coach noticed within a month.", a:"U16 club player", role:"Video analysis" },   // REPLACE
-    { q:"He plans the session, runs it properly and holds standards. Our team's warm-up alone is a different thing now.", a:"Rec team manager, Washougal", role:"Team training" }   // REPLACE
+    { q:"My son went from hiding on the wing to asking for the ball. Six weeks. He had an amazing experience", a:"Parent of a U11 player, Camas", role:"Youth development" }  // REPLACED
   ],
 
   faqs: [
@@ -291,11 +260,13 @@ window.CAA_DATA = {
     { q:"Do you coach goalkeepers?", a:"Yes, through position-specific coaching. Goalkeeper sessions are private or in pairs." }
   ],
 
-  /* Demo accounts for the front-end preview. Replace with real
-     authentication before launch — see README, section "Authentication". */
+  /* PREVIEW ACCOUNTS ONLY — THIS FILE IS PUBLIC.
+     Anyone can read it at /assets/js/data.js, so anything written here is
+     readable by the whole internet. Never put a real password in this file.
+     The password below is a throwaway for previewing the coach dashboard;
+     it protects nothing. A real, secure login needs an authentication
+     provider — see README, section "Authentication". */
   demoUsers: [
-    { email:"player@demo.test",  pass:"demo1234", role:"player", name:"Sam Whitfield", teams:["obsidian-ac"] },
-    { email:"parent@demo.test",  pass:"demo1234", role:"parent", name:"Dana Whitfield", children:[{name:"Jordan Whitfield", age:11, team:"caa-u12"},{name:"Ellie Whitfield", age:8, team:null}] },
-    { email:"coach@demo.test",   pass:"demo1234", role:"coach",  name:"Arnold Eoka Mambe" }
+    { email:"emajob12@gmail.com", pass:"preview-only-2026", role:"coach", name:"Arnold", teams:["obsidian-ac"] }
   ]
 };
