@@ -73,6 +73,11 @@
   var C=window.CAA,D=C.D;
   var extra=C.store.get('announcements',[]);
   var all=extra.concat(D.news);
+  if(!all.length){
+    document.getElementById('news-list').innerHTML=
+      '<p class="meta">No announcements just yet. Session openings, registration windows and match news get posted here — check back soon, or message Coach Arnold directly.</p>';
+    return;
+  }
   document.getElementById('news-list').innerHTML=all.map(function(n){
     return '<article style="border-bottom:1px solid var(--line-d);padding-bottom:1.6rem;margin-bottom:1.6rem">'+
       '<p class="meta">'+C.fmtDate(n.date,true)+'</p><h2 style="font-size:1.7rem">'+C.esc(n.title)+'</h2>'+
