@@ -137,7 +137,7 @@ window.CAA_DATA = {
       level:"Adult indoor, co-ed", ages:"18+", manager:"Coach Arnold",
       blurb:"The academy's indoor side. Competitive, disciplined, and built for players who want a serious league night without a full outdoor commitment.",
       home:"indoor", recruiting:true, needs:["Goalkeeper","Centre back","Wide midfielder"],
-      trainings:["Wednesdays 8:00 pm, Riverview Indoor Arena"],
+      trainings:["Wednesdays 8:00 pm, Clark County Indoor Soccer"],
       history:"Obsidian AC was formed in 2024 out of the academy's adult sessions, when a group of players wanted somewhere to put the work they had been doing on Tuesday nights. The squad plays in the winter indoor league and trains through the season."   // REPLACE with real founding details
     },
     {
@@ -145,7 +145,7 @@ window.CAA_DATA = {
       level:"Recreational and select development", ages:"U11 to U12", manager:"Coach Arnold",
       blurb:"A development squad focused on technical growth and regular game time for every player.",
       home:"lacamas", recruiting:true, needs:["Outfield players"],
-      trainings:["Mondays 5:00 pm, Lacamas Lake Fields","Saturdays 9:00 am, Lacamas Lake Fields"],
+      trainings:["Mondays 5:00 pm, Doc Harris Soccer Fields","Saturdays 9:00 am, Doc Harris Soccer Fields"],
       history:"Formed to give younger players a competitive but low-pressure route into organised soccer."   // REPLACE
     },
     {
@@ -153,16 +153,18 @@ window.CAA_DATA = {
       level:"Select development", ages:"U14 to U15", manager:"Coach Arnold",
       blurb:"For players preparing to step into high school and club soccer with a stronger technical base.",
       home:"heritage", recruiting:false, needs:[],
-      trainings:["Wednesdays 6:00 pm, Heritage Park Turf"],
+      trainings:["Wednesdays 6:00 pm, Shahala Middle School"],
       history:"Built around the academy's small-group players who wanted a regular team environment."   // REPLACE
     }
   ],
 
   /* Fixtures. status: scheduled | changed | canceled | completed */
   matches: [
-    { id:"m1", team:"obsidian-ac", opponent:"", date:"2026-09-09", kick:"10:30", arrive:"10:00",
-      venue:"Riverview Indoor Arena", address:"1200 SE Riverview Way, Vancouver, WA", home:true,
-      kit:"Obsidian Jersey", status:"scheduled", notes:"League opener. Bring both kit colours." }
+    /* address goes straight into the Google/Apple calendar link, so keep it
+       accurate — add the exact street address once confirmed. */
+    { id:"m1", team:"obsidian-ac", opponent:"TBC", date:"2026-09-09", kick:"10:30", arrive:"10:00",
+      venue:"Clark County Indoor Soccer", address:"Vancouver, WA", home:true,
+      kit:"Obsidian jersey", status:"scheduled", notes:"League opener. Bring both kit colours." }
   ],
 
   trainings: [
@@ -176,10 +178,13 @@ window.CAA_DATA = {
 
   standings: {
     "obsidian-ac": {
-      league:"Co-Ed Indoor Soccer @ Clark ",   // REPLACE
+      league:"Co-Ed Indoor Soccer @ Clark",
+      /* Season has not kicked off yet, so every row is zero. Update these
+         after each match. The row marked us:true drives the stat tiles on
+         the Obsidian AC page, so keep it. */
       rows:[
-        { team:"Obsidian AC",       p:4, w:2, d:1, l:1, gf:16, ga:12, pts:7, us:true },
-        { team:"2-Left Feet", p:4, w:0, d:1, l:3, gf:10, ga:21, pts:1 }
+        { team:"Obsidian AC", p:0, w:0, d:0, l:0, gf:0, ga:0, pts:0, us:true },
+        { team:"2-Left Feet", p:0, w:0, d:0, l:0, gf:0, ga:0, pts:0 }
       ]
     }
   },
@@ -188,16 +193,13 @@ window.CAA_DATA = {
   roster: {
     "obsidian-ac":[
       { n:"Arnold", pos:"Manager", num:"11", minor:false },
-      { n:"Zylah", pos:"futur player", num:"6", minor:false }
+      { n:"Zylah", pos:"Future player", num:"6", minor:false }
     ],
-    "caa-u12":[
-      { n:"Player A", pos:"Goalkeeper", num:"1", minor:true },
-      { n:"Player B", pos:"Defender", num:"3", minor:true },
-    ],
-    "caa-u15":[
-      { n:"Player E", pos:"Defender", num:"2", minor:true },
-      { n:"Player F", pos:"Midfielder", num:"6", minor:true }
-    ]
+    /* Empty until real squads are signed. Add players as
+       { n:"First L.", pos:"Defender", num:"4", minor:true } — use first name
+       and last initial for anyone under 18, and set minor:true. */
+    "caa-u12":[],
+    "caa-u15":[]
   },
 
   /* YouTube: replace yt with the real 11-character video ID. */
