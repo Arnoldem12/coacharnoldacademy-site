@@ -30,8 +30,6 @@ def shell(fname, title, desc, body, jsonld="", extra_js="", body_attr="", og_typ
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
 <meta name="twitter:image" content="{SITE}/assets/img/logo-512.png">
-<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
-<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 {FONTS}

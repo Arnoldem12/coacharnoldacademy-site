@@ -226,10 +226,10 @@
             '<a class="brand" href="index.html" style="margin-bottom:.9rem"><img src="assets/img/logo-512.png" alt="" width="46" height="46"><b>Coach Arnold<span>Academy</span></b></a>' +
             '<p style="font-size:.94rem;max-width:34ch">Private, group and team soccer coaching for children, teenagers and adults across ' + esc(S.serviceArea) + '.</p>' +
             '<div class="social">' +
-              '<a href="' + S.instagram + '" aria-label="Instagram" rel="noopener" target="_blank">' + ig + "</a>" +
-              '<a href="' + S.facebook + '" aria-label="Facebook" rel="noopener" target="_blank">' + fb + "</a>" +
-              '<a href="' + S.youtube + '" aria-label="YouTube" rel="noopener" target="_blank">' + yt + "</a>" +
-              '<a href="' + waLink() + '" aria-label="WhatsApp" rel="noopener" target="_blank">' + wa + "</a>" +
+              [[S.instagram, "Instagram", ig], [S.facebook, "Facebook", fb], [S.youtube, "YouTube", yt], [waLink(), "WhatsApp", wa]]
+                .filter(function (x) { return x[0]; })
+                .map(function (x) { return '<a href="' + x[0] + '" aria-label="' + x[1] + '" rel="noopener" target="_blank">' + x[2] + "</a>"; })
+                .join("") +
             "</div>" +
           "</div>" +
           "<div><h4>Train</h4>" +

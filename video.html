@@ -17,8 +17,6 @@
 <meta name="twitter:title" content="Training video | Coach Arnold Academy">
 <meta name="twitter:description" content="Watch a Coach Arnold Academy training video with coaching points, related drills and a home practice plan.">
 <meta name="twitter:image" content="https://coacharnoldacademy.com/assets/img/logo-512.png">
-<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
-<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
@@ -80,7 +78,7 @@
   document.getElementById('v-embed').innerHTML = v.yt ?
     '<iframe class="vid" src="https://www.youtube-nocookie.com/embed/'+v.yt+'" title="'+C.esc(v.title)+'" loading="lazy" allowfullscreen allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture"></iframe>'
     : '<div class="vthumb" style="cursor:default"><div style="text-align:center;padding:1.4rem"><span class="play" style="margin:0 auto .8rem"> &#9654;</span>'+
-      '<p style="color:#C9D5EC;margin:0;font-size:.95rem">Video not linked yet. Add the YouTube ID for <strong>'+C.esc(v.id)+'</strong> in data.js.</p></div></div>';
+      '<p style="color:#C9D5EC;margin:0;font-size:.95rem">This one is not filmed yet. The coaching points and drills below still stand on their own.</p></div></div>';
   document.getElementById('v-points').innerHTML=v.points.map(function(p){return '<li>'+C.esc(p)+'</li>';}).join('');
   document.getElementById('v-drills').innerHTML=v.drills.map(function(p){return '<li>'+C.esc(p)+'</li>';}).join('');
   document.getElementById('v-facts').innerHTML=[['Category',v.cat],['Recommended level',v.level]].map(function(r){

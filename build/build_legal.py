@@ -1,9 +1,12 @@
 from shared import shell, page_hero
 
-REVIEW = ('<div class="notice"><strong>Template wording, not legal advice.</strong>'
-          '<p>These policies are a solid starting point written for a small coaching business in Washington State. '
-          'Coach Arnold should have them reviewed by an attorney or insurer before launch, and the waiver in particular '
-          'should match the wording his liability insurance requires.</p></div>')
+# NOTE (internal, not published): these policies are template wording. Getting them
+# reviewed by an attorney or insurer is still an outstanding task, and the waiver
+# should be matched to whatever the liability insurance requires.
+REVIEW = ('<div class="notice"><strong>Questions about any of this?</strong>'
+          '<p>These terms are written plainly on purpose. If anything here is unclear, or you need a point '
+          'clarified before you book or sign, <a href="contact.html">ask Coach Arnold</a> — a question about '
+          'a policy is never a problem.</p></div>')
 
 UPDATED = '<p class="print-note">Last updated 1 September 2026. Coach Arnold Academy, Camas, Washington.</p>'
 

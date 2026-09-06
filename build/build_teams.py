@@ -173,7 +173,7 @@ obs_body = """
          style="width:104px;height:auto;margin-bottom:1.1rem;mix-blend-mode:lighten">
     <span class="kicker"><i></i> Adult indoor soccer, Vancouver WA</span>
     <h1>Obsidian AC</h1>
-    <p class="lede">Coach Arnold's indoor side. A planned training session every Wednesday, a competitive league night, and a squad that shows up for both.</p>
+    <p class="lede">Coach Arnold's co-ed side, indoor and outdoor. Planned training, a competitive league night, and a squad that shows up for both.</p>
     <div class="btn-row">
       <a class="btn" href="join-team.html?team=obsidian-ac">Apply for Obsidian AC</a>
       <a class="btn ghost" href="#fixtures">View upcoming matches</a>
@@ -193,11 +193,10 @@ obs_body = """
       <h3 style="margin-top:2rem">Indoor league information</h3>
       <div class="grid g2">
         <div class="feature"><h3>Format</h3><p>Six-a-side indoor, running clock, rolling substitutions, walls in play.</p></div>
-        <div class="feature"><h3>Season</h3><p>Winter league across roughly twelve weeks, one fixture per week on a weeknight.</p></div>
+        <div class="feature"><h3>Season</h3><p>League dates are confirmed by the venue. Fixtures are published here and sent to the squad as soon as they are set.</p></div>
         <div class="feature"><h3>Home venue</h3><p>Riverview Indoor Arena, Vancouver WA. Free parking, spectators welcome.</p></div>
         <div class="feature"><h3>Fees</h3><p>Season fee per player covering league registration, referees and venue. Confirm current amount with Coach Arnold.</p></div>
       </div>
-      <p class="small muted" style="margin-top:.8rem">League name, venue and fee figures are sample content. <strong>Replace with the real league details before launch.</strong></p>
     </div>
     <div>
       <div class="tile" style="margin-bottom:1.2rem">
@@ -214,8 +213,8 @@ obs_body = """
       <div class="tile">
         <h3>Getting there</h3>
         <p class="meta">Riverview Indoor Arena, 1200 SE Riverview Way, Vancouver, WA</p>
-        <p>Enter through the north doors. Changing rooms are to the left, the arena is straight ahead. Arrive thirty minutes before kick-off.</p>
-        <div class="foot"><a class="btn sm dark-ghost" href="https://maps.google.com/?q=Vancouver+WA+indoor+soccer" target="_blank" rel="noopener">Open in maps</a></div>
+        <p>16311 NE 15th St, Vancouver, WA 98684. Free parking on site and spectators are welcome. Arrival time for each fixture is confirmed with the squad beforehand.</p>
+        <div class="foot"><a class="btn sm dark-ghost" href="https://maps.google.com/?q=Clark+County+Indoor+Sports+Center+16311+NE+15th+St+Vancouver+WA+98684" target="_blank" rel="noopener">Open in maps</a></div>
       </div>
       <div class="tile" style="margin-top:1.2rem">
         <h3>Not ready to commit?</h3>
@@ -293,7 +292,7 @@ obs_body = """
 <section class="paper" id="tryout">
   <div class="wrap-n">
     <div class="head"><span class="rule"></span><h2>Tryout registration</h2>
-      <p>A short form to reserve a place at a Wednesday trial session. There's no fee to trial and no obligation afterwards.</p></div>
+      <p>A short form to put your name down for a trial session. Dates are arranged directly with you. There's no fee to trial and no obligation afterwards.</p></div>
     <form class="form" data-form="tryouts" data-success-title="Tryout place reserved"
           data-success="Coach Arnold has your registration and will confirm the date, time and what to bring by email. Bring both a dark and a light shirt."
           data-toast="Tryout registration sent">
@@ -307,7 +306,7 @@ obs_body = """
           <select id="ty-pos" name="position" required>
             <option value="">Choose one</option><option>Goalkeeper</option><option>Defender</option>
             <option>Midfielder</option><option>Forward</option></select></div>
-        <div class="field"><label for="ty-date">Which Wednesday suits you?</label><input id="ty-date" name="date" type="date" required></div>
+        <div class="field"><label for="ty-date">Which date would suit you?</label><input id="ty-date" name="date" type="date" required></div>
       </div>
       <div class="field"><label for="ty-exp">Playing experience</label>
         <textarea id="ty-exp" name="experience" required placeholder="Recent clubs or leagues, level, how often you currently play."></textarea></div>
@@ -337,8 +336,8 @@ obs_body = """
         <h3>Team store</h3>
         <p>Training tops, match shirts and hoodies in the Obsidian AC colours. The store opens once the winter kit order is confirmed.</p>
         <div class="tile"><h3 style="font-size:1.1rem">Store opening soon</h3>
-          <p class="meta">Placeholder section</p>
-          <p>Connect a Shopify, Square or Printful storefront here, or link out to an external store. See the README, section "Team store".</p>
+          <p class="meta">Kit and training wear</p>
+          <p>Squad shirts, training tops and warm-up gear will be available to order once the first kit run is confirmed. Message Coach Arnold to be told when it opens.</p>
           <div class="foot"><a class="btn sm ghost" data-wa="Hi Coach Arnold, I'd like to know when the Obsidian AC store opens." href="#" target="_blank" rel="noopener">Tell me when it opens</a></div></div>
       </div>
     </div>
@@ -405,8 +404,6 @@ obs_js = """<script>
     return '<article class="tile"><h3 style="font-size:1.15rem">'+C.esc(n.title)+'</h3><p class="meta">'+C.fmtDate(n.date)+'</p><p>'+C.esc(n.body)+'</p></article>';
   }).join('');
 
-  var d=new Date(); d.setDate(d.getDate()+((3-d.getDay()+7)%7||7));
-  document.getElementById('ty-date').value=d.toISOString().slice(0,10);
   document.getElementById('ty-date').min=new Date().toISOString().slice(0,10);
 })();
 </script>"""
