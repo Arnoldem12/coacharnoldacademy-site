@@ -168,6 +168,9 @@ obs_body = """
 <section class="hero" data-pitch>
   <div class="glow"></div>
   <div class="wrap inner hero-anim">
+    <img src="assets/img/obsidian-crest.jpg" width="666" height="1000" decoding="async"
+         alt="Obsidian AC crest"
+         style="width:104px;height:auto;margin-bottom:1.1rem;mix-blend-mode:lighten">
     <span class="kicker"><i></i> Adult indoor soccer, Vancouver WA</span>
     <h1>Obsidian AC</h1>
     <p class="lede">Coach Arnold's indoor side. A planned training session every Wednesday, a competitive league night, and a squad that shows up for both.</p>
@@ -213,6 +216,45 @@ obs_body = """
         <p class="meta">Riverview Indoor Arena, 1200 SE Riverview Way, Vancouver, WA</p>
         <p>Enter through the north doors. Changing rooms are to the left, the arena is straight ahead. Arrive thirty minutes before kick-off.</p>
         <div class="foot"><a class="btn sm dark-ghost" href="https://maps.google.com/?q=Vancouver+WA+indoor+soccer" target="_blank" rel="noopener">Open in maps</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="kit">
+  <div class="wrap">
+    <div class="head"><span class="rule"></span><h2>Kit and crest</h2>
+      <p>Obsidian black at home, white away, both cut with the blue shard trim. Bring both shirts to every fixture: the league can ask a side to change strip on the night.</p></div>
+    <div class="split">
+      <figure style="margin:0">
+        <img src="assets/img/obsidian-kit.jpg" width="1536" height="1024" loading="lazy" decoding="async"
+             alt="Obsidian AC match kit. Top row: black home shirt and shorts, front and back. Bottom row: white away shirt and shorts, front and back. Each shirt carries the club crest on the chest, the squad number, and OBSIDIAN AC above the number on the back."
+             style="width:100%;height:auto;border:1px solid var(--line-d);border-radius:var(--r-md)">
+        <figcaption class="small muted" style="margin-top:.7rem">Home strip (top) and away strip (bottom), front and back. Squad numbers are assigned once an application is approved.</figcaption>
+      </figure>
+      <div>
+        <figure style="margin:0 0 1.2rem">
+          <div style="background:var(--ink);border-radius:var(--r-md);padding:1.4rem 1rem">
+            <img src="assets/img/obsidian-crest.jpg" width="666" height="1000" loading="lazy" decoding="async"
+                 alt="Obsidian AC crest: a crowned blue and silver shield around a stylised letter A above a football, with the club name on a banner beneath."
+                 style="width:min(100%,210px);height:auto;margin-inline:auto;mix-blend-mode:lighten">
+          </div>
+          <figcaption class="small muted" style="margin-top:.7rem;text-align:center">The club crest. Worn on the chest of both strips.</figcaption>
+        </figure>
+        <div class="tile">
+          <h3 style="font-size:1.15rem">Kit notes</h3>
+          <p class="meta">What to bring, what you get</p>
+          <ul style="padding-left:1.1rem">
+            <li><strong>Home:</strong> black shirt and shorts with blue and white trim.</li>
+            <li><strong>Away:</strong> white shirt and shorts with black and blue trim.</li>
+            <li><strong>Back of shirt:</strong> squad number with OBSIDIAN AC above it.</li>
+            <li><strong>Bring your own:</strong> indoor shoes, shin pads, black socks, and a full water bottle.</li>
+          </ul>
+          <p class="small">Front-of-shirt space is open to a sponsor for the season.</p>
+          <div class="foot"><a class="btn sm" href="join-team.html?team=obsidian-ac">Apply to join</a>
+            <a class="btn sm dark-ghost" href="sponsorship.html">Sponsor the shirt</a></div>
+        </div>
       </div>
     </div>
   </div>
