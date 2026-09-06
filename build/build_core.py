@@ -282,11 +282,14 @@ about_body = page_hero("About", "Coach Arnold",
       <hr>
 
       <div class="head"><span class="rule"></span><h2>Playing experience</h2></div>
-            <p>Arnold grew up playing the game and continues to play competitively, which keeps the coaching grounded in what actually happens on a pitch rather than what looks tidy on a whiteboard.</p>
+            <p>Arnold learned the game on the street, in more than one country, long before he ever played on a marked pitch with a referee. Street football teaches things a training ground cannot. You learn to keep the ball when there is nowhere to put it, to read a game with nobody shouting instructions, and to hold your own against players who are older, bigger and not inclined to go easy. A lot of how he coaches now comes straight from that.</p>
+      <p>In the United States he went on to play college soccer, and he still plays competitively in men's leagues and open competitions. He never played professionally and says so plainly — there is no invented career here. What matters is that he is still playing, so the coaching stays honest. He knows what a centre back actually does under pressure on a wet Tuesday, because he was doing it recently enough to remember.</p>
       <hr>
 
       <div class="head"><span class="rule"></span><h2>Coaching experience</h2></div>
-            <p>Coaching work spans youth development from age five, competitive youth teams, adult beginners returning to the game, and team-level sessions run alongside existing club staff. Arnold also manages Obsidian AC, the academy's adult indoor side.</p>
+            <p>Arnold holds the full set of US Soccer Grassroots coaching licences, and completes SafeSport training and background screening. Documentation is available to parents on request.</p>
+      <p>He started out coaching in elementary schools, which is the hardest and most useful place to learn the job. Thirty children at once, every ability in the same group, short attention spans, and nowhere to hide behind a whiteboard. Hold that group and teach them something real, and a small-group session with motivated players stops being intimidating.</p>
+      <p>Since then the work has covered youth development from age five, competitive youth teams, adults returning to the game or starting it late, and team-level sessions run alongside a club's existing staff. He also manages Obsidian AC, the academy's adult co-ed side.</p>
       <hr>
 
       <div class="head"><span class="rule"></span><h2>Working with youth and adults</h2></div>
