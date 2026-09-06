@@ -165,7 +165,7 @@ obs_body = """
     <h1>Obsidian AC</h1>
     <p class="lede">Coach Arnold's co-ed side, indoor and outdoor. Planned training, a competitive league night, and a squad that shows up for both.</p>
     <div class="btn-row">
-      <a class="btn" href="join-team.html?team=obsidian-ac">Apply for Obsidian AC</a>
+      <a class="btn" href="join-team.html?team=obsidian-ac">Join The Team</a>
       <a class="btn ghost" href="#fixtures">View upcoming matches</a>
       <a class="btn ghost" href="#tryout">Register for a tryout</a>
     </div>
