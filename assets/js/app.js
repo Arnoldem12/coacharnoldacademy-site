@@ -257,6 +257,34 @@
     return d;
   }
 
+  /* ---------- analytics ----------
+     GA4 loads only when the visitor has accepted analytics cookies and a
+     measurement ID is set in data.js (site.ga4). No ID, or no consent,
+     means no script is requested at all. */
+  var consent = {
+    get: function () { var c = store.get("cookies", null); return c ? c.choice : null; },
+    set: function (choice) {
+      store.set("cookies", { choice: choice, at: new Date().toISOString() });
+      if (choice === "all") loadAnalytics();
+      return choice;
+    }
+  };
+
+  var gaStarted = false;
+  function loadAnalytics() {
+    var id = String((S && S.ga4) || "").trim();
+    if (!id || gaStarted || consent.get() !== "all") return;
+    gaStarted = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", id, { anonymize_ip: true });
+    var sc = document.createElement("script");
+    sc.async = true;
+    sc.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+    document.head.appendChild(sc);
+  }
+
   function cookieBanner() {
     if (store.get("cookies", null)) return;
     var c = el("div", { class: "cookie show", role: "region", "aria-label": "Cookie preferences" });
@@ -267,7 +295,7 @@
     document.body.appendChild(c);
     $$("[data-ck]", c).forEach(function (b) {
       b.addEventListener("click", function () {
-        store.set("cookies", { choice: b.dataset.ck, at: new Date().toISOString() });
+        consent.set(b.dataset.ck);
         c.remove();
         toast(b.dataset.ck === "all" ? "Analytics cookies allowed. You can change this on the privacy page." : "Only essential cookies will be used.");
       });
@@ -432,7 +460,7 @@
     $$("[data-site-email]").forEach(function (n) { n.textContent = S.email; });
     $$("[data-site-area]").forEach(function (n) { n.textContent = S.serviceArea; });
 
-    wireForms(); wireReveal(); wireAccordions(); cookieBanner();
+    wireForms(); wireReveal(); wireAccordions(); cookieBanner(); loadAnalytics();
   }
 
   /* public API used by page scripts */
@@ -441,6 +469,7 @@
     fmtDate: fmtDate, fmtTime: fmtTime, dparse: dparse, locName: locName, progName: progName, teamName: teamName,
     waLink: waLink, mailLink: mailLink, gcalLink: gcalLink, icsDownload: icsDownload, toast: toast,
     pitchSVG: pitchSVG, wireReveal: wireReveal, wireAccordions: wireAccordions, wireForms: wireForms,
+    consent: consent,
     saveContent: function (key, value) { var o = store.get("content", {}); o[key] = value; store.set("content", o); D[key] = value; }
   };
 
