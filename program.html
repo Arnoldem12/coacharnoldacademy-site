@@ -98,7 +98,7 @@
     return '<label><input type="radio" name="slotview" value="'+C.esc(s)+'"> '+C.esc(s)+'</label>';}).join('');
   document.getElementById('p-facts').innerHTML=
     [['Recommended age',p.ages],['Skill level',p.level],['Session length',p.duration],
-     ['Maximum players',p.max],['Price',p.price]].map(function(r){
+     ['Maximum players',p.max],['Price (guide)',p.price]].map(function(r){
       return '<tr><th scope="row">'+r[0]+'</th><td>'+C.esc(r[1])+'</td></tr>';}).join('');
   document.getElementById('p-locs').innerHTML=p.locations.map(function(lid){
     var l=D.locations.find(function(x){return x.id===lid;});

@@ -382,7 +382,7 @@ programs_body = page_hero("Coaching programs", "Coaching programs",
       <div class="tile"><h3>Team blocks</h3><p class="meta">Contact for pricing</p><p>Priced per session or per season depending on squad size, venue and how many sessions your staff want covered.</p></div>
       <div class="tile"><h3>Sibling and referral discounts</h3><p class="meta">Applied at checkout</p><p>Discount codes are issued for siblings training in the same block and for families who refer a new player.</p></div>
     </div>
-    <p class="small muted" style="margin-top:1.2rem">Prices include coaching, session planning and equipment. Field or facility fees, where a venue charges them, are not included and are confirmed before you book.</p>
+    <p class="small muted" style="margin-top:1.2rem">Prices are a guide. Coaching, session planning and equipment are included; field or facility fees, where a venue charges them, are not. Your exact cost is confirmed with you before you book, and travel or a longer session can change it.</p>
   </div>
 </section>
 """
@@ -494,7 +494,7 @@ program_js = """<script>
     return '<label><input type="radio" name="slotview" value="'+C.esc(s)+'"> '+C.esc(s)+'</label>';}).join('');
   document.getElementById('p-facts').innerHTML=
     [['Recommended age',p.ages],['Skill level',p.level],['Session length',p.duration],
-     ['Maximum players',p.max],['Price',p.price]].map(function(r){
+     ['Maximum players',p.max],['Price (guide)',p.price]].map(function(r){
       return '<tr><th scope="row">'+r[0]+'</th><td>'+C.esc(r[1])+'</td></tr>';}).join('');
   document.getElementById('p-locs').innerHTML=p.locations.map(function(lid){
     var l=D.locations.find(function(x){return x.id===lid;});
