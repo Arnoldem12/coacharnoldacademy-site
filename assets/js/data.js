@@ -46,7 +46,7 @@ window.CAA_DATA = {
       level:"Beginner to advanced", price:"$50 per session", locations:["lacamas","heritage","union","portland"],
       body:"Private sessions move fastest because every repetition belongs to one player. The first session is a baseline: first touch under pressure, both feet, body shape when receiving, decision speed in small spaces. From there Coach Arnold sets two or three targets and returns to them every week so progress is visible rather than assumed.",
       learn:["Clean first touch with both feet and away from pressure","Change of direction and beating a defender one against one","Passing weight, angle and timing under game speed","Finishing technique from inside and outside the box","Scanning before receiving so the next decision is already made"],
-      slots:["Mon 4:00 pm","Tue 5:30 pm","Wed 4:00 pm","Thu 5:30 pm","Sat 9:00 am","Sat 10:30 am"]
+      slots:["By arrangement"]
     },
     {
       id:"small-group", name:"Small-group training", order:2,
@@ -55,7 +55,7 @@ window.CAA_DATA = {
       level:"Beginner to advanced", price:"$25 per player, per session", locations:["lacamas","heritage","union","portland"],
       body:"Small groups keep the coaching detailed while adding what a private session cannot: a real opponent. Sessions run technical work first, then small-sided games where the technique has to hold up against pressure. Bring a friend or teammate, or ask to be placed in a group at a similar level.",
       learn:["Combination play in tight areas","Defending one against one and recovery runs","Speed of play in two-touch and one-touch games","Competing for a loose ball without fouling","Communication and simple leadership habits"],
-      slots:["Tue 4:30 pm","Thu 4:30 pm","Sat 11:30 am","Sun 10:00 am"]
+      slots:["By arrangement"]
     },
     {
       id:"youth", name:"Youth player development", order:3,
@@ -64,7 +64,7 @@ window.CAA_DATA = {
       level:"New players welcome", price:"$180 per 6-week block", locations:["lacamas","heritage","union","portland"],
       body:"Younger players learn best when they touch the ball constantly and are allowed to try things without fear. Sessions are short, active and game-based. Parents receive a brief written note after each block covering what improved and what to practise at home.",
       learn:["Ball mastery patterns children can repeat at home","Dribbling with the head up","Comfortable receiving under light pressure","Fair play, effort and how to lose well","Enjoying the game enough to keep playing"],
-      slots:["Mon 5:00 pm","Wed 5:00 pm","Sat 9:00 am"]
+      slots:["By arrangement"]
     },
     {
       id:"adult", name:"Adult soccer training", order:4,
@@ -73,7 +73,7 @@ window.CAA_DATA = {
       level:"Complete beginner to league standard", price:"$30 per session", locations:["lacamas","heritage","union","portland"],
       body:"Plenty of adults want to play but do not want to be the least confident person on the pitch. These sessions fix that in private, at a sensible intensity, with technique taught properly rather than assumed. Beginners and returning players train in the same group and are given different targets within the same exercise.",
       learn:["Striking a ball correctly without straining the ankle or knee","Receiving and turning in small indoor spaces","Positional basics for six-a-side and seven-a-side","Fitness that carries through a full match","Playing at pace without panicking on the ball"],
-      slots:["Tue 7:30 pm","Thu 7:30 pm","Sun 6:00 pm"]
+      slots:["By arrangement"]
     },
     {
       id:"team", name:"Team training", order:5,
@@ -91,7 +91,7 @@ window.CAA_DATA = {
       level:"Intermediate to advanced", price:"$75 private, $40 in pairs", locations:["lacamas","heritage","union","portland"],
       body:"Every position has its own problems to solve. A centre back needs different feet, different scanning habits and a different first touch than a winger. These sessions strip the game down to the demands of one role and drill them until they hold under pressure.",
       learn:["Goalkeeping: handling, set position, distribution, dealing with crosses","Full backs: overlapping, defending the touchline, recovery angles","Centre backs: heading, body position, stepping out with the ball","Midfielders: receiving on the half turn, screening, switching play","Forwards: movement in the box, finishing first time, pressing from the front"],
-      slots:["Wed 6:30 pm","Fri 4:30 pm","Sun 11:30 am"]
+      slots:["By arrangement"]
     },
     {
       id:"technical", name:"Technical skills training", order:7,
@@ -100,7 +100,7 @@ window.CAA_DATA = {
       level:"All levels", price:"$30 per session", locations:["lacamas","heritage"],
       body:"Touch, turn, pass, strike. Sessions are high-volume and deliberately repetitive, because technique becomes reliable through repetition and nothing else. Players leave with a short home routine that takes fifteen minutes and needs only a ball and a wall.",
       learn:["Ball mastery: sole rolls, chops, drag backs, laces control","Receiving across the body to open the pitch","Driven, lofted and disguised passing","Striking through the ball for power and placement","A fifteen-minute home routine that actually works"],
-      slots:["Mon 6:00 pm","Wed 6:00 pm","Sat 12:30 pm"]
+      slots:["By arrangement"]
     },
     {
       id:"tactical", name:"Tactical learning and game understanding", order:8,
@@ -118,7 +118,7 @@ window.CAA_DATA = {
       level:"All levels", price:"$28 per session", locations:["lacamas","heritage"],
       body:"Conditioning built for soccer, not for a track. Work focuses on the first three steps, changing direction without losing balance, and repeating high-intensity efforts across ninety minutes. Every session includes a proper warm-up and a cool-down, with movement quality prioritised over exhaustion.",
       learn:["Acceleration mechanics over the first five yards","Decelerating and cutting without losing the ball","Repeat sprint capacity for match demands","Warm-up and recovery habits worth keeping","Injury-reduction work for ankles, knees and hips"],
-      slots:["Mon 7:00 pm","Thu 6:00 pm","Sat 8:00 am"]
+      slots:["By arrangement"]
     },
     {
       id:"virtual", name:"Online video analysis and virtual coaching", order:10,
@@ -127,58 +127,62 @@ window.CAA_DATA = {
       level:"Intermediate to advanced", price:"$50 per analysis", locations:["virtual"],
       body:"Upload a full match or a set of clips, and Coach Arnold returns a marked-up breakdown covering decisions, positioning and technique, followed by a live call to talk through it. Useful for players away from the area, players preparing for a trial, and anyone who wants to see what they actually do rather than what they think they do.",
       learn:["What your positioning looks like from outside your own head","Decision patterns that repeat, good and bad","Two or three specific fixes to work on next","A follow-up plan tied to your next match","How to review your own footage without a coach"],
-      slots:["Thu 8:30 pm","Sun 7:00 pm","By arrangement"]
+      slots:["By arrangement"]
     }
   ],
 
   teams: [
     {
       id:"obsidian-ac", name:"Obsidian AC", crest:"OAC", featured:true,
-      level:"Adult indoor, co-ed", ages:"18+", manager:"Coach Arnold",
-      blurb:"The academy's indoor side. Competitive, disciplined, and built for players who want a serious league night without a full outdoor commitment.",
-      home:"indoor", recruiting:true, needs:["Goalkeeper","Centre back","Wide midfielder"],
-      trainings:["Wednesdays 8:00 pm, Clark County Indoor Soccer"],
-      history:"Obsidian AC was formed in 2024 out of the academy's adult sessions, when a group of players wanted somewhere to put the work they had been doing on Tuesday nights. The squad plays in the winter indoor league and trains through the season."   // REPLACE with real founding details
+      level:"indoor/outdoor, co-ed", ages:"18+", manager:"Coach Arnold",
+      blurb:"The academy's indoor and outdoor side. Competitive, disciplined, and built for players who want a serious league.",
+      home:"indoor/outdoor", recruiting:true, needs:["Goalkeeper","Centre back","Wide midfielder", "Wide striker"],
+      trainings:["By arrangement, around town"],
+      history:"Obsidian AC was formed in 2026 out of the academy's project to build a super team that is structured with individuals who want to play a fun football. "   // REPLACE with real founding details
     },
     {
       id:"caa-u12", name:"CAA Development U12", crest:"U12",
       level:"Recreational and select development", ages:"U11 to U12", manager:"Coach Arnold",
       blurb:"A development squad focused on technical growth and regular game time for every player.",
-      home:"lacamas", recruiting:true, needs:["Outfield players"],
-      trainings:["Mondays 5:00 pm, Doc Harris Soccer Fields","Saturdays 9:00 am, Doc Harris Soccer Fields"],
+      home:"lacamas", recruiting:true, needs:[],
+      trainings:["Location and time will be arranged with the coach"],
       history:"Formed to give younger players a competitive but low-pressure route into organised soccer."   // REPLACE
     },
     {
       id:"caa-u15", name:"CAA Development U15", crest:"U15",
       level:"Select development", ages:"U14 to U15", manager:"Coach Arnold",
       blurb:"For players preparing to step into high school and club soccer with a stronger technical base.",
-      home:"heritage", recruiting:false, needs:[],
-      trainings:["Wednesdays 6:00 pm, Shahala Middle School"],
+      home:"heritage", recruiting:true, needs:[],
+      trainings:["Location and time will be arranged with the coach"],
       history:"Built around the academy's small-group players who wanted a regular team environment."   // REPLACE
     }
   ],
 
   /* Fixtures. status: scheduled | changed | canceled | completed */
   matches: [
-    /* address goes straight into the Google/Apple calendar link, so keep it
-       accurate — add the exact street address once confirmed. */
-    { id:"m1", team:"obsidian-ac", opponent:"TBC", date:"2026-09-09", kick:"10:30", arrive:"10:00",
-      venue:"Clark County Indoor Soccer", address:"Vancouver, WA", home:true,
-      kit:"Obsidian jersey", status:"scheduled", notes:"League opener. Bring both kit colours." }
+    /* Nothing scheduled yet — the pages show a proper "nothing scheduled"
+       message while this list is empty. Do NOT use "TBD" for a date: the
+       calendar links and date badges need a real YYYY-MM-DD or they render
+       as "NaN". Add a fixture like this once the league confirms one:
+
+    { id:"m1", team:"obsidian-ac", opponent:"TBC", date:"2026-10-14", kick:"20:00", arrive:"19:30",
+      venue:"Clark County Indoor Sports Center", address:"16311 NE 15th St, Vancouver, WA 98684", home:true,
+      kit:"Obsidian jerseys (blue/white)", status:"scheduled", notes:"Bring both kit colours." }
+    */
   ],
 
   trainings: [
-    { id:"t1", program:"youth",       date:"2026-09-07", time:"17:00", location:"lacamas", spaces:4 },
-    { id:"t2", program:"small-group", date:"2026-09-08", time:"16:30", location:"lacamas", spaces:2 },
-    { id:"t3", program:"adult",       date:"2026-09-08", time:"19:30", location:"heritage", spaces:6 },
-    { id:"t4", program:"technical",   date:"2026-09-09", time:"18:00", location:"heritage", spaces:5 },
-    { id:"t5", program:"conditioning",date:"2026-09-10", time:"18:00", location:"lacamas", spaces:7 },
-    { id:"t6", program:"private",     date:"2026-09-12", time:"09:00", location:"lacamas", spaces:1 }
+    /* Everything is by arrangement right now, so this stays empty and the
+       site shows "No open sessions listed — message Coach Arnold". Same rule
+       as matches: a real date, or leave the entry out. Format:
+
+    { id:"t1", program:"youth", date:"2026-10-05", time:"17:00", location:"lacamas", spaces:4 }
+    */
   ],
 
   standings: {
     "obsidian-ac": {
-      league:"Co-Ed Indoor Soccer @ Clark",
+      league:"Co-Ed Indoor Soccer @ Clark County Indoor Sports Center",
       /* Season has not kicked off yet, so every row is zero. Update these
          after each match. The row marked us:true drives the stat tiles on
          the Obsidian AC page, so keep it. */
@@ -191,8 +195,7 @@ window.CAA_DATA = {
   /* Rosters stay behind login. Public pages show initials only for minors. */
   roster: {
     "obsidian-ac":[
-      { n:"Arnold", pos:"Manager", num:"11", minor:false },
-      { n:"Zylah", pos:"Future player", num:"6", minor:false }
+      { n:"Arnold", pos:"Manager", num:"11", minor:false}
     ],
     /* Empty until real squads are signed. Add players as
        { n:"First L.", pos:"Defender", num:"4", minor:true } — use first name
@@ -244,9 +247,9 @@ window.CAA_DATA = {
      posts from the coach dashboard. */
   news: [],
 
-  testimonials: [
-    { q:"My son went from hiding on the wing to asking for the ball. Six weeks. He had an amazing experience", a:"Parent of a U11 player, Camas", role:"Youth development" }  // REPLACED
-  ],
+  /* Empty until real ones come in through the testimonials form. The pages
+     show an invitation to submit one while this is empty. */
+  testimonials: [],
 
   faqs: [
     { q:"What ages do you coach?", a:"Players from about age five through adults. Sessions are grouped by age and level, and adults train with adults." },
@@ -268,6 +271,6 @@ window.CAA_DATA = {
      it protects nothing. A real, secure login needs an authentication
      provider — see README, section "Authentication". */
   demoUsers: [
-    { email:"emajob12@gmail.com", pass:"preview-only-2026", role:"coach", name:"Arnold", teams:["obsidian-ac"] }
+    { email:"emajob12@gmail.com", pass:"Admin", role:"coach", name:"Arnold (Owner, Coach Arnold Academy)", teams:["obsidian-ac"] }
   ]
 };
