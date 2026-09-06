@@ -183,8 +183,7 @@ window.CAA_DATA = {
          after each match. The row marked us:true drives the stat tiles on
          the Obsidian AC page, so keep it. */
       rows:[
-        { team:"Obsidian AC", p:0, w:0, d:0, l:0, gf:0, ga:0, pts:0, us:true },
-        { team:"2-Left Feet", p:0, w:0, d:0, l:0, gf:0, ga:0, pts:0 }
+        { team:"Obsidian AC", p:0, w:0, d:0, l:0, gf:0, ga:0, pts:0, us:true }
       ]
     }
   },
