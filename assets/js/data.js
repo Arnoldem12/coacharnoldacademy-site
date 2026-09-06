@@ -25,7 +25,7 @@ window.CAA_DATA = {
     serviceArea: "Camas, Vancouver and Washougal, WA; Portland, OR and surrounding communities",
     baseCity: "Camas, Washington",
     responseTime: "Most messages get a reply within 24 hours, and same day on weekdays.",
-    ga4: "",                             // Paste the GA4 measurement ID (G-XXXXXXXXXX). Analytics only loads if this is set AND the visitor accepted analytics cookies.
+    ga4: "G-D5J85BW2BJ",                 // GA4 measurement ID. Analytics only loads if this is set AND the visitor accepted analytics cookies.
     searchConsole: ""
   },
 
