@@ -109,7 +109,7 @@ window.CAA_DATA = {
       level:"Intermediate to advanced", price:"$25 per session", locations:["heritage","virtual"],
       body:"Players who understand the game make faster decisions with less effort. Sessions combine a short whiteboard segment with pitch work on the same idea, so the concept is seen, walked through and then played at speed. Formations, pressing structure, transitions and game management are covered across a rolling cycle.",
       learn:["Reading the shape of the opposition","When to press and when to hold","Playing forward, backward and sideways with purpose","Roles inside 4-3-3, 4-4-2 and 3-5-2","Managing a match: game state, tempo, time"],
-      slots:["Tue 6:30 pm","Sun 4:00 pm"]
+      slots:["By arrangement"]
     },
     {
       id:"conditioning", name:"Speed, agility and conditioning", order:9,
@@ -260,7 +260,7 @@ window.CAA_DATA = {
     { q:"How do I cancel or reschedule?", a:"Reschedule free with at least 24 hours' notice from your account or by replying to your confirmation email. Inside 24 hours the session is charged in full. Full terms are on the cancellation policy page." },
     { q:"Do you offer packages?", a:"Yes. Blocks of five and ten sessions are available at a reduced per-session rate, and youth development runs in six-week blocks." },
     { q:"Are you licensed and background checked?", a:"Coach Arnold holds US Soccer coaching licences and completes SafeSport training and background screening. Documentation is available to parents on request." },
-    { q:"How do I join Obsidian AC?", a:"Apply through the Obsidian AC page. Coach Arnold reviews applications and invites suitable players to a Wednesday trial session before any commitment." },
+    { q:"How do I join Obsidian AC?", a:"Apply through the Obsidian AC page. Coach Arnold reviews applications and invites suitable players to a trial session, arranged directly with them, before any commitment." },
     { q:"Do you coach goalkeepers?", a:"Yes, through position-specific coaching. Goalkeeper sessions are private or in pairs." }
   ],
 

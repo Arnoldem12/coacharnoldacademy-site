@@ -12,8 +12,8 @@ videos_body = page_hero("Training videos", "Training videos",
 </section>
 <section class="paper tight">
   <div class="wrap-n">
-    <div class="notice"><strong>Videos are placeholders until YouTube IDs are added.</strong>
-      <p>Open <code>assets/js/data.js</code>, find the <code>videos</code> list, and paste each YouTube video's eleven-character ID into the <code>yt</code> field. The embed, thumbnail and share links then work automatically. This can also be done from the admin dashboard.</p></div>
+    <div class="notice"><strong>The films are still being made.</strong>
+      <p>Each entry below already carries the coaching points and the drills, so you can work through them with a ball and a wall today. The video for each one goes up here as it is recorded.</p></div>
   </div>
 </section>
 """
@@ -98,7 +98,7 @@ video_js = """<script>
   document.getElementById('v-embed').innerHTML = v.yt ?
     '<iframe class="vid" src="https://www.youtube-nocookie.com/embed/'+v.yt+'" title="'+C.esc(v.title)+'" loading="lazy" allowfullscreen allow="accelerometer;clipboard-write;encrypted-media;gyroscope;picture-in-picture"></iframe>'
     : '<div class="vthumb" style="cursor:default"><div style="text-align:center;padding:1.4rem"><span class="play" style="margin:0 auto .8rem"> &#9654;</span>'+
-      '<p style="color:#C9D5EC;margin:0;font-size:.95rem">Video not linked yet. Add the YouTube ID for <strong>'+C.esc(v.id)+'</strong> in data.js.</p></div></div>';
+      '<p style="color:#C9D5EC;margin:0;font-size:.95rem">This one is not filmed yet. The coaching points and drills below still stand on their own.</p></div></div>';
   document.getElementById('v-points').innerHTML=v.points.map(function(p){return '<li>'+C.esc(p)+'</li>';}).join('');
   document.getElementById('v-drills').innerHTML=v.drills.map(function(p){return '<li>'+C.esc(p)+'</li>';}).join('');
   document.getElementById('v-facts').innerHTML=[['Category',v.cat],['Recommended level',v.level]].map(function(r){
@@ -333,8 +333,8 @@ gallery_body = page_hero("Gallery", "Photo and video gallery",
     <div class="tabs" id="g-tabs"><button class="on" type="button">Photos</button><button type="button">Video</button></div>
     <div id="g-photos" class="grid g3"></div>
     <div id="g-video" class="grid g3" style="display:none"></div>
-    <div class="notice" style="margin-top:2rem"><strong>Replace these placeholders with real media.</strong>
-      <p>Save images into <code>assets/img/gallery/</code> and list them in the gallery array, or upload them through the admin dashboard. Before publishing any image that includes a minor, confirm that photo consent is recorded on that player's registration.</p></div>
+    <div class="notice" style="margin-top:2rem"><strong>Photographs are added as sessions are shot.</strong>
+      <p>No photograph of a player under 18 is published unless photo consent is recorded on that player's registration. If you are a parent and want a picture of your child removed, <a href="contact.html">say so</a> and it comes down the same day.</p></div>
   </div>
 </section>
 <section class="paper tight">
@@ -385,16 +385,16 @@ spon_body = page_hero("Sponsorship", "Sponsorship and partnerships",
 <section class="paper">
   <div class="wrap">
     <div class="head"><span class="rule"></span><h2>Partnership levels</h2>
-      <p>Sample tiers. Final amounts and benefits are agreed directly with Coach Arnold.</p></div>
+      <p>Three ways to come in. Amounts are agreed directly with Coach Arnold and scaled to what your business can do — small local support is genuinely welcome.</p></div>
     <div class="grid g3">
-      <div class="tile"><h3>Community supporter</h3><p class="meta">Sample: $250 per season</p>
-        <ul style="padding-left:1.1rem;font-size:.95rem"><li>Logo on the sponsorship page</li><li>Thank-you post on Instagram and Facebook</li><li>Named in match-night announcements</li></ul></div>
-      <div class="tile"><h3>Team sponsor</h3><p class="meta">Sample: $750 per season</p>
+      <div class="tile"><h3>Community supporter</h3><p class="meta">Agreed per season</p>
+        <ul style="padding-left:1.1rem;font-size:.95rem"><li>Logo on the sponsorship page</li><li>Thank-you post on Instagram</li><li>Named in match-night announcements</li></ul></div>
+      <div class="tile"><h3>Team sponsor</h3><p class="meta">Agreed per season</p>
         <ul style="padding-left:1.1rem;font-size:.95rem"><li>Logo on training tops</li><li>Logo on the team page and this page</li><li>Social posts across the season</li><li>Banner at home match nights</li></ul></div>
-      <div class="tile"><h3>Principal partner</h3><p class="meta">Sample: contact to discuss</p>
+      <div class="tile"><h3>Principal partner</h3><p class="meta">Contact to discuss</p>
         <ul style="padding-left:1.1rem;font-size:.95rem"><li>Logo on the front of match shirts</li><li>Named as the academy's principal partner</li><li>Funded scholarship places in your name</li><li>Presence at academy events</li></ul></div>
     </div>
-    <p class="small muted" style="margin-top:1.2rem"><strong>Coach Arnold must confirm real amounts and benefits before this page goes live.</strong></p>
+    <p class="small muted" style="margin-top:1.2rem">Benefits can be mixed and matched. If none of these fit, say what you had in mind and it will be worked out from there.</p>
   </div>
 </section>
 <section id="spon-form">

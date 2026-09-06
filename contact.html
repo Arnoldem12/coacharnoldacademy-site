@@ -17,8 +17,6 @@
 <meta name="twitter:title" content="Contact Coach Arnold | Soccer Coaching in Camas &amp; Vancouver WA">
 <meta name="twitter:description" content="Contact Coach Arnold Academy by form, WhatsApp, email or phone about private coaching, group training, youth registration, adult sessions or joining Obsidian AC.">
 <meta name="twitter:image" content="https://coacharnoldacademy.com/assets/img/logo-512.png">
-<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
-<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
@@ -80,9 +78,8 @@
           <a class="btn dark-ghost" data-mail="Coaching enquiry from the website" href="#">Send an email</a>
           <a class="btn dark-ghost" data-tel href="#"></a>
           <a class="btn dark-ghost" id="ig-dm" href="#" target="_blank" rel="noopener">Message on Instagram</a>
-          <a class="btn dark-ghost" id="fb-msg" href="#" target="_blank" rel="noopener">Facebook Messenger</a>
         </div>
-        <p class="small muted" style="margin-top:.9rem">Facebook Messenger opens the academy page. If the page isn't set up yet, use WhatsApp or email.</p>
+        <p class="small muted" style="margin-top:.9rem">WhatsApp is the quickest way to reach Coach Arnold. Email is best if you need to send documents or a longer history.</p>
       </div>
       <div class="tile" style="margin-bottom:1.2rem">
         <h3>Response time</h3>
@@ -113,7 +110,6 @@
 (function(){
   var C=window.CAA,D=C.D;
   document.getElementById('ig-dm').href=D.site.instagram;
-  document.getElementById('fb-msg').href=D.site.facebook;
   C.$$('[data-site-response]').forEach(function(n){n.textContent=D.site.responseTime;});
   document.getElementById('c-locs').innerHTML=D.locations.map(function(l){
     return '<div class="feature" style="margin-bottom:.9rem"><h3 style="font-size:1rem">'+C.esc(l.name)+'</h3><p>'+C.esc(l.city)+'. '+C.esc(l.note)+'</p></div>';}).join('');

@@ -93,8 +93,8 @@ home_body = """
   <div class="wrap split">
     <div class="reveal">
       <div class="head"><span class="rule"></span><h2>Obsidian AC</h2></div>
-      <p class="lede">The academy's adult indoor side. Competitive league nights, a proper training session every Wednesday, and a squad that turns up.</p>
-      <p>Obsidian AC is currently recruiting a goalkeeper, a centre back and a wide midfielder for the winter indoor season. Applications go through a short form, and suitable players are invited to train with the squad before committing to anything.</p>
+      <p class="lede">The academy's adult co-ed side, indoor and outdoor. Competitive league nights, planned training, and a squad that turns up.</p>
+      <p id="home-obs-needs"></p>
       <div class="btn-row">
         <a class="btn" href="obsidian-ac.html">Apply for Obsidian AC</a>
         <a class="btn ghost" href="schedule.html?team=obsidian-ac">See the fixtures</a>
@@ -324,13 +324,13 @@ about_body = page_hero("About", "Coach Arnold",
 
       <div class="tile" style="margin-bottom:1.2rem">
         <h3>Professional photos</h3>
-        <p class="meta">Replace these three placeholders with real photography.</p>
+        <p class="meta">Session photography is being shot now and goes up here shortly.</p>
         <div class="grid" style="grid-template-columns:1fr 1fr;gap:.6rem">
           <div style="aspect-ratio:1;background:var(--paper);border:2px dashed var(--line-d);border-radius:var(--r-sm);display:grid;place-items:center;font-size:.8rem;color:var(--muted-d);text-align:center;padding:.5rem">Coaching a session</div>
           <div style="aspect-ratio:1;background:var(--paper);border:2px dashed var(--line-d);border-radius:var(--r-sm);display:grid;place-items:center;font-size:.8rem;color:var(--muted-d);text-align:center;padding:.5rem">Portrait in academy kit</div>
           <div style="aspect-ratio:1;background:var(--paper);border:2px dashed var(--line-d);border-radius:var(--r-sm);display:grid;place-items:center;font-size:.8rem;color:var(--muted-d);text-align:center;padding:.5rem;grid-column:1/-1">On the touchline with a team</div>
         </div>
-        <p class="small muted" style="margin-top:.7rem">Save images into <code>assets/img/</code> and swap the placeholder blocks for <code>&lt;img&gt;</code> tags.</p>
+        <p class="small muted" style="margin-top:.7rem">In the meantime, the <a href="gallery.html">gallery</a> and the <a href="videos.html">training videos</a> show how sessions actually run.</p>
       </div>
 
       <div class="tile">
@@ -382,7 +382,7 @@ programs_body = page_hero("Coaching programs", "Coaching programs",
       <div class="tile"><h3>Team blocks</h3><p class="meta">Contact for pricing</p><p>Priced per session or per season depending on squad size, venue and how many sessions your staff want covered.</p></div>
       <div class="tile"><h3>Sibling and referral discounts</h3><p class="meta">Applied at checkout</p><p>Discount codes are issued for siblings training in the same block and for families who refer a new player.</p></div>
     </div>
-    <p class="small muted" style="margin-top:1.2rem">Prices shown across the site are sample figures. <strong>Coach Arnold must confirm final pricing in <code>assets/js/data.js</code> or through the admin dashboard before launch.</strong></p>
+    <p class="small muted" style="margin-top:1.2rem">Prices include coaching, session planning and equipment. Field or facility fees, where a venue charges them, are not included and are confirmed before you book.</p>
   </div>
 </section>
 """

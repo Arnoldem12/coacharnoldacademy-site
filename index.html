@@ -17,8 +17,6 @@
 <meta name="twitter:title" content="Soccer Coach in Camas &amp; Vancouver WA | Coach Arnold Academy">
 <meta name="twitter:description" content="US Soccer licensed private and group soccer coaching for kids, teens and adults in Camas, Vancouver and Portland. Book a training session, join a team or apply for Obsidian AC.">
 <meta name="twitter:image" content="https://coacharnoldacademy.com/assets/img/logo-512.png">
-<!-- Google Search Console: paste the verification token from data.js site.searchConsole -->
-<meta name="google-site-verification" content="REPLACE_WITH_VERIFICATION_TOKEN">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=Saira+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
@@ -145,8 +143,8 @@
   <div class="wrap split">
     <div class="reveal">
       <div class="head"><span class="rule"></span><h2>Obsidian AC</h2></div>
-      <p class="lede">The academy's adult indoor side. Competitive league nights, a proper training session every Wednesday, and a squad that turns up.</p>
-      <p>Obsidian AC is currently recruiting a goalkeeper, a centre back and a wide midfielder for the winter indoor season. Applications go through a short form, and suitable players are invited to train with the squad before committing to anything.</p>
+      <p class="lede">The academy's adult co-ed side, indoor and outdoor. Competitive league nights, planned training, and a squad that turns up.</p>
+      <p id="home-obs-needs"></p>
       <div class="btn-row">
         <a class="btn" href="obsidian-ac.html">Apply for Obsidian AC</a>
         <a class="btn ghost" href="schedule.html?team=obsidian-ac">See the fixtures</a>
@@ -187,16 +185,14 @@
 <section class="paper tight">
   <div class="wrap">
     <div class="head reveal"><span class="rule"></span><h2>Follow the academy</h2>
-      <p>Session clips, match nights and announcements go out on Instagram and Facebook first.</p></div>
+      <p>Session clips, match nights and announcements go out on Instagram and YouTube first.</p></div>
     <div class="grid g2">
       <div class="tile"><h3>Instagram</h3><p class="meta">@coacharnoldacademy</p>
         <p>Training clips, drill breakdowns and match-day photos.</p>
-        <div class="foot"><a class="btn sm" id="ig-link" href="#" target="_blank" rel="noopener">Open Instagram</a></div>
-        <p class="small muted" style="margin-top:.8rem">To embed the live feed here, add an Instagram Basic Display or third-party feed embed. See the README, section "Social embeds".</p></div>
-      <div class="tile"><h3>Facebook</h3><p class="meta">Coach Arnold Academy</p>
-        <p>Longer updates, registration windows and community news.</p>
-        <div class="foot"><a class="btn sm" id="fb-link" href="#" target="_blank" rel="noopener">Open Facebook</a></div>
-        <p class="small muted" style="margin-top:.8rem">The Facebook Page plugin iframe can be dropped straight into this card once the page URL is confirmed.</p></div>
+        <div class="foot"><a class="btn sm" id="ig-link" href="#" target="_blank" rel="noopener">Open Instagram</a></div></div>
+      <div class="tile"><h3>YouTube</h3><p class="meta">@arnoldeoka5426</p>
+        <p>Full drill walkthroughs and longer coaching breakdowns you can follow at home.</p>
+        <div class="foot"><a class="btn sm" id="yt-link" href="#" target="_blank" rel="noopener">Open YouTube</a></div></div>
     </div>
   </div>
 </section>
@@ -253,7 +249,7 @@
 (function(){
   var C=window.CAA, D=C.D;
   document.getElementById('ig-link').href=D.site.instagram;
-  document.getElementById('fb-link').href=D.site.facebook;
+  document.getElementById('yt-link').href=D.site.youtube;
   document.getElementById('yt-sub').href=D.site.youtube;
 
   var picks=['private','small-group','youth','adult','team','virtual'];
@@ -306,6 +302,14 @@
   document.getElementById('home-quotes').innerHTML= D.testimonials.length? D.testimonials.slice(0,3).map(function(q){
     return '<div class="tile reveal"><blockquote class="quote"><p>'+C.esc(q.q)+'</p><cite>'+C.esc(q.a)+' · '+C.esc(q.role)+'</cite></blockquote></div>';
   }).join('') : '<div class="empty"><h4>Trained with Coach Arnold?</h4><p>The first reviews go here. <a href="testimonials.html">Leave one</a> and help the next family decide.</p></div>';
+
+  var oteam=D.teams.find(function(x){return x.id==='obsidian-ac';});
+  if(oteam){
+    document.getElementById('home-obs-needs').textContent = (oteam.recruiting
+      ? 'Obsidian AC is currently recruiting' + (oteam.needs.length ? ': ' + oteam.needs.join(', ').toLowerCase() + '.' : '.')
+      : 'Obsidian AC is not recruiting at the moment, but applications are held for the next window.')
+      + ' Applications go through a short form, and suitable players are invited to train with the squad before committing to anything.';
+  }
 
   C.wireReveal();
 })();
