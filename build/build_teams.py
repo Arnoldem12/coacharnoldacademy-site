@@ -16,8 +16,8 @@ teams_body = page_hero("Teams", "Academy teams",
   <div class="wrap">
     <div class="head"><span class="rule"></span><h2>What team members get</h2></div>
     <div class="grid g3">
-      <div class="feature"><h3>A secure team area</h3><p>Roster, tactics, lineups and documents visible only to approved members who are signed in.</p></div>
-      <div class="feature"><h3>Match availability</h3><p>Mark yourself available, unavailable, maybe or injured for every fixture, and get a nudge if you forget.</p></div>
+      <div class="feature"><h3>A squad group</h3><p>Roster, tactics, lineups and documents go straight to squad members. Nothing about a player is published on the public site.</p></div>
+      <div class="feature"><h3>Fixtures in your calendar</h3><p>Every fixture on the schedule page has a one-click calendar link, and Coach Arnold chases availability directly before each match.</p></div>
       <div class="feature"><h3>Announcements</h3><p>Schedule changes and match information by email, with a WhatsApp group for the day-to-day.</p></div>
       <div class="feature"><h3>Coaching, not just games</h3><p>A planned training session every week, not a kickabout before kick-off.</p></div>
       <div class="feature"><h3>Video and analysis</h3><p>Clips from matches with specific coaching points for individual players.</p></div>
@@ -80,7 +80,7 @@ team_body = """
         <div id="t-roster"></div>
       </div>
       <div class="tile" style="margin-bottom:1.2rem">
-        <h3>Members-only area</h3>
+        <h3>Squad information</h3>
         <div id="t-private"></div>
       </div>
       <div class="tile">
@@ -139,23 +139,13 @@ team_js = """<script>
     return '<div class="feature" style="margin-bottom:1rem"><h3>'+C.esc(n.title)+'</h3><p class="meta">'+C.fmtDate(n.date)+'</p><p>'+C.esc(n.body)+'</p></div>';
   }).join('')+'<a class="btn sm dark-ghost" href="news.html">All announcements</a>';
 
-  var u=C.auth.user(), roster=D.roster[t.id]||[];
   var lock='<svg viewBox="0 0 24 24"><path d="M12 1a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2h-1V6a5 5 0 0 0-5-5zm0 2a3 3 0 0 1 3 3v3H9V6a3 3 0 0 1 3-3z"/></svg>';
-  if(u){
-    document.getElementById('t-roster').innerHTML='<div class="tablewrap"><table><thead><tr><th>#</th><th>Player</th><th>Position</th></tr></thead><tbody>'+
-      roster.map(function(p){return '<tr><td>'+C.esc(p.num)+'</td><td>'+C.esc(p.n)+'</td><td>'+C.esc(p.pos)+'</td></tr>';}).join('')+'</tbody></table></div>'+
-      '<p class="small muted" style="margin-top:.6rem">Players under 18 are listed by first name and last initial only.</p>';
-    document.getElementById('t-private').innerHTML='<p class="meta">You are signed in as '+C.esc(u.name)+'.</p>'+
-      '<p>Tactics, lineups, documents and the team WhatsApp group are in your dashboard.</p>'+
-      '<div class="foot"><a class="btn sm" href="dashboard.html">Open team dashboard</a></div>';
-  }else{
-    document.getElementById('t-roster').innerHTML='<div class="locked">'+lock+'<h4>Roster is private</h4>'+
-      '<p class="small">Squad lists are visible to approved team members only. This protects players, particularly minors.</p>'+
-      '<div class="btn-row" style="justify-content:center"><a class="btn sm" href="login.html">Log in</a></div></div>';
-    document.getElementById('t-private').innerHTML='<div class="locked">'+lock+'<h4>Members only</h4>'+
-      '<p class="small">Tactics, lineups, documents and the WhatsApp group link are behind the login.</p>'+
-      '<div class="btn-row" style="justify-content:center"><a class="btn sm" href="login.html">Log in</a><a class="btn sm dark-ghost" href="join-team.html?team='+t.id+'">Apply</a></div></div>';
-  }
+  document.getElementById('t-roster').innerHTML='<div class="locked">'+lock+'<h4>Squad lists are not published</h4>'+
+    '<p class="small">Player names, shirt numbers and contact details are kept off the public site. This protects players, particularly minors.</p>'+
+    '<div class="btn-row" style="justify-content:center"><a class="btn sm dark-ghost" href="join-team.html?team='+t.id+'">Apply to this team</a></div></div>';
+  document.getElementById('t-private').innerHTML='<div class="locked">'+lock+'<h4>Squad information</h4>'+
+    '<p class="small">Tactics, lineups, documents and the team WhatsApp group go to squad members directly from Coach Arnold. The group link is never published.</p>'+
+    '<div class="btn-row" style="justify-content:center"><a class="btn sm" href="join-team.html?team='+t.id+'">Apply</a><a class="btn sm dark-ghost" href="contact.html">Ask a question</a></div></div>';
 })();
 </script>"""
 
@@ -346,9 +336,9 @@ obs_body = """
 
 <section class="paper tight">
   <div class="wrap-n">
-    <div class="tile"><h3>Members-only dashboard</h3>
-      <p>Squad members sign in for tactics, lineups, the availability list and the team WhatsApp group. The group link is never published on a public page.</p>
-      <div class="foot"><a class="btn sm" href="login.html">Squad login</a><a class="btn sm dark-ghost" href="join-team.html?team=obsidian-ac">Apply to join</a></div></div>
+    <div class="tile"><h3>Squad information</h3>
+      <p>Squad members get tactics, lineups, availability and the team WhatsApp group directly from Coach Arnold. The group link is never published on a public page.</p>
+      <div class="foot"><a class="btn sm" href="join-team.html?team=obsidian-ac">Apply to join</a><a class="btn sm dark-ghost" href="contact.html">Message Coach Arnold</a></div></div>
   </div>
 </section>
 """
@@ -392,13 +382,9 @@ obs_js = """<script>
     '<thead><tr><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>Pts</th></tr></thead><tbody>'+
     st.rows.map(function(r){return '<tr'+(r.us?' style="font-weight:600;background:rgba(27,84,255,.07)"':'')+'><td>'+C.esc(r.team)+'</td><td>'+r.p+'</td><td>'+r.w+'</td><td>'+r.d+'</td><td>'+r.l+'</td><td>'+r.gf+'</td><td>'+r.ga+'</td><td>'+r.pts+'</td></tr>';}).join('')+'</tbody></table></div>';
 
-  var u=C.auth.user();
-  document.getElementById('obs-roster').innerHTML = u ?
-    '<div class="tablewrap"><table><thead><tr><th>#</th><th>Player</th><th>Position</th></tr></thead><tbody>'+
-      D.roster['obsidian-ac'].map(function(p){return '<tr><td>'+C.esc(p.num)+'</td><td>'+C.esc(p.n)+'</td><td>'+C.esc(p.pos)+'</td></tr>';}).join('')+
-      '</tbody></table></div>'
-    : '<div class="locked"><h4>Squad list is private</h4><p class="small">Sign in as a squad member to see the full roster, shirt numbers and contact details.</p>'+
-      '<div class="btn-row" style="justify-content:center"><a class="btn sm" href="login.html">Log in</a></div></div>';
+  document.getElementById('obs-roster').innerHTML =
+    '<div class="locked"><h4>Squad lists are not published</h4><p class="small">Player names, shirt numbers and contact details are kept off the public site. Squad members get the full list directly from Coach Arnold.</p>'+
+    '<div class="btn-row" style="justify-content:center"><a class="btn sm" href="join-team.html?team=obsidian-ac">Apply to join</a></div></div>';
 
   document.getElementById('obs-news').innerHTML=D.news.map(function(n){
     return '<article class="tile"><h3 style="font-size:1.15rem">'+C.esc(n.title)+'</h3><p class="meta">'+C.fmtDate(n.date)+'</p><p>'+C.esc(n.body)+'</p></article>';
@@ -574,8 +560,8 @@ sched_body = page_hero("Schedule", "Schedule",
 
 <section class="paper tight">
   <div class="wrap-n">
-    <div class="notice"><strong>Availability responses.</strong>
-      <p>Availability is recorded against your account so Coach Arnold can see who is coming. Sign in to respond, and change your answer any time up to kick-off. Coach Arnold can send a reminder to anyone who hasn't replied.</p></div>
+    <div class="notice"><strong>Confirming availability.</strong>
+      <p>Tell Coach Arnold directly whether you can make a fixture — by WhatsApp, email, or the team group. Every fixture below also has a calendar link so the date sits in your own diary.</p></div>
   </div>
 </section>
 """
@@ -590,17 +576,6 @@ sched_js = """<script>
     return '<option value="'+t.id+'">'+C.esc(t.name)+'</option>';}).join('');
   ft.value=team;
 
-  function avail(id){ return (C.store.get('availability',{})[id])||{}; }
-  function setAvail(id,ans){
-    var u=C.auth.user(); if(!u) return;
-    var all=C.store.get('availability',{}); all[id]=all[id]||{};
-    all[id][u.email]={answer:ans,name:u.name,at:new Date().toISOString()};
-    C.store.set('availability',all);
-    C.toast('Marked '+ans.toLowerCase()+' — Coach Arnold can see your response.');
-    render();
-  }
-  window.__setAvail=setAvail;
-
   function statusChip(m){
     if(m.status==='completed')return '<span class="chip">Completed</span>';
     if(m.status==='canceled')return '<span class="chip err">Canceled</span>';
@@ -609,15 +584,9 @@ sched_js = """<script>
   }
 
   function matchCard(m){
-    var u=C.auth.user(), a=avail(m.id), mine=u?(a[u.email]||{}).answer:null;
-    var counts={Available:0,'Not available':0,Maybe:0,Injured:0};
-    Object.keys(a).forEach(function(k){ if(counts[a[k].answer]!=null) counts[a[k].answer]++; });
     var d=C.dparse(m.date);
     var ev={title:C.teamName(m.team)+' v '+m.opponent,date:m.date,time:m.arrive,minutes:120,
       location:m.venue+', '+m.address,details:'Arrive '+C.fmtTime(m.arrive)+'. Kick-off '+C.fmtTime(m.kick)+'. Kit: '+m.kit};
-    var buttons = u ? ['Available','Not available','Maybe','Injured'].map(function(x){
-        return '<button class="btn sm '+(mine===x?'':'dark-ghost')+'" type="button" onclick="__setAvail(\\''+m.id+'\\',\\''+x+'\\')">'+x+'</button>';}).join('')
-      : '<a class="btn sm" href="login.html">Log in to set availability</a>';
     return '<article class="tile" id="'+m.id+'" style="margin-bottom:1rem">'+
       '<div style="display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap">'+
         '<div class="date" style="border-right:2px solid var(--blue);padding-right:1rem;font-family:var(--ff-d);text-align:center">'+
@@ -632,12 +601,10 @@ sched_js = """<script>
           (m.score?'<p><strong>Final score: '+C.esc(m.score)+'</strong></p>':'')+
         '</div></div>'+
       (m.status==='completed'?'':'<div style="margin-top:1rem;border-top:1px solid var(--line-d);padding-top:1rem">'+
-        '<p class="meta" style="margin-bottom:.5rem">Your availability'+(mine?': <span class="chip ok">'+C.esc(mine)+'</span>':'')+'</p>'+
-        '<div class="btn-row" style="margin-top:0">'+buttons+
+        '<div class="btn-row" style="margin-top:0">'+
         '<a class="btn sm dark-ghost" href="'+C.gcalLink(ev)+'" target="_blank" rel="noopener">Add to Google Calendar</a>'+
-        '</div>'+
-        '<p class="small muted" style="margin-top:.6rem">Squad responses so far: '+counts.Available+' available, '+
-        counts['Not available']+' out, '+counts.Maybe+' maybe, '+counts.Injured+' injured.</p></div>')+
+        '<a class="btn sm dark-ghost" href="contact.html">Tell Coach Arnold your availability</a>'+
+        '</div></div>')+
       '</article>';
   }
 
@@ -688,7 +655,7 @@ sched_js = """<script>
 </script>"""
 
 shell("schedule.html", "Match Schedule &amp; Training Calendar | Coach Arnold Academy",
-      "Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA. Players and parents can confirm match availability online.",
+      "Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA. with calendar links for every fixture.",
       sched_body, extra_js=sched_js)
 
 print("team pages built")

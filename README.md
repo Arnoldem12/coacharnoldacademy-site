@@ -14,16 +14,13 @@ Being straight about this so nothing surprises you after launch.
 - All 30 pages, navigation, mobile layout, accessibility features
 - Every form: validation, error messages, success confirmations, spam honeypot
 - Booking flow, team applications, tryout registration, contact, newsletter, feedback
-- Login with three roles (player, parent, coach) and role-specific dashboards
 - Match availability responses, recorded and visible to the coach
 - Schedule with filtering, search, results and calendar links (Google Calendar, plus `.ics` for Apple Calendar and Outlook)
-- Admin dashboard: view every submission, edit programs and pricing, edit video links, publish announcements, export CSV, export a new `data.js`
 - WhatsApp click-to-chat throughout, with private group links kept off public pages
 - SEO: titles, meta descriptions, Open Graph, structured data, sitemap, robots.txt
 
 **Works as a realistic preview, needs a backend to be real**
 - **Form delivery.** Submissions are stored in the visitor's browser, not emailed to you. Until a form service is connected, you will not receive them. This is the first thing to fix. See *Forms and email* below.
-- **Login.** Passwords are checked in the browser. Fine for a demo, not secure enough for real accounts holding children's medical details. See *Authentication*.
 - **Payments.** No card processing. The booking form records the chosen payment method and you send a payment link manually. No card data ever touches this site. See *Payments*.
 - **File uploads.** The photo field on the team application does not upload anywhere yet.
 - **Automated WhatsApp messages.** Click-to-chat links work today. Automatic sending needs the WhatsApp Business API, which is a separate paid service. Email is the primary notification channel.
@@ -71,10 +68,8 @@ Anything marked `// REPLACE` must be changed before launch:
 
 Your US Soccer coaching ID is deliberately **not** published anywhere on the site. It's an identifier tied to your record; there's no benefit to putting it on a public page. The About page says documentation is available on request instead.
 
-### The admin dashboard
-Sign in as coach and you can edit programs, pricing, video links and announcements from the browser. Changes save to that browser immediately so you can preview them.
-
-To make a change live for everyone: **Programs → Export as data.js**, then replace `assets/js/data.js` with the downloaded file and push it. If that becomes tiresome, move the content into a hosted CMS (Decap, Sanity and Contentful all work with a static site like this) — the page structure doesn't need to change.
+### Editing content
+Everything is in `assets/js/data.js`. Edit it, commit and push; Netlify redeploys in about thirty seconds. If that becomes tiresome, move the content into a hosted CMS (Decap, Sanity and Contentful all work with a static site like this) — the page structure doesn't need to change.
 
 ---
 
@@ -82,20 +77,22 @@ To make a change live for everyone: **Programs → Export as data.js**, then rep
 
 Each of these is a contained job. Claude Code can do them one at a time.
 
-### Forms and email (do this first)
-Currently `assets/js/app.js` stores submissions locally in the `wireForms()` function. Point it at a form service instead:
+### Forms and email
+**Netlify Forms is already connected and receiving.** All four forms (`contacts`, `bookings`, `applications`, `tryouts`) carry `data-netlify="true"` and a hidden `form-name`, and `netlifySubmit()` in `app.js` POSTs to `/` on submit. Submissions appear at app.netlify.com → your site → **Forms**.
 
-- **Formspree** or **Web3Forms** — a `fetch()` POST to their endpoint. About ten lines of change, works on GitHub Pages.
-- **Netlify Forms** — add `netlify` and `name` attributes to each `<form>`, no JavaScript needed. Only works if you host on Netlify.
-- **Your own endpoint** — a small serverless function that writes to a database and sends email via Resend, Postmark or SendGrid.
+Turn on **Forms → Settings → Form notifications → Email** so submissions reach an inbox rather than waiting to be found.
 
-Note that booking and application forms carry health information about children. Whichever service you choose, check it stores data in a way you're comfortable with, and turn on email notification so nothing sits unread.
+`wireForms()` also keeps a copy in the submitting visitor's own `localStorage`. That copy is per-browser and never reaches Coach Arnold — Netlify is the real record.
 
-### Authentication
-Replace the `auth` object in `app.js` with a real provider: Supabase Auth, Clerk and Auth0 all have free tiers and handle password hashing, resets and sessions properly. Keep the three roles (`player`, `parent`, `coach`) — the dashboard reads `user.role` and nothing else, so the swap is contained.
+Note that booking and application forms carry health information about children. Check Netlify's data handling is something you're comfortable with, and keep notifications on so nothing sits unread.
+
+### Authentication (removed)
+There is no login on this site. It previously had a browser-only one whose password sat in the public `data.js`, guarding a dashboard that could only ever show the current browser's own data. It was removed rather than repaired.
+
+If real accounts are ever needed, Supabase Auth, Clerk and Auth0 all have free tiers and handle password hashing, resets and sessions properly. That needs a backend for the data too — see below.
 
 ### Database
-The store keys used are: `bookings`, `applications`, `tryouts`, `contacts`, `questions`, `newsletter`, `testimonials`, `sponsors`, `availability`, `announcements`, `accounts`, `content`. Each maps to a table. Supabase (Postgres) fits well and pairs with its own auth.
+The store keys used are: `bookings`, `applications`, `tryouts`, `contacts`, `questions`, `newsletter`, `testimonials`, `sponsors`, `announcements`, `content`. Each maps to a table. Supabase (Postgres) fits well and pairs with its own auth.
 
 ### Payments
 Stripe Checkout is the least work and never exposes card data to your site: create a Checkout Session server-side, redirect the customer, handle the webhook to mark the booking paid. Supports single sessions, packages, subscriptions for monthly memberships, and discount codes natively. **Never collect card numbers in a form on this site.**
@@ -124,8 +121,6 @@ schedule.html               Fixtures, results, training, availability
 videos.html / video.html    Training videos
 news.html                   Announcements
 contact.html                Contact
-login.html                  Sign in and register
-dashboard.html              Player, parent and coach dashboards
 faq / testimonials / gallery / sponsorship / policies
 privacy / terms / waiver / consent / conduct / safety / accessibility / refunds
 404.html
@@ -133,7 +128,6 @@ privacy / terms / waiver / consent / conduct / safety / accessibility / refunds
 assets/css/site.css         All styling, tokens at the top
 assets/js/data.js           All content — edit this
 assets/js/app.js            Header, footer, forms, auth, calendar
-assets/js/dashboard.js      Dashboard views
 assets/img/                 Logo and favicons
 
 build/                      Python scripts that generated the pages
@@ -144,27 +138,12 @@ build/verify.py             Checks links, assets, forms, meta tags
 
 ---
 
-## Demo accounts
-
-Password for all three: `demo1234`
-
-| Email | Role |
-|---|---|
-| `player@demo.test` | Player dashboard |
-| `parent@demo.test` | Parent dashboard, two children |
-| `coach@demo.test` | Full admin dashboard |
-
-**Remove these from `data.js` before launch.** They are listed in the `demoUsers` array.
-
----
-
 ## Child safety decisions built into the site
 
 These were deliberate, and worth keeping if you change things later.
 
-- Minors never get their own accounts. A parent registers and manages everything.
-- Rosters, tactics, lineups and WhatsApp links sit behind a login on every page.
-- Public rosters show first name and last initial for anyone under 18.
+- Minors are never asked to create anything. A parent submits registration and consent.
+- Rosters, tactics, lineups and WhatsApp links are never published. Squad members get them from Coach Arnold directly.
 - Photo consent is a separate optional tick box on every form, never bundled with the waiver, and can be withdrawn.
 - Medical and emergency contact fields are collected but never displayed publicly.
 - The privacy policy commits to deleting a child's data on request within thirty days.
@@ -175,13 +154,12 @@ These were deliberate, and worth keeping if you change things later.
 ## Before you launch
 
 - [ ] Replace every `// REPLACE` value in `data.js`
-- [ ] Remove the `demoUsers` array
-- [ ] Connect a form service so submissions actually reach you
+- [x] Netlify Forms connected — turn on email notifications in the Netlify dashboard
 - [ ] Have an attorney or your insurer review the waiver, privacy policy and terms
 - [ ] Confirm real prices, locations and league details
 - [ ] Add real photographs, and check photo consent is on file for any minor shown
 - [ ] Add YouTube video IDs
-- [ ] Swap the domain placeholder throughout
-- [ ] Add your Google Analytics ID and uncomment the snippet in each page's footer
-- [ ] Verify the site in Google Search Console and submit `sitemap.xml`
+- [x] Live at https://coacharnoldacademy.com
+- [x] GA4 connected (`site.ga4` in `data.js`); the tag loads only after a visitor accepts analytics cookies
+- [x] Verified in Google Search Console and Bing, `sitemap.xml` submitted to both
 - [ ] Run `python3 build/verify.py` one last time

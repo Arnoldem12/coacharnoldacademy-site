@@ -214,9 +214,9 @@
 
 <section class="paper tight">
   <div class="wrap-n">
-    <div class="tile"><h3>Members-only dashboard</h3>
-      <p>Squad members sign in for tactics, lineups, the availability list and the team WhatsApp group. The group link is never published on a public page.</p>
-      <div class="foot"><a class="btn sm" href="login.html">Squad login</a><a class="btn sm dark-ghost" href="join-team.html?team=obsidian-ac">Apply to join</a></div></div>
+    <div class="tile"><h3>Squad information</h3>
+      <p>Squad members get tactics, lineups, availability and the team WhatsApp group directly from Coach Arnold. The group link is never published on a public page.</p>
+      <div class="foot"><a class="btn sm" href="join-team.html?team=obsidian-ac">Apply to join</a><a class="btn sm dark-ghost" href="contact.html">Message Coach Arnold</a></div></div>
   </div>
 </section>
 
@@ -263,13 +263,9 @@
     '<thead><tr><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>Pts</th></tr></thead><tbody>'+
     st.rows.map(function(r){return '<tr'+(r.us?' style="font-weight:600;background:rgba(27,84,255,.07)"':'')+'><td>'+C.esc(r.team)+'</td><td>'+r.p+'</td><td>'+r.w+'</td><td>'+r.d+'</td><td>'+r.l+'</td><td>'+r.gf+'</td><td>'+r.ga+'</td><td>'+r.pts+'</td></tr>';}).join('')+'</tbody></table></div>';
 
-  var u=C.auth.user();
-  document.getElementById('obs-roster').innerHTML = u ?
-    '<div class="tablewrap"><table><thead><tr><th>#</th><th>Player</th><th>Position</th></tr></thead><tbody>'+
-      D.roster['obsidian-ac'].map(function(p){return '<tr><td>'+C.esc(p.num)+'</td><td>'+C.esc(p.n)+'</td><td>'+C.esc(p.pos)+'</td></tr>';}).join('')+
-      '</tbody></table></div>'
-    : '<div class="locked"><h4>Squad list is private</h4><p class="small">Sign in as a squad member to see the full roster, shirt numbers and contact details.</p>'+
-      '<div class="btn-row" style="justify-content:center"><a class="btn sm" href="login.html">Log in</a></div></div>';
+  document.getElementById('obs-roster').innerHTML =
+    '<div class="locked"><h4>Squad lists are not published</h4><p class="small">Player names, shirt numbers and contact details are kept off the public site. Squad members get the full list directly from Coach Arnold.</p>'+
+    '<div class="btn-row" style="justify-content:center"><a class="btn sm" href="join-team.html?team=obsidian-ac">Apply to join</a></div></div>';
 
   document.getElementById('obs-news').innerHTML=D.news.map(function(n){
     return '<article class="tile"><h3 style="font-size:1.15rem">'+C.esc(n.title)+'</h3><p class="meta">'+C.fmtDate(n.date)+'</p><p>'+C.esc(n.body)+'</p></article>';

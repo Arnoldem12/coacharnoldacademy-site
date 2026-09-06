@@ -4,18 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Match Schedule &amp; Training Calendar | Coach Arnold Academy</title>
-<meta name="description" content="Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA. Players and parents can confirm match availability online.">
+<meta name="description" content="Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA, with calendar links for every fixture.">
 <link rel="canonical" href="https://coacharnoldacademy.com/schedule.html">
 <meta name="theme-color" content="#05070E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Coach Arnold Academy">
 <meta property="og:title" content="Match Schedule &amp; Training Calendar | Coach Arnold Academy">
-<meta property="og:description" content="Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA. Players and parents can confirm match availability online.">
+<meta property="og:description" content="Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA, with calendar links for every fixture.">
 <meta property="og:url" content="https://coacharnoldacademy.com/schedule.html">
 <meta property="og:image" content="https://coacharnoldacademy.com/assets/img/logo-512.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Match Schedule &amp; Training Calendar | Coach Arnold Academy">
-<meta name="twitter:description" content="Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA. Players and parents can confirm match availability online.">
+<meta name="twitter:description" content="Upcoming soccer matches, results and open training sessions in Camas and Vancouver, WA, with calendar links for every fixture.">
 <meta name="twitter:image" content="https://coacharnoldacademy.com/assets/img/logo-512.png">
 <link rel="icon" href="assets/img/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -31,7 +31,7 @@
   <div class="wrap inner">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="index.html">Home</a> / Schedule</nav>
     <h1>Schedule</h1>
-    <p class="lede">Training sessions and match fixtures. Signed-in players and parents can set availability for every match.</p>
+    <p class="lede">Training sessions and match fixtures, with calendar links for each one. Message Coach Arnold to confirm your availability for a match.</p>
     <div class="btn-row"><a class="btn" href="book.html">Book a training session</a></div>
   </div>
 </section>
@@ -52,8 +52,8 @@
 
 <section class="paper tight">
   <div class="wrap-n">
-    <div class="notice"><strong>Availability responses.</strong>
-      <p>Availability is recorded against your account so Coach Arnold can see who is coming. Sign in to respond, and change your answer any time up to kick-off. Coach Arnold can send a reminder to anyone who hasn't replied.</p></div>
+    <div class="notice"><strong>Confirming availability.</strong>
+      <p>Tell Coach Arnold directly whether you can make a fixture — by WhatsApp, email, or the team group. Every fixture below also has a calendar link so the date sits in your own diary.</p></div>
   </div>
 </section>
 
@@ -71,17 +71,6 @@
     return '<option value="'+t.id+'">'+C.esc(t.name)+'</option>';}).join('');
   ft.value=team;
 
-  function avail(id){ return (C.store.get('availability',{})[id])||{}; }
-  function setAvail(id,ans){
-    var u=C.auth.user(); if(!u) return;
-    var all=C.store.get('availability',{}); all[id]=all[id]||{};
-    all[id][u.email]={answer:ans,name:u.name,at:new Date().toISOString()};
-    C.store.set('availability',all);
-    C.toast('Marked '+ans.toLowerCase()+' — Coach Arnold can see your response.');
-    render();
-  }
-  window.__setAvail=setAvail;
-
   function statusChip(m){
     if(m.status==='completed')return '<span class="chip">Completed</span>';
     if(m.status==='canceled')return '<span class="chip err">Canceled</span>';
@@ -90,15 +79,9 @@
   }
 
   function matchCard(m){
-    var u=C.auth.user(), a=avail(m.id), mine=u?(a[u.email]||{}).answer:null;
-    var counts={Available:0,'Not available':0,Maybe:0,Injured:0};
-    Object.keys(a).forEach(function(k){ if(counts[a[k].answer]!=null) counts[a[k].answer]++; });
     var d=C.dparse(m.date);
     var ev={title:C.teamName(m.team)+' v '+m.opponent,date:m.date,time:m.arrive,minutes:120,
       location:m.venue+', '+m.address,details:'Arrive '+C.fmtTime(m.arrive)+'. Kick-off '+C.fmtTime(m.kick)+'. Kit: '+m.kit};
-    var buttons = u ? ['Available','Not available','Maybe','Injured'].map(function(x){
-        return '<button class="btn sm '+(mine===x?'':'dark-ghost')+'" type="button" onclick="__setAvail(\''+m.id+'\',\''+x+'\')">'+x+'</button>';}).join('')
-      : '<a class="btn sm" href="login.html">Log in to set availability</a>';
     return '<article class="tile" id="'+m.id+'" style="margin-bottom:1rem">'+
       '<div style="display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap">'+
         '<div class="date" style="border-right:2px solid var(--blue);padding-right:1rem;font-family:var(--ff-d);text-align:center">'+
@@ -113,12 +96,10 @@
           (m.score?'<p><strong>Final score: '+C.esc(m.score)+'</strong></p>':'')+
         '</div></div>'+
       (m.status==='completed'?'':'<div style="margin-top:1rem;border-top:1px solid var(--line-d);padding-top:1rem">'+
-        '<p class="meta" style="margin-bottom:.5rem">Your availability'+(mine?': <span class="chip ok">'+C.esc(mine)+'</span>':'')+'</p>'+
-        '<div class="btn-row" style="margin-top:0">'+buttons+
+        '<div class="btn-row" style="margin-top:0">'+
         '<a class="btn sm dark-ghost" href="'+C.gcalLink(ev)+'" target="_blank" rel="noopener">Add to Google Calendar</a>'+
-        '</div>'+
-        '<p class="small muted" style="margin-top:.6rem">Squad responses so far: '+counts.Available+' available, '+
-        counts['Not available']+' out, '+counts.Maybe+' maybe, '+counts.Injured+' injured.</p></div>')+
+        '<a class="btn sm dark-ghost" href="contact.html">Tell Coach Arnold your availability</a>'+
+        '</div></div>')+
       '</article>';
   }
 

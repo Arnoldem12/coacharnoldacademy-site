@@ -262,15 +262,5 @@ window.CAA_DATA = {
     { q:"Are you licensed and background checked?", a:"Coach Arnold holds US Soccer coaching licences and completes SafeSport training and background screening. Documentation is available to parents on request." },
     { q:"How do I join Obsidian AC?", a:"Apply through the Obsidian AC page. Coach Arnold reviews applications and invites suitable players to a trial session, arranged directly with them, before any commitment." },
     { q:"Do you coach goalkeepers?", a:"Yes, through position-specific coaching. Goalkeeper sessions are private or in pairs." }
-  ],
-
-  /* PREVIEW ACCOUNTS ONLY — THIS FILE IS PUBLIC.
-     Anyone can read it at /assets/js/data.js, so anything written here is
-     readable by the whole internet. Never put a real password in this file.
-     The password below is a throwaway for previewing the coach dashboard;
-     it protects nothing. A real, secure login needs an authentication
-     provider — see README, section "Authentication". */
-  demoUsers: [
-    { email:"emajob12@gmail.com", pass:"Admin", role:"coach", name:"Arnold (Owner, Coach Arnold Academy)", teams:["obsidian-ac"] }
   ]
 };

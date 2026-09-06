@@ -648,7 +648,7 @@ book_body = page_hero("Book training", "Book a training session",
         <div class="btn-row" style="margin-top:.4rem">
           <a class="btn sm" id="cal-g" href="#" target="_blank" rel="noopener">Google Calendar</a>
           <button class="btn sm dark-ghost" id="cal-i" type="button">Apple Calendar or Outlook</button>
-          <a class="btn sm dark-ghost" href="dashboard.html">See it in my dashboard</a>
+          
         </div>
       </div>
     </div>

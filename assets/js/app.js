@@ -1,7 +1,7 @@
 /* ============================================================
    Coach Arnold Academy — app.js
    Shared behaviour for every page: header, footer, forms,
-   demo authentication, local data store, calendar links.
+   local data store, calendar links.
    ============================================================ */
 (function () {
   "use strict";
@@ -120,43 +120,6 @@
     toastEl._t = setTimeout(function () { toastEl.classList.remove("show"); }, 3800);
   }
 
-  /* ---------- auth (front-end demo only) ---------- */
-  var auth = {
-    user: function () { return store.get("session", null); },
-    login: function (email, pass, wantRole) {
-      var accounts = store.get("accounts", []).concat(D.demoUsers || []);
-      var u = accounts.find(function (a) {
-        return a.email.toLowerCase() === String(email).toLowerCase() && a.pass === pass;
-      });
-      if (!u) return { ok: false, error: "That email and password combination isn't recognised. Check both, or create an account." };
-      if (wantRole && wantRole !== "any" && u.role !== wantRole) {
-        return { ok: false, error: "That account is registered as a " + u.role + " account. Use the " + u.role + " login instead." };
-      }
-      var sess = { email: u.email, role: u.role, name: u.name, teams: u.teams || [], children: u.children || [] };
-      store.set("session", sess);
-      return { ok: true, user: sess };
-    },
-    register: function (data) {
-      var accounts = store.get("accounts", []);
-      var all = accounts.concat(D.demoUsers || []);
-      if (all.some(function (a) { return a.email.toLowerCase() === data.email.toLowerCase(); })) {
-        return { ok: false, error: "An account already exists with that email address. Try signing in instead." };
-      }
-      accounts.push(data); store.set("accounts", accounts);
-      var sess = { email: data.email, role: data.role, name: data.name, teams: [], children: data.children || [] };
-      store.set("session", sess);
-      return { ok: true, user: sess };
-    },
-    logout: function () { store.del("session"); location.href = "index.html"; },
-    require: function (roles) {
-      var u = auth.user();
-      if (!u || (roles && roles.indexOf(u.role) === -1)) {
-        location.href = "login.html?next=" + encodeURIComponent(location.pathname.split("/").pop() + location.search);
-        return null;
-      }
-      return u;
-    }
-  };
 
   /* ---------- pitch line graphic ---------- */
   function pitchSVG() {
@@ -186,20 +149,9 @@
 
   function buildHeader() {
     var here = location.pathname.split("/").pop() || "index.html";
-    var u = auth.user();
     var links = NAV.map(function (n) {
       return '<a href="' + n.href + '"' + (n.href === here ? ' aria-current="page"' : "") + ">" + n.label + "</a>";
     }).join("");
-
-    var account = u
-      ? '<div class="has-drop"><button type="button" aria-expanded="false">' + esc(u.name.split(" ")[0]) + ' ▾</button>' +
-        '<div class="drop"><a href="dashboard.html">My dashboard</a><a href="schedule.html">Schedule</a>' +
-        '<a href="#" data-logout>Sign out</a></div></div>' +
-        '<a class="btn sm" href="book.html">Book a session</a>'
-      : '<div class="has-drop"><button type="button" aria-expanded="false">Log in ▾</button>' +
-        '<div class="drop"><a href="login.html?role=player">Player login</a><a href="login.html?role=parent">Parent login</a>' +
-        '<a href="login.html?role=coach">Coach and admin login</a><a href="login.html?tab=register">Create an account</a></div></div>' +
-        '<a class="btn sm" href="book.html">Book a session</a>';
 
     var h = el("header", { class: "topbar" });
     h.innerHTML =
@@ -207,7 +159,8 @@
         '<a class="brand" href="index.html"><img src="assets/img/logo-512.png" alt="Coach Arnold Academy crest" width="40" height="40">' +
         '<b>Coach Arnold<span>Academy</span></b></a>' +
         '<button class="navtoggle" type="button" aria-expanded="false" aria-controls="mainnav">Menu</button>' +
-        '<nav class="nav" id="mainnav" aria-label="Main">' + links + account + '</nav>' +
+        '<nav class="nav" id="mainnav" aria-label="Main">' + links +
+          '<a class="btn sm" href="book.html">Book a session</a></nav>' +
       "</div>";
     return h;
   }
@@ -240,7 +193,7 @@
             '<a href="news.html">News and announcements</a><a href="sponsorship.html">Sponsorship</a></div>' +
           "<div><h4>Help</h4>" +
             '<a href="contact.html">Contact</a><a href="faq.html">FAQ</a><a href="testimonials.html">Testimonials</a>' +
-            '<a href="policies.html">Policies and waivers</a><a href="login.html">Log in</a></div>' +
+            '<a href="policies.html">Policies and waivers</a><a href="open-play.html">Pickup and open play</a></div>' +
         "</div>" +
         '<div class="base"><span>© <span data-year></span> Coach Arnold Academy. All rights reserved.</span>' +
           '<span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="accessibility.html">Accessibility</a> · <a href="safety.html">Player safety</a></span>' +
@@ -450,7 +403,6 @@
     });
     document.addEventListener("click", function () { $$(".has-drop.open").forEach(function (p) { p.classList.remove("open"); }); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") { $$(".has-drop.open").forEach(function (p) { p.classList.remove("open"); }); } });
-    $$("[data-logout]").forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); auth.logout(); }); });
 
     /* templated links */
     $$("[data-wa]").forEach(function (a) { a.href = waLink(a.dataset.wa); });
@@ -465,7 +417,7 @@
 
   /* public API used by page scripts */
   window.CAA = {
-    D: D, S: S, $: $, $$: $$, el: el, esc: esc, qs: qs, uid: uid, store: store, auth: auth,
+    D: D, S: S, $: $, $$: $$, el: el, esc: esc, qs: qs, uid: uid, store: store,
     fmtDate: fmtDate, fmtTime: fmtTime, dparse: dparse, locName: locName, progName: progName, teamName: teamName,
     waLink: waLink, mailLink: mailLink, gcalLink: gcalLink, icsDownload: icsDownload, toast: toast,
     pitchSVG: pitchSVG, wireReveal: wireReveal, wireAccordions: wireAccordions, wireForms: wireForms,

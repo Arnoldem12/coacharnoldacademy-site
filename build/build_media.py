@@ -141,7 +141,7 @@ news_body = page_hero("News", "News and announcements",
       <div class="tile">
         <h3>Team announcements</h3>
         <p>Match-specific announcements, tactics and lineups go to squad members in the private team area rather than here.</p>
-        <div class="foot"><a class="btn sm dark-ghost" href="login.html">Team login</a></div>
+        <div class="foot"><a class="btn sm dark-ghost" href="contact.html">Ask about a squad</a></div>
       </div>
     </div>
   </div>
@@ -351,7 +351,7 @@ gallery_js = """<script>
             'Youth development block','Goalkeeping session','Team huddle before kick-off',
             'Coaching education','Trophy night','Indoor arena warm-up'];
   document.getElementById('g-photos').innerHTML=caps.map(function(c){
-    return '<figure style="margin:0"><div style="aspect-ratio:4/3;background:var(--paper);border:2px dashed var(--line-d);border-radius:6px;display:grid;place-items:center;color:var(--muted-d);font-size:.85rem;text-align:center;padding:1rem">Photo placeholder</div>'+
+    return '<figure style="margin:0"><div style="aspect-ratio:4/3;background:var(--paper);border:2px dashed var(--line-d);border-radius:6px;display:grid;place-items:center;color:var(--muted-d);font-size:.85rem;text-align:center;padding:1rem">Photo coming soon</div>'+
       '<figcaption class="small muted" style="margin-top:.4rem">'+C.esc(c)+'</figcaption></figure>';}).join('');
   document.getElementById('g-video').innerHTML=C.D.videos.slice(0,6).map(function(v){
     return '<article class="tile"><a class="vthumb" href="video.html?id='+v.id+'"><span class="play">&#9654;</span></a>'+
