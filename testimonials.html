@@ -70,8 +70,9 @@
 <script>
 (function(){
   var C=window.CAA,D=C.D;
-  document.getElementById('t-all').innerHTML=D.testimonials.map(function(q){
-    return '<div class="tile"><blockquote class="quote"><p>'+C.esc(q.q)+'</p><cite>'+C.esc(q.a)+' · '+C.esc(q.role)+'</cite></blockquote></div>';}).join('');
+  document.getElementById('t-all').innerHTML= D.testimonials.length? D.testimonials.map(function(q){
+    return '<div class="tile"><blockquote class="quote"><p>'+C.esc(q.q)+'</p><cite>'+C.esc(q.a)+' · '+C.esc(q.role)+'</cite></blockquote></div>';}).join('')
+    : '<div class="empty"><h4>No reviews published yet</h4><p>The academy is new and reviews go up here as they come in. If you have trained with Coach Arnold, the form below takes a minute.</p></div>';
 })();
 </script>
 <!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4

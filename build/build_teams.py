@@ -367,7 +367,7 @@ obs_js = """<script>
     '<div class="cell"><span class="n">'+us.pts+'</span><span class="l">Points from '+us.p+' league matches</span></div>'+
     '<div class="cell"><span class="n">'+us.gf+'</span><span class="l">Goals scored this season</span></div>'+
     '<div class="cell"><span class="n">'+t.needs.length+'</span><span class="l">Squad places currently open</span></div>'+
-    '<div class="cell"><span class="n">Wed</span><span class="l">Weekly training, 8:00 pm</span></div>';
+    '<div class="cell"><span class="n">Open</span><span class="l">Training by arrangement</span></div>';
 
   document.getElementById('obs-recruit').innerHTML = t.recruiting ?
     '<p><span class="chip ok">Recruiting now</span></p><p class="meta">Positions needed</p><ul style="padding-left:1.1rem">'+
@@ -383,8 +383,11 @@ obs_js = """<script>
       (done?C.esc(m.score||'Result to follow'):C.fmtTime(m.kick)+' · arrive '+C.fmtTime(m.arrive)+' · '+C.esc(m.venue)+' · '+(m.home?'Home':'Away')+' · '+C.esc(m.kit))+
       '</div></div><div class="act">'+(done?'<span class="chip">Completed</span>':'<a class="btn sm ghost" href="schedule.html#'+m.id+'">Set availability</a>')+'</div></div>';
   }
-  document.getElementById('obs-next').innerHTML=fx.filter(function(m){return m.status!=='completed';}).map(row).join('');
-  document.getElementById('obs-past').innerHTML=fx.filter(function(m){return m.status==='completed';}).map(row).join('');
+  var nx=fx.filter(function(m){return m.status!=='completed';}), pv=fx.filter(function(m){return m.status==='completed';});
+  document.getElementById('obs-next').innerHTML= nx.length? nx.map(row).join('')
+    : '<div class="empty"><h4>No fixtures confirmed yet</h4><p>League nights are being arranged. Squad members are told by email and in the team group as soon as dates are set.</p></div>';
+  document.getElementById('obs-past').innerHTML= pv.length? pv.map(row).join('')
+    : '<div class="empty"><h4>No results yet</h4><p>The squad has not played a competitive fixture. Scores appear here after each match.</p></div>';
 
   document.getElementById('obs-table').innerHTML='<p class="meta">'+C.esc(st.league)+'</p><div class="tablewrap"><table>'+
     '<thead><tr><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>Pts</th></tr></thead><tbody>'+

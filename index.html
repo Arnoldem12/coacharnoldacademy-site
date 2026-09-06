@@ -275,18 +275,18 @@
       '<div><div class="t">'+C.esc(C.progName(x.program))+'</div><div class="s">'+C.fmtTime(x.time)+' · '+C.esc(C.locName(x.location))+
       ' · <span class="chip ok">'+x.spaces+' spaces</span></div></div>'+
       '<div class="act"><a class="btn sm dark-ghost" href="book.html?program='+x.program+'&date='+x.date+'&time='+x.time+'">Book</a></div></div>';
-  }).join('') : '<div class="empty"><h4>No open sessions listed</h4><p>New slots go up every Sunday. Message Coach Arnold to be told first.</p></div>';
+  }).join('') : '<div class="empty"><h4>Sessions are booked by arrangement</h4><p>There is no fixed timetable right now — tell Coach Arnold what suits you and a time gets set around it. <a href="book.html">Book a session</a>.</p></div>';
 
   var m=D.matches.filter(function(x){return x.status!=='completed';})
     .sort(function(a,b){return a.date<b.date?-1:1;}).slice(0,4);
-  document.getElementById('home-matches').innerHTML=m.map(function(x){
+  document.getElementById('home-matches').innerHTML= m.length? m.map(function(x){
     var d=C.dparse(x.date);
     return '<div class="row"><div class="date"><span class="d">'+d.getDate()+'</span><span class="m">'+
       ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()]+'</span></div>'+
       '<div><div class="t">'+C.esc(C.teamName(x.team))+' v '+C.esc(x.opponent)+'</div>'+
       '<div class="s">'+C.fmtTime(x.kick)+' · '+C.esc(x.venue)+' · '+(x.home?'Home':'Away')+'</div></div>'+
       '<div class="act"><a class="btn sm dark-ghost" href="schedule.html#'+x.id+'">Details</a></div></div>';
-  }).join('');
+  }).join('') : '<div class="empty"><h4>No fixtures confirmed yet</h4><p>League dates go up here as soon as they are set. <a href="obsidian-ac.html">Obsidian AC</a> is recruiting in the meantime.</p></div>';
 
   document.getElementById('obsidian-mini').innerHTML=D.matches.filter(function(x){
     return x.team==='obsidian-ac';}).slice(0,3).map(function(x){
@@ -303,9 +303,9 @@
       '<div class="foot"><a class="btn sm dark-ghost" href="video.html?id='+v.id+'">Open video</a></div></article>';
   }).join('');
 
-  document.getElementById('home-quotes').innerHTML=D.testimonials.slice(0,3).map(function(q){
+  document.getElementById('home-quotes').innerHTML= D.testimonials.length? D.testimonials.slice(0,3).map(function(q){
     return '<div class="tile reveal"><blockquote class="quote"><p>'+C.esc(q.q)+'</p><cite>'+C.esc(q.a)+' · '+C.esc(q.role)+'</cite></blockquote></div>';
-  }).join('');
+  }).join('') : '<div class="empty"><h4>Trained with Coach Arnold?</h4><p>The first reviews go here. <a href="testimonials.html">Leave one</a> and help the next family decide.</p></div>';
 
   C.wireReveal();
 })();
