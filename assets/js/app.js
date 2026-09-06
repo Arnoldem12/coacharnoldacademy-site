@@ -177,6 +177,7 @@
     { href: "book.html", label: "Book" },
     { href: "teams.html", label: "Teams" },
     { href: "obsidian-ac.html", label: "Obsidian AC" },
+    { href: "open-play.html", label: "Open Play" },
     { href: "schedule.html", label: "Schedule" },
     { href: "videos.html", label: "Videos" },
     { href: "news.html", label: "News" },
@@ -233,7 +234,7 @@
           "</div>" +
           "<div><h4>Train</h4>" +
             '<a href="programs.html">All programs</a><a href="book.html">Book a session</a><a href="videos.html">Training videos</a>' +
-            '<a href="schedule.html">Schedule</a><a href="gallery.html">Gallery</a></div>' +
+            '<a href="schedule.html">Schedule</a><a href="open-play.html">Pickup and open play</a><a href="gallery.html">Gallery</a></div>' +
           "<div><h4>Teams</h4>" +
             '<a href="teams.html">Team directory</a><a href="obsidian-ac.html">Obsidian AC</a><a href="join-team.html">Apply to a team</a>' +
             '<a href="news.html">News and announcements</a><a href="sponsorship.html">Sponsorship</a></div>' +
