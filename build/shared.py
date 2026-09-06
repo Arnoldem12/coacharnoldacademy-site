@@ -46,10 +46,6 @@ def shell(fname, title, desc, body, jsonld="", extra_js="", body_attr="", og_typ
 <script src="assets/js/data.js"></script>
 <script src="assets/js/app.js"></script>
 {extra_js}
-<!-- Google Analytics 4 — uncomment and paste your measurement ID from data.js site.ga4
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
--->
 </body>
 </html>
 """
