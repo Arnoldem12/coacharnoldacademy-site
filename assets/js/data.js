@@ -33,7 +33,7 @@ window.CAA_DATA = {
     { id:"lacamas",  name:"Doc Harris Soccer Fields",      city:"Camas, WA",      note:"Outdoor turf and grass. Free parking on the north lot." },       // REPLACED
     { id:"heritage", name:"Shahala Middle School",    city:"Vancouver, WA",  note:"Lit turf, available year round." },                              // REPLACED
     { id:"union",    name:"Union High School",        city:"Vancouver, WA",  note:"Lit turf, available year round." },                              // REPLACED
-    { id:"indoor",   name:"Clark County Indoor Soccer",   city:"Vancouver, WA",  note:"Home venue for Obsidian AC league nights." },                     // REPLACED
+    { id:"indoor",   name:"Clark County Indoor Soccer",   city:"Vancouver, WA",  note:"Venue for Obsidian AC Sunday games." },                     // REPLACED
     { id:"portland", name:"Portland east side fields",city:"Portland, OR",   note:"Field assigned when your session is confirmed." },                // REPLACED
     { id:"virtual",  name:"Online session",           city:"Video call",     note:"Zoom or Google Meet link sent with your confirmation." }
   ],
@@ -68,7 +68,7 @@ window.CAA_DATA = {
     },
     {
       id:"adult", name:"Adult soccer training", order:4,
-      short:"For adults returning to the game, starting it late, or preparing for league nights.",
+      short:"For adults returning to the game, starting it late, or preparing for league play.",
       ages:"Ages 18+", duration:"75 minutes", max:"10 players",
       level:"Complete beginner to league standard", price:"$30 per session", locations:["lacamas","heritage","union","portland"],
       body:"Plenty of adults want to play but do not want to be the least confident person on the pitch. These sessions fix that in private, at a sensible intensity, with technique taught properly rather than assumed. Beginners and returning players train in the same group and are given different targets within the same exercise.",
@@ -165,7 +165,7 @@ window.CAA_DATA = {
        calendar links and date badges need a real YYYY-MM-DD or they render
        as "NaN". Add a fixture like this once the league confirms one:
 
-    { id:"m1", team:"obsidian-ac", opponent:"TBC", date:"2026-10-14", kick:"20:00", arrive:"19:30",
+    { id:"m1", team:"obsidian-ac", opponent:"TBC", date:"2026-10-18", kick:"13:00", arrive:"12:30",
       venue:"Clark County Indoor Sports Center", address:"16311 NE 15th St, Vancouver, WA 98684", home:true,
       kit:"Obsidian jerseys (blue/white)", status:"scheduled", notes:"Bring both kit colours." }
     */

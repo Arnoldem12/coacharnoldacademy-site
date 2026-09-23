@@ -93,7 +93,7 @@ home_body = """
   <div class="wrap split">
     <div class="reveal">
       <div class="head"><span class="rule"></span><h2>Obsidian AC</h2></div>
-      <p class="lede">The academy's adult co-ed side, indoor and outdoor. Competitive league nights, planned training, and a squad that turns up.</p>
+      <p class="lede">The academy's adult co-ed side, indoor and outdoor. Competitive Sunday games, planned training, and a squad that turns up.</p>
       <p id="home-obs-needs"></p>
       <div class="btn-row">
         <a class="btn" href="obsidian-ac.html">Apply for Obsidian AC</a>
@@ -290,6 +290,7 @@ about_body = page_hero("About", "Coach Arnold",
             <p>Arnold holds the full set of US Soccer Grassroots coaching licences, and completes SafeSport training and background screening. Documentation is available to parents on request.</p>
       <p>He started out coaching in elementary schools, which is the hardest and most useful place to learn the job. Thirty children at once, every ability in the same group, short attention spans, and nowhere to hide behind a whiteboard. Hold that group and teach them something real, and a small-group session with motivated players stops being intimidating.</p>
       <p>Since then the work has covered youth development from age five, competitive youth teams, adults returning to the game or starting it late, and team-level sessions run alongside a club's existing staff. He also manages Obsidian AC, the academy's adult co-ed side.</p>
+      <p>In school soccer, Arnold coached the 6th grade team at Skyridge Middle School in Camas, and he is back with the Skyridge program this year as an assistant coach for the 7th grade team.</p>
       <hr>
 
       <div class="head"><span class="rule"></span><h2>Working with youth and adults</h2></div>

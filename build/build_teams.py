@@ -163,7 +163,7 @@ obs_body = """
          style="width:104px;height:auto;margin-bottom:1.1rem;mix-blend-mode:lighten">
     <span class="kicker"><i></i> Adult indoor soccer, Vancouver WA</span>
     <h1>Obsidian AC</h1>
-    <p class="lede">Coach Arnold's co-ed side, indoor and outdoor. Planned training, a competitive league night, and a squad that shows up for both.</p>
+    <p class="lede">Coach Arnold's co-ed side, indoor and outdoor. Planned training, competitive Sunday games, and a squad that shows up for both.</p>
     <div class="btn-row">
       <a class="btn" href="join-team.html?team=obsidian-ac">Join The Team</a>
       <a class="btn ghost" href="#fixtures">View upcoming matches</a>
@@ -179,7 +179,7 @@ obs_body = """
       <div class="head"><span class="rule"></span><h2>The team</h2></div>
       <p class="lede" id="obs-blurb"></p>
       <p id="obs-history"></p>
-      <p>The squad is co-ed and open to adults of any background who can play at a reasonable standard and commit to a weekly league night. Obsidian AC is competitive without being unpleasant: players are expected to work, and expected to behave.</p>
+      <p>The squad is co-ed and open to adults of any background who can play at a reasonable standard and commit to Sunday games. Matches are played on Sundays only, kicking off anywhere between 9:00 am and 8:00 pm. Obsidian AC is competitive without being unpleasant: players are expected to work, and expected to behave.</p>
       <h3 style="margin-top:2rem">Indoor league information</h3>
       <div class="grid g2">
         <div class="feature"><h3>Format</h3><p>Six-a-side indoor, running clock, rolling substitutions, walls in play.</p></div>
@@ -374,7 +374,7 @@ obs_js = """<script>
   }
   var nx=fx.filter(function(m){return m.status!=='completed';}), pv=fx.filter(function(m){return m.status==='completed';});
   document.getElementById('obs-next').innerHTML= nx.length? nx.map(row).join('')
-    : '<div class="empty"><h4>No fixtures confirmed yet</h4><p>League nights are being arranged. Squad members are told by email and in the team group as soon as dates are set.</p></div>';
+    : '<div class="empty"><h4>No fixtures confirmed yet</h4><p>Games are played on Sundays between 9:00 am and 8:00 pm. Squad members are told by email and in the team group as soon as dates are set.</p></div>';
   document.getElementById('obs-past').innerHTML= pv.length? pv.map(row).join('')
     : '<div class="empty"><h4>No results yet</h4><p>The squad has not played a competitive fixture. Scores appear here after each match.</p></div>';
 
