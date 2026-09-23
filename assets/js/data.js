@@ -160,10 +160,14 @@ window.CAA_DATA = {
 
   /* Fixtures. status: scheduled | changed | canceled | completed */
   matches: [
-    /* Nothing scheduled yet — the pages show a proper "nothing scheduled"
-       message while this list is empty. Do NOT use "TBD" for a date: the
-       calendar links and date badges need a real YYYY-MM-DD or they render
-       as "NaN". Add a fixture like this once the league confirms one:
+    { id:"m1", team:"obsidian-ac", opponent:"Opponent TBC", date:"2026-10-18", kick:"", arrive:"",
+      venue:"Venue TBC", address:"", kit:"Obsidian AC kit", status:"scheduled",
+      notes:"Kick-off time and venue to be confirmed. Games run on Sundays between 9:00 am and 8:00 pm." },
+
+    /* Leave kick/arrive as "" and the site shows "TBC". Leave out home:true/false
+       until it's known and the site shows "Home/away TBC". Do NOT use "TBD" for
+       a date: the calendar links and date badges need a real YYYY-MM-DD or they
+       render as "NaN". Full template:
 
     { id:"m1", team:"obsidian-ac", opponent:"TBC", date:"2026-10-18", kick:"13:00", arrive:"12:30",
       venue:"Clark County Indoor Sports Center", address:"16311 NE 15th St, Vancouver, WA 98684", home:true,

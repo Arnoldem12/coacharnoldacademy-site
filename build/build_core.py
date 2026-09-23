@@ -227,7 +227,7 @@ home_js = """<script>
     return '<div class="row"><div class="date"><span class="d">'+d.getDate()+'</span><span class="m">'+
       ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()]+'</span></div>'+
       '<div><div class="t">'+C.esc(C.teamName(x.team))+' v '+C.esc(x.opponent)+'</div>'+
-      '<div class="s">'+C.fmtTime(x.kick)+' · '+C.esc(x.venue)+' · '+(x.home?'Home':'Away')+'</div></div>'+
+      '<div class="s">'+C.fmtTime(x.kick)+' · '+C.esc(x.venue)+' · '+C.homeAway(x)+'</div></div>'+
       '<div class="act"><a class="btn sm dark-ghost" href="schedule.html#'+x.id+'">Details</a></div></div>';
   }).join('');
 
@@ -236,7 +236,7 @@ home_js = """<script>
     var d=C.dparse(x.date);
     return '<div class="row"><div class="date"><span class="d">'+d.getDate()+'</span><span class="m">'+
       ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][d.getMonth()]+'</span></div>'+
-      '<div><div class="t">'+C.esc(x.opponent)+'</div><div class="s">'+(x.status==='completed'?C.esc(x.score||'Result to follow'):C.fmtTime(x.kick)+' · '+(x.home?'Home':'Away'))+'</div></div></div>';
+      '<div><div class="t">'+C.esc(x.opponent)+'</div><div class="s">'+(x.status==='completed'?C.esc(x.score||'Result to follow'):C.fmtTime(x.kick)+' · '+C.homeAway(x))+'</div></div></div>';
   }).join('');
 
   document.getElementById('home-videos').innerHTML=D.videos.slice(0,3).map(function(v){

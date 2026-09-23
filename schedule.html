@@ -89,9 +89,9 @@
           '<span style="font-size:.85rem;color:var(--muted-d)">'+MN[d.getMonth()]+'</span></div>'+
         '<div style="flex:1 1 260px"><h3 style="margin-bottom:.2rem">'+C.esc(C.teamName(m.team))+' v '+C.esc(m.opponent)+'</h3>'+
           '<p class="meta" style="margin-bottom:.5rem">'+C.fmtDate(m.date,true)+' · kick-off '+C.fmtTime(m.kick)+
-          ' · arrive '+C.fmtTime(m.arrive)+' · '+(m.home?'Home':'Away')+' '+statusChip(m)+'</p>'+
+          ' · arrive '+C.fmtTime(m.arrive)+' · '+C.homeAway(m)+' '+statusChip(m)+'</p>'+
           '<p style="margin-bottom:.4rem"><strong>'+C.esc(m.venue)+'</strong><br>'+C.esc(m.address)+
-          ' · <a href="https://maps.google.com/?q='+encodeURIComponent(m.venue+' '+m.address)+'" target="_blank" rel="noopener">Map and directions</a></p>'+
+          (m.address?' · <a href="https://maps.google.com/?q='+encodeURIComponent(m.venue+' '+m.address)+'" target="_blank" rel="noopener">Map and directions</a>':'')+'</p>'+
           '<p style="margin-bottom:.4rem">Kit: '+C.esc(m.kit)+(m.notes?'<br>Notes: '+C.esc(m.notes):'')+'</p>'+
           (m.score?'<p><strong>Final score: '+C.esc(m.score)+'</strong></p>':'')+
         '</div></div>'+

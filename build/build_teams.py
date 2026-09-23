@@ -257,7 +257,7 @@ obs_body = """
 <section class="ink" id="fixtures">
   <div class="wrap">
     <div class="head"><span class="rule"></span><h2>Fixtures and results</h2>
-      <p>Signed-in squad members can set their availability for each fixture.</p></div>
+      <p>Squad members: tell Coach Arnold whether you can make each fixture, and add it to your calendar from the schedule.</p></div>
     <div class="split">
       <div><h3 style="font-size:1.2rem">Upcoming</h3><div class="rows" id="obs-next"></div></div>
       <div><h3 style="font-size:1.2rem">Recent results</h3><div class="rows" id="obs-past"></div></div>
@@ -369,8 +369,8 @@ obs_js = """<script>
     var d=C.dparse(m.date), done=m.status==='completed';
     return '<div class="row" id="'+m.id+'"><div class="date"><span class="d">'+d.getDate()+'</span><span class="m">'+MN[d.getMonth()]+'</span></div>'+
       '<div><div class="t">'+C.esc(m.opponent)+'</div><div class="s">'+
-      (done?C.esc(m.score||'Result to follow'):C.fmtTime(m.kick)+' · arrive '+C.fmtTime(m.arrive)+' · '+C.esc(m.venue)+' · '+(m.home?'Home':'Away')+' · '+C.esc(m.kit))+
-      '</div></div><div class="act">'+(done?'<span class="chip">Completed</span>':'<a class="btn sm ghost" href="schedule.html#'+m.id+'">Set availability</a>')+'</div></div>';
+      (done?C.esc(m.score||'Result to follow'):C.fmtTime(m.kick)+' · arrive '+C.fmtTime(m.arrive)+' · '+C.esc(m.venue)+' · '+C.homeAway(m)+' · '+C.esc(m.kit))+
+      '</div></div><div class="act">'+(done?'<span class="chip">Completed</span>':'<a class="btn sm ghost" href="schedule.html#'+m.id+'">Details and calendar</a>')+'</div></div>';
   }
   var nx=fx.filter(function(m){return m.status!=='completed';}), pv=fx.filter(function(m){return m.status==='completed';});
   document.getElementById('obs-next').innerHTML= nx.length? nx.map(row).join('')
@@ -594,9 +594,9 @@ sched_js = """<script>
           '<span style="font-size:.85rem;color:var(--muted-d)">'+MN[d.getMonth()]+'</span></div>'+
         '<div style="flex:1 1 260px"><h3 style="margin-bottom:.2rem">'+C.esc(C.teamName(m.team))+' v '+C.esc(m.opponent)+'</h3>'+
           '<p class="meta" style="margin-bottom:.5rem">'+C.fmtDate(m.date,true)+' · kick-off '+C.fmtTime(m.kick)+
-          ' · arrive '+C.fmtTime(m.arrive)+' · '+(m.home?'Home':'Away')+' '+statusChip(m)+'</p>'+
+          ' · arrive '+C.fmtTime(m.arrive)+' · '+C.homeAway(m)+' '+statusChip(m)+'</p>'+
           '<p style="margin-bottom:.4rem"><strong>'+C.esc(m.venue)+'</strong><br>'+C.esc(m.address)+
-          ' · <a href="https://maps.google.com/?q='+encodeURIComponent(m.venue+' '+m.address)+'" target="_blank" rel="noopener">Map and directions</a></p>'+
+          (m.address?' · <a href="https://maps.google.com/?q='+encodeURIComponent(m.venue+' '+m.address)+'" target="_blank" rel="noopener">Map and directions</a>':'')+'</p>'+
           '<p style="margin-bottom:.4rem">Kit: '+C.esc(m.kit)+(m.notes?'<br>Notes: '+C.esc(m.notes):'')+'</p>'+
           (m.score?'<p><strong>Final score: '+C.esc(m.score)+'</strong></p>':'')+
         '</div></div>'+

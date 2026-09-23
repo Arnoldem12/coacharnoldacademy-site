@@ -61,11 +61,12 @@
                 : x.getDate() + " " + MON[x.getMonth()] + " " + x.getFullYear();
   }
   function fmtTime(t) {
-    if (!t) return "";
+    if (!t) return "TBC";
     var p = t.split(":"), h = +p[0], m = p[1];
     var ap = h >= 12 ? "pm" : "am"; h = h % 12 || 12;
     return h + ":" + m + " " + ap;
   }
+  function homeAway(m) { return m.home === true ? "Home" : m.home === false ? "Away" : "Home/away TBC"; }
   function locName(id) { var l = (D.locations || []).find(function (x) { return x.id === id; }); return l ? l.name + ", " + l.city : id; }
   function progName(id) { var p = (D.programs || []).find(function (x) { return x.id === id; }); return p ? p.name : id; }
   function teamName(id) { var t = (D.teams || []).find(function (x) { return x.id === id; }); return t ? t.name : id; }
@@ -418,7 +419,7 @@
   /* public API used by page scripts */
   window.CAA = {
     D: D, S: S, $: $, $$: $$, el: el, esc: esc, qs: qs, uid: uid, store: store,
-    fmtDate: fmtDate, fmtTime: fmtTime, dparse: dparse, locName: locName, progName: progName, teamName: teamName,
+    fmtDate: fmtDate, fmtTime: fmtTime, homeAway: homeAway, dparse: dparse, locName: locName, progName: progName, teamName: teamName,
     waLink: waLink, mailLink: mailLink, gcalLink: gcalLink, icsDownload: icsDownload, toast: toast,
     pitchSVG: pitchSVG, wireReveal: wireReveal, wireAccordions: wireAccordions, wireForms: wireForms,
     consent: consent,
