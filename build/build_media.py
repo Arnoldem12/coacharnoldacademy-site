@@ -347,12 +347,14 @@ gallery_body = page_hero("Gallery", "Photo and video gallery",
 gallery_js = """<script>
 (function(){
   var C=window.CAA;
-  var caps=['Small-group session, Lacamas Lake','Adult training, Heritage Park','Obsidian AC match night',
-            'Youth development block','Goalkeeping session','Team huddle before kick-off',
-            'Coaching education','Trophy night','Indoor arena warm-up'];
-  document.getElementById('g-photos').innerHTML=caps.map(function(c){
-    return '<figure style="margin:0"><div style="aspect-ratio:4/3;background:var(--paper);border:2px dashed var(--line-d);border-radius:6px;display:grid;place-items:center;color:var(--muted-d);font-size:.85rem;text-align:center;padding:1rem">Photo coming soon</div>'+
-      '<figcaption class="small muted" style="margin-top:.4rem">'+C.esc(c)+'</figcaption></figure>';}).join('');
+  var photos=[
+    {src:'assets/img/photos/champions-trophy.jpg', cap:'Champions: indoor league trophy', alt:'Coach Arnold holding the indoor league champions trophy with two teammates'},
+    {src:'assets/img/photos/coaching-course-field.jpg', cap:'US Soccer Grassroots course, on the field', alt:'Coaches gathered on a turf field during a US Soccer coaching course'},
+    {src:'assets/img/photos/coaching-course-classroom.jpg', cap:'US Soccer 7v7 Grassroots course, classroom', alt:'Classroom screen showing the US Soccer 7v7 Grassroots coaching course'}
+  ];
+  document.getElementById('g-photos').innerHTML=photos.map(function(p){
+    return '<figure style="margin:0"><img src="'+p.src+'" alt="'+C.esc(p.alt)+'" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px;display:block">'+
+      '<figcaption class="small muted" style="margin-top:.4rem">'+C.esc(p.cap)+'</figcaption></figure>';}).join('');
   document.getElementById('g-video').innerHTML=C.D.videos.slice(0,6).map(function(v){
     return '<article class="tile"><a class="vthumb" href="video.html?id='+v.id+'"><span class="play">&#9654;</span></a>'+
       '<h3 style="margin-top:.9rem;font-size:1.05rem">'+C.esc(v.title)+'</h3><p class="meta">'+C.esc(v.cat)+'</p></article>';}).join('');
