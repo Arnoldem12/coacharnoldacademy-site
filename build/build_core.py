@@ -291,6 +291,7 @@ about_body = page_hero("About", "Coach Arnold",
       <p>He started out coaching in elementary schools, which is the hardest and most useful place to learn the job. Thirty children at once, every ability in the same group, short attention spans, and nowhere to hide behind a whiteboard. Hold that group and teach them something real, and a small-group session with motivated players stops being intimidating.</p>
       <p>Since then the work has covered youth development from age five, competitive youth teams, adults returning to the game or starting it late, and team-level sessions run alongside a club's existing staff. He also manages Obsidian AC, the academy's adult co-ed side.</p>
       <p>In school soccer, Arnold coached the 6th grade team at Skyridge Middle School in Camas, and he is back with the Skyridge program this year as an assistant coach for the 7th grade team.</p>
+      <figure style="margin:1rem 0 0"><img src="assets/img/photos/skyridge-practice.jpg" alt="Middle school players running a passing drill on a grass field at Skyridge practice" loading="lazy" style="width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 55%;border-radius:var(--r-sm);display:block"><figcaption class="small muted" style="margin-top:.3rem">Practice with the Skyridge Middle School team, Camas.</figcaption></figure>
       <hr>
 
       <div class="head"><span class="rule"></span><h2>Working with youth and adults</h2></div>
@@ -326,8 +327,9 @@ about_body = page_hero("About", "Coach Arnold",
 
       <div class="tile" style="margin-bottom:1.2rem">
         <h3>On and off the pitch</h3>
-        <p class="meta">Coaching education, and still winning on the field.</p>
+        <p class="meta">Running sessions, keeping up coaching education, and still winning on the field.</p>
         <div class="grid" style="grid-template-columns:1fr 1fr;gap:.6rem">
+          <figure style="margin:0;grid-column:1/-1"><img src="assets/img/photos/coaching-session.jpg" alt="Coach with session notes watching players in green bibs on a turf field" loading="lazy" style="width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--r-sm);display:block"><figcaption class="small muted" style="margin-top:.3rem">Running a session</figcaption></figure>
           <figure style="margin:0;grid-column:1/-1"><img src="assets/img/photos/champions-trophy.jpg" alt="Coach Arnold holding the indoor league champions trophy with two teammates" loading="lazy" style="width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:var(--r-sm);display:block"><figcaption class="small muted" style="margin-top:.3rem">Indoor league champions</figcaption></figure>
           <figure style="margin:0"><img src="assets/img/photos/coaching-course-field.jpg" alt="Coaches on a turf field during a US Soccer coaching course" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--r-sm);display:block"><figcaption class="small muted" style="margin-top:.3rem">US Soccer course, on the field</figcaption></figure>
           <figure style="margin:0"><img src="assets/img/photos/coaching-course-classroom.jpg" alt="Classroom screen showing the US Soccer 7v7 Grassroots coaching course" loading="lazy" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--r-sm);display:block"><figcaption class="small muted" style="margin-top:.3rem">7v7 Grassroots course</figcaption></figure>
