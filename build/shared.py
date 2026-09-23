@@ -81,7 +81,7 @@ LOCAL_BUSINESS = """{
   "url":"%s",
   "logo":"%s/assets/img/logo-512.png",
   "image":"%s/assets/img/logo-512.png",
-  "telephone":"+1-360-555-0142",
+  "telephone":"+1-509-761-4386",
   "email":"coach@coacharnoldacademy.com",
   "priceRange":"$$",
   "address":{"@type":"PostalAddress","addressLocality":"Camas","addressRegion":"WA","addressCountry":"US"},
